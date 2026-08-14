@@ -21,9 +21,11 @@
     calendarList: document.querySelector("#calendarList"),
     mediaGrid: document.querySelector("#mediaGrid"),
     librarySearch: document.querySelector("#librarySearch"),
+    themeFilter: document.querySelector("#themeFilter"),
     orientationFilter: document.querySelector("#orientationFilter"),
     libraryResultCount: document.querySelector("#libraryResultCount"),
     libraryDuplicateSummary: document.querySelector("#libraryDuplicateSummary"),
+    libraryReviewSummary: document.querySelector("#libraryReviewSummary"),
     loadMore: document.querySelector("#loadMore"),
     sandboxGrid: document.querySelector("#sandboxGrid"),
     sandboxCount: document.querySelector("#sandboxCount"),
@@ -235,12 +237,14 @@
   function filteredLibrary() {
     const query = ui.librarySearch.value.trim().toLocaleLowerCase("ru");
     const orientation = ui.orientationFilter.value;
+    const theme = ui.themeFilter.value;
     return library.filter((item) => {
-      const inFolder = folderFilter === "all" || item.folder === folderFilter;
+      const inFolder = folderFilter === "all" || (folderFilter === "review" ? item.reviewFlags.length : item.folder === folderFilter);
       const hasOrientation = orientation === "all" || item.orientation === orientation;
+      const hasTheme = theme === "all" || item.contentThemes.includes(theme);
       const searchText = [item.fileName, item.folderLabel, item.sourceCategory, ...(item.contentThemes || []), ...(item.carouselRoles || [])].join(" ").toLocaleLowerCase("ru");
       const matchesSearch = !query || searchText.includes(query);
-      return inFolder && hasOrientation && matchesSearch;
+      return inFolder && hasOrientation && hasTheme && matchesSearch;
     });
   }
 
@@ -291,7 +295,7 @@
     const category = item.sourceCategory ? ` · ${escapeHtml(formatTaxonomy(item.sourceCategory))}` : "";
     const localPathAvailable = Boolean(item.originalUrl);
     const copyAction = localPathAvailable ? `<button class="button button-secondary" data-copy-path="${escapeHtml(item.originalPath)}">Скопировать путь</button>` : "";
-    const sourceNote = localPathAvailable ? `<div class="path-box" title="${escapeHtml(item.originalPath)}">${escapeHtml(item.originalPath)}</div>` : `<div class="path-box">Оригинал — в личной intake-папке; для передачи используйте имя файла выше.</div>`;
+    const sourceNote = localPathAvailable ? `<div class="path-box" title="${escapeHtml(item.originalPath)}">${escapeHtml(item.originalPath)}</div>` : `<div class="path-box">Оригинал — в личной медиатеке; для передачи используйте имя файла выше.</div>`;
     ui.dialogContent.innerHTML = `<div class="detail-layout"><div class="detail-image"><img src="${escapeHtml(item.thumb)}" alt="${escapeHtml(item.fileName)}"></div><div class="detail-copy"><p class="eyebrow">${escapeHtml(item.folderLabel)}${category}</p><h2>${escapeHtml(item.fileName)}</h2><p>Оригинал остаётся в исходной папке. В стенде используется облегчённое превью.</p><div class="meta-list"><div class="meta-row"><span>Размер</span><strong>${item.width} × ${item.height}</strong></div><div class="meta-row"><span>Ориентация</span><strong>${orientationLabel(item.orientation)}</strong></div><div class="meta-row"><span>Вес оригинала</span><strong>${item.sizeMb} МБ</strong></div><div class="meta-row"><span>Точные дубли</span><strong>${duplicateText}</strong></div></div>${themes}${roles}${review}<div class="detail-actions"><button class="button button-primary" data-add-media="${item.id}">+ В будущую сетку</button>${copyAction}</div>${sourceNote}</div></div>`;
     ui.detailDialog.showModal();
   }
@@ -457,6 +461,7 @@
     renderLibrary(true);
   }));
   ui.librarySearch.addEventListener("input", () => renderLibrary(true));
+  ui.themeFilter.addEventListener("change", () => renderLibrary(true));
   ui.orientationFilter.addEventListener("change", () => renderLibrary(true));
   ui.loadMore.addEventListener("click", () => { visibleMedia += 42; renderLibrary(); });
   ui.carouselDots.innerHTML = Array.from({ length: 20 }, (_, index) => `<button data-slide="${index + 1}" aria-label="Слайд ${index + 1}"></button>`).join("");
@@ -488,6 +493,7 @@
   document.querySelector("#navLibraryCount").textContent = libraryPayload.uniqueCount;
   document.querySelector("#librarySummary").textContent = `${libraryPayload.uniqueCount} уникальных фото из ${libraryPayload.sourceCount}`;
   ui.libraryDuplicateSummary.textContent = `${libraryPayload.duplicateCount} ${plural(libraryPayload.duplicateCount, "точный дубль скрыт", "точных дубля скрыты", "точных дублей скрыты")}`;
+  ui.libraryReviewSummary.textContent = `${libraryPayload.reviewCount || 0} на согласование`;
   renderCurrent();
   renderWeek();
   renderIdealGrid();
