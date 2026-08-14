@@ -23,6 +23,7 @@
     librarySearch: document.querySelector("#librarySearch"),
     orientationFilter: document.querySelector("#orientationFilter"),
     libraryResultCount: document.querySelector("#libraryResultCount"),
+    libraryDuplicateSummary: document.querySelector("#libraryDuplicateSummary"),
     loadMore: document.querySelector("#loadMore"),
     sandboxGrid: document.querySelector("#sandboxGrid"),
     sandboxCount: document.querySelector("#sandboxCount"),
@@ -237,7 +238,8 @@
     return library.filter((item) => {
       const inFolder = folderFilter === "all" || item.folder === folderFilter;
       const hasOrientation = orientation === "all" || item.orientation === orientation;
-      const matchesSearch = !query || item.fileName.toLocaleLowerCase("ru").includes(query);
+      const searchText = [item.fileName, item.folderLabel, item.sourceCategory, ...(item.contentThemes || []), ...(item.carouselRoles || [])].join(" ").toLocaleLowerCase("ru");
+      const matchesSearch = !query || searchText.includes(query);
       return inFolder && hasOrientation && matchesSearch;
     });
   }
@@ -283,8 +285,22 @@
 
   function openMedia(item) {
     const duplicateText = item.duplicates.length ? `${item.duplicates.length} ${plural(item.duplicates.length, "дубль", "дубля", "дублей")}` : "нет";
-    ui.dialogContent.innerHTML = `<div class="detail-layout"><div class="detail-image"><img src="${escapeHtml(item.thumb)}" alt="${escapeHtml(item.fileName)}"></div><div class="detail-copy"><p class="eyebrow">${escapeHtml(item.folderLabel)}</p><h2>${escapeHtml(item.fileName)}</h2><p>Локальный оригинал остаётся в исходной папке. В стенде используется облегчённое превью.</p><div class="meta-list"><div class="meta-row"><span>Размер</span><strong>${item.width} × ${item.height}</strong></div><div class="meta-row"><span>Ориентация</span><strong>${orientationLabel(item.orientation)}</strong></div><div class="meta-row"><span>Вес оригинала</span><strong>${item.sizeMb} МБ</strong></div><div class="meta-row"><span>Точные дубли</span><strong>${duplicateText}</strong></div></div><div class="detail-actions"><button class="button button-primary" data-add-media="${item.id}">+ В будущую сетку</button><button class="button button-secondary" data-copy-path="${escapeHtml(item.originalPath)}">Скопировать путь</button></div><div class="path-box" title="${escapeHtml(item.originalPath)}">${escapeHtml(item.originalPath)}</div></div></div>`;
+    const themes = (item.contentThemes || []).length ? `<div class="media-taxonomy"><span>Темы</span><p>${item.contentThemes.map((tag) => escapeHtml(formatTaxonomy(tag))).join(" · ")}</p></div>` : "";
+    const roles = (item.carouselRoles || []).length ? `<div class="media-taxonomy"><span>Роли в карусели</span><p>${item.carouselRoles.map((tag) => escapeHtml(formatTaxonomy(tag))).join(" · ")}</p></div>` : "";
+    const review = (item.reviewFlags || []).length ? `<div class="media-review-note"><strong>Проверить перед публикацией</strong><span>${item.reviewFlags.map((tag) => escapeHtml(formatTaxonomy(tag))).join(" · ")}</span></div>` : "";
+    const category = item.sourceCategory ? ` · ${escapeHtml(formatTaxonomy(item.sourceCategory))}` : "";
+    const localPathAvailable = Boolean(item.originalUrl);
+    const copyAction = localPathAvailable ? `<button class="button button-secondary" data-copy-path="${escapeHtml(item.originalPath)}">Скопировать путь</button>` : "";
+    const sourceNote = localPathAvailable ? `<div class="path-box" title="${escapeHtml(item.originalPath)}">${escapeHtml(item.originalPath)}</div>` : `<div class="path-box">Оригинал — в личной intake-папке; для передачи используйте имя файла выше.</div>`;
+    ui.dialogContent.innerHTML = `<div class="detail-layout"><div class="detail-image"><img src="${escapeHtml(item.thumb)}" alt="${escapeHtml(item.fileName)}"></div><div class="detail-copy"><p class="eyebrow">${escapeHtml(item.folderLabel)}${category}</p><h2>${escapeHtml(item.fileName)}</h2><p>Оригинал остаётся в исходной папке. В стенде используется облегчённое превью.</p><div class="meta-list"><div class="meta-row"><span>Размер</span><strong>${item.width} × ${item.height}</strong></div><div class="meta-row"><span>Ориентация</span><strong>${orientationLabel(item.orientation)}</strong></div><div class="meta-row"><span>Вес оригинала</span><strong>${item.sizeMb} МБ</strong></div><div class="meta-row"><span>Точные дубли</span><strong>${duplicateText}</strong></div></div>${themes}${roles}${review}<div class="detail-actions"><button class="button button-primary" data-add-media="${item.id}">+ В будущую сетку</button>${copyAction}</div>${sourceNote}</div></div>`;
     ui.detailDialog.showModal();
+  }
+
+  function formatTaxonomy(value) {
+    return String(value)
+      .split("/")
+      .map((part) => part.replace(/^\d+_/, "").replaceAll("_", " "))
+      .join(" / ");
   }
 
   function orientationLabel(value) {
@@ -471,6 +487,7 @@
   document.querySelector("#metricUnique").textContent = libraryPayload.uniqueCount;
   document.querySelector("#navLibraryCount").textContent = libraryPayload.uniqueCount;
   document.querySelector("#librarySummary").textContent = `${libraryPayload.uniqueCount} уникальных фото из ${libraryPayload.sourceCount}`;
+  ui.libraryDuplicateSummary.textContent = `${libraryPayload.duplicateCount} ${plural(libraryPayload.duplicateCount, "точный дубль скрыт", "точных дубля скрыты", "точных дублей скрыты")}`;
   renderCurrent();
   renderWeek();
   renderIdealGrid();
