@@ -6,7 +6,7 @@
   const growthIdeas = growthRoom.ideas || [];
   const libraryPayload = window.SEKTA_LIBRARY || { items: [], uniqueCount: 0, duplicateCount: 0, sourceCount: 0 };
   const library = libraryPayload.items || [];
-  const viewLabels = { overview: "Рабочий обзор", ideal: "Идеальная сетка", growth: "Рост и идеи", current: "Текущая сетка", library: "Медиатека", planner: "План недели" };
+  const viewLabels = { overview: "Рабочий обзор", ideal: "Идеальная сетка", growth: "Рост и идеи", builder: "Конструктор каруселей", current: "Текущая сетка", library: "Медиатека", planner: "План недели" };
   const statusClass = (status) => status === "Готово" ? "status-ready" : status === "На ревью" || status === "Текст готов" ? "status-review" : "status-shoot";
   const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
 
@@ -394,6 +394,16 @@
     saveSandbox();
     renderSandbox();
     toast("Черновая сетка сброшена");
+  });
+
+  window.addEventListener("sekta:add-generated-cover", (event) => {
+    const item = event.detail;
+    if (!item?.thumb) return;
+    if (sandbox.length >= 9) return toast("В песочнице уже девять ячеек — удалите одну");
+    sandbox.unshift(item);
+    saveSandbox();
+    renderSandbox();
+    toast("Обложка добавлена в будущую сетку");
   });
 
   document.addEventListener("click", (event) => {

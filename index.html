@@ -19,6 +19,7 @@
         <button class="nav-item is-active" data-view="overview"><span>⌂</span>Обзор</button>
         <button class="nav-item" data-view="ideal"><span>✦</span>Идеальная сетка <em>6</em></button>
         <button class="nav-item" data-view="growth"><span>↗</span>Рост и идеи <em>18</em></button>
+        <button class="nav-item" data-view="builder"><span>▤</span>Конструктор <em>NEW</em></button>
         <button class="nav-item" data-view="current"><span>▦</span>Текущая сетка</button>
         <button class="nav-item" data-view="library"><span>▧</span>Медиатека <em id="navLibraryCount">1027</em></button>
         <button class="nav-item" data-view="planner"><span>↗</span>План недели <em id="navPlanCount">7</em></button>
@@ -231,6 +232,59 @@
           </div>
         </section>
 
+        <section class="view" data-view-panel="builder">
+          <div class="page-heading compact builder-heading">
+            <div><p class="eyebrow">Карусель за один рабочий проход</p><h1>От темы до обложки и 10 слайдов</h1><p>Выберите идею и задачу — конструктор найдёт релевантные фотографии в медиатеке, предложит хуки и соберёт редактируемый сценарий.</p></div>
+            <span class="snapshot-label"><i></i>1027 фото подключено</span>
+          </div>
+
+          <div class="builder-idea-strip" id="builderIdeaStrip" aria-label="Быстрые идеи"></div>
+
+          <form class="builder-controls" id="builderControls">
+            <label><span>Тема</span><select id="builderTopic"></select></label>
+            <label><span>Цель</span><select id="builderGoal"><option value="save">Сохранения</option><option value="comment">Комментарии</option><option value="warmth">Теплота</option><option value="class">Запись на класс</option></select></label>
+            <label><span>Аккаунт</span><select id="builderAccount"><option value="@sektaschool">@sektaschool</option><option value="@olymarkes">@olymarkes</option></select></label>
+            <label><span>Тон</span><select id="builderTone"><option value="warm">Тёплый</option><option value="bold">Смелый</option><option value="expert">Экспертный</option></select></label>
+            <button class="button button-primary" id="builderGenerate" type="submit">✦ Собрать концепт</button>
+          </form>
+
+          <div class="builder-workspace">
+            <section class="panel builder-cover-panel">
+              <div class="section-head"><div><h2>Обложка</h2><p>1080 × 1350 · редактируется</p></div><span id="builderCoverStatus">Вариант 1</span></div>
+              <div class="builder-cover builder-cover-dark" id="builderCoverPreview">
+                <img id="builderCoverImage" src="" alt="Выбранная фотография для обложки">
+                <span class="builder-cover-account" id="builderCoverAccount">@sektaschool</span>
+                <strong id="builderCoverHeadline">Пропустили пять дней? Ничего не сломалось</strong>
+                <small id="builderCoverPromise">10 слайдов · сохрани</small>
+              </div>
+              <label class="builder-field"><span>Хук на обложке</span><textarea id="builderHook" rows="3"></textarea></label>
+              <label class="builder-field"><span>Подстрочник</span><input id="builderSubtitle" type="text"></label>
+              <div class="builder-variant-row" role="group" aria-label="Стиль обложки">
+                <button type="button" class="builder-variant is-active" data-builder-style="dark"><i></i><span>Фото + контраст</span></button>
+                <button type="button" class="builder-variant" data-builder-style="lime"><i></i><span>Лайм-блок</span></button>
+                <button type="button" class="builder-variant" data-builder-style="blue"><i></i><span>Синий-блок</span></button>
+              </div>
+              <div class="builder-cover-actions">
+                <button class="button button-primary" id="builderDownload" type="button">Скачать PNG</button>
+                <button class="button button-secondary" id="builderAddGrid" type="button">+ В будущую сетку</button>
+              </div>
+            </section>
+
+            <section class="panel builder-script-panel">
+              <div class="section-head"><div><h2>Сценарий · 10 слайдов</h2><p>Нажмите на любой текст, чтобы переписать</p></div><span id="builderWordCount">0 слов</span></div>
+              <div class="builder-slides" id="builderSlides"></div>
+              <div class="builder-script-actions"><button class="button button-secondary" id="builderNewHook" type="button">Другой хук</button><button class="button button-secondary" id="builderCopyScript" type="button">Скопировать сценарий</button></div>
+            </section>
+
+            <aside class="panel builder-media-panel">
+              <div class="section-head"><div><h2>Фото из медиатеки</h2><p id="builderMediaCount">Подбираем по теме</p></div><button class="text-button" id="builderShuffleMedia" type="button">Другие →</button></div>
+              <div class="builder-media-grid" id="builderMediaGrid"></div>
+              <div class="builder-media-note"><span>Визуальный ритм</span><p>Обложка + 3–4 фотопаузы. Не ставьте больше двух полностью текстовых слайдов подряд.</p></div>
+            </aside>
+          </div>
+          <div class="builder-status" id="builderStatus" role="status" aria-live="polite">Готов к сборке.</div>
+        </section>
+
         <section class="view" data-view-panel="library">
           <div class="page-heading compact"><div><p class="eyebrow">Полный каталог из 14 коллекций · оригиналы не изменены</p><h1>Медиатека</h1><p><span id="librarySummary">1027 уникальных фото</span> · <span id="libraryDuplicateSummary">21 дубль скрыт</span>.</p></div></div>
           <div class="toolbar" role="search">
@@ -291,6 +345,8 @@
   <script src="data/current-grid.js"></script>
   <script src="data/growth-room.js"></script>
   <script src="data/library-data.js"></script>
+  <script src="data/carousel-builder-data.js"></script>
   <script src="app.js"></script>
+  <script src="carousel-builder.js"></script>
 </body>
 </html>
