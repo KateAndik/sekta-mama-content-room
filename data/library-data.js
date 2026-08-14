@@ -1,11 +1,10 @@
 window.SEKTA_LIBRARY = {
-  "generatedAt": "2026-08-14T06:33:32.306Z",
+  "generatedAt": "2026-08-14T06:42:04.571Z",
   "sourceCount": 1048,
   "uniqueCount": 1027,
   "duplicateCount": 21,
   "personalSourceCount": 1048,
   "personalUniqueCount": 1027,
-  "reviewCount": 227,
   "newTodayUniqueCount": 225,
   "byFolder": {
     "intake": 225,
@@ -53,7 +52,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -81,7 +79,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -107,7 +104,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -135,9 +131,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -161,9 +154,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -185,7 +175,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.8471,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -224,7 +213,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -250,7 +238,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -277,7 +264,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -305,7 +291,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -327,7 +312,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.824,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -360,9 +344,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -384,7 +365,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.8167,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -410,7 +390,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -437,7 +416,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -465,9 +443,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -493,9 +468,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -523,7 +495,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -550,7 +521,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -580,10 +550,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -612,9 +578,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -642,7 +605,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -669,9 +631,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -697,9 +656,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -729,9 +685,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -759,9 +712,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -787,7 +737,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -814,7 +763,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -840,9 +788,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -870,7 +815,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -892,7 +836,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.781,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -918,7 +861,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -942,7 +884,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -968,7 +909,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -994,9 +934,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -1025,7 +962,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1050,9 +986,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -1078,7 +1011,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1104,7 +1036,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1130,7 +1061,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1156,9 +1086,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -1188,10 +1115,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -1219,9 +1142,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -1245,9 +1165,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -1273,7 +1190,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1300,7 +1216,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1326,7 +1241,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1352,9 +1266,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -1382,7 +1293,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1408,7 +1318,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1435,7 +1344,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1462,7 +1370,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1488,7 +1395,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1514,7 +1420,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1542,9 +1447,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -1570,7 +1472,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1597,7 +1498,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1621,9 +1521,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -1648,9 +1545,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -1678,7 +1572,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1704,7 +1597,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1731,7 +1623,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1758,7 +1649,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1784,7 +1674,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1815,10 +1704,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -1843,9 +1728,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -1873,7 +1755,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1902,9 +1783,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -1930,7 +1808,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -1960,10 +1837,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -1990,7 +1863,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2016,7 +1888,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2042,7 +1913,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2070,9 +1940,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -2098,7 +1965,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2120,7 +1986,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.7479,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2147,7 +2012,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2173,7 +2037,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2201,9 +2064,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -2229,7 +2089,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2255,7 +2114,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2279,9 +2137,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -2305,7 +2160,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2333,7 +2187,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2361,10 +2214,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -2390,7 +2239,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2416,7 +2264,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2442,7 +2289,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2468,7 +2314,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2495,7 +2340,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2523,9 +2367,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -2550,9 +2391,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -2578,7 +2416,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2605,7 +2442,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2629,7 +2465,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2656,7 +2491,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2683,7 +2517,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2709,7 +2542,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2738,9 +2570,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -2766,7 +2595,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2790,9 +2618,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -2818,7 +2643,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2844,7 +2668,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2873,10 +2696,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -2903,7 +2722,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2929,7 +2747,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2955,7 +2772,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -2977,7 +2793,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.7352,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3003,7 +2818,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3030,7 +2844,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3058,7 +2871,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3086,7 +2898,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3113,7 +2924,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3137,7 +2947,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3162,9 +2971,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -3195,10 +3001,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -3222,9 +3024,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -3248,9 +3047,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -3277,7 +3073,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3299,7 +3094,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.7318,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3326,7 +3120,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3350,7 +3143,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3378,9 +3170,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -3406,7 +3195,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3435,9 +3223,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -3465,7 +3250,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3493,7 +3277,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3519,7 +3302,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3541,7 +3323,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.7278,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -3572,7 +3353,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3596,7 +3376,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3622,7 +3401,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3648,7 +3426,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3678,10 +3455,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -3708,7 +3481,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3730,7 +3502,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.7256,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -3764,7 +3535,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3790,7 +3560,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3816,7 +3585,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3842,7 +3610,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3866,9 +3633,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -3894,7 +3658,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3921,7 +3684,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -3948,9 +3710,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -3979,9 +3738,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -4007,7 +3763,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4033,7 +3788,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4060,7 +3814,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4086,7 +3839,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4114,7 +3866,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4142,9 +3893,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -4170,7 +3918,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4196,9 +3943,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -4225,7 +3969,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4247,7 +3990,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.7198,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4273,7 +4015,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4304,10 +4045,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -4332,9 +4069,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -4362,9 +4096,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -4390,7 +4121,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4414,9 +4144,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -4444,7 +4171,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4470,7 +4196,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4496,7 +4221,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4520,7 +4244,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4548,7 +4271,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4574,7 +4296,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4600,7 +4321,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4626,7 +4346,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4652,7 +4371,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4677,7 +4395,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4703,9 +4420,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -4732,7 +4446,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4758,7 +4471,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4784,7 +4496,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4810,7 +4521,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4836,7 +4546,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4860,9 +4569,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -4889,7 +4595,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4915,7 +4620,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4941,7 +4645,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4969,7 +4672,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -4991,7 +4693,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.7066,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5018,7 +4719,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5043,9 +4743,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -5072,7 +4769,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5096,7 +4792,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5120,9 +4815,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -5149,9 +4841,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -5177,7 +4866,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5204,7 +4892,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5232,7 +4919,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5258,7 +4944,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5286,7 +4971,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5314,7 +4998,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5341,7 +5024,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5368,9 +5050,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -5399,9 +5078,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -5428,9 +5104,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -5456,9 +5129,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -5487,9 +5157,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -5517,7 +5184,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5541,7 +5207,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5565,9 +5230,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -5594,7 +5256,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5621,7 +5282,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5647,9 +5307,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -5677,7 +5334,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5706,9 +5362,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -5730,7 +5383,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.6931,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5760,10 +5412,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -5790,9 +5438,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -5818,7 +5463,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5846,7 +5490,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5871,9 +5514,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -5900,7 +5540,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5928,7 +5567,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -5953,9 +5591,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -5986,10 +5621,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -6015,7 +5646,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6042,7 +5672,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6067,9 +5696,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -6095,7 +5721,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6122,9 +5747,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -6150,9 +5772,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -6182,7 +5801,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6209,9 +5827,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -6242,9 +5857,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -6273,9 +5885,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -6303,7 +5912,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6330,7 +5938,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6356,7 +5963,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6383,7 +5989,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6411,7 +6016,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6439,9 +6043,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -6465,7 +6066,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6491,7 +6091,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6513,7 +6112,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.6841,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -6546,9 +6144,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -6574,7 +6169,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6601,7 +6195,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6629,7 +6222,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6655,9 +6247,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -6685,9 +6274,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -6714,7 +6300,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6742,7 +6327,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6767,9 +6351,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -6796,7 +6377,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6825,10 +6405,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "02_действие_и_доказательство"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -6859,10 +6435,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -6889,9 +6461,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -6917,7 +6486,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6943,7 +6511,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6969,7 +6536,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -6996,7 +6562,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7022,7 +6587,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7050,7 +6614,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7077,7 +6640,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7103,7 +6665,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7127,9 +6688,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -7151,7 +6709,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.6762,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7175,7 +6732,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7200,9 +6756,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -7229,7 +6782,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7258,9 +6810,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -7287,7 +6836,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7314,7 +6862,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7344,9 +6891,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -7374,7 +6918,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7401,7 +6944,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7427,9 +6969,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -7458,9 +6997,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -7486,7 +7022,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7510,9 +7045,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -7540,7 +7072,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7565,9 +7096,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -7597,7 +7125,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7625,7 +7152,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7652,7 +7178,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7681,9 +7206,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -7709,9 +7231,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -7739,9 +7258,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -7768,7 +7284,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7796,7 +7311,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7822,7 +7336,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7851,9 +7364,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -7881,7 +7391,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7906,9 +7415,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -7934,7 +7440,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -7965,10 +7470,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -7996,7 +7497,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8022,9 +7522,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -8053,9 +7550,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -8082,7 +7576,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8108,7 +7601,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8130,7 +7622,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.6659,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8158,9 +7649,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -8186,7 +7674,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8216,10 +7703,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -8245,7 +7728,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8273,9 +7755,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -8297,7 +7776,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.6628,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -8331,9 +7809,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -8359,7 +7834,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8386,7 +7860,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8412,7 +7885,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8437,7 +7909,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8464,7 +7935,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8490,9 +7960,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -8520,9 +7987,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -8549,7 +8013,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8575,9 +8038,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -8605,9 +8065,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -8634,7 +8091,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8662,10 +8118,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -8691,7 +8143,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8719,9 +8170,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -8747,7 +8195,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8775,10 +8222,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -8804,7 +8247,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8830,7 +8272,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8862,10 +8303,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -8893,7 +8330,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8921,9 +8357,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -8949,7 +8382,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -8977,9 +8409,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -9004,9 +8433,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -9032,7 +8458,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9060,7 +8485,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9088,7 +8512,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9116,7 +8539,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9145,9 +8567,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -9173,7 +8592,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9200,7 +8618,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9228,7 +8645,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9256,7 +8672,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9282,7 +8697,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9308,9 +8722,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -9339,7 +8750,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9366,9 +8776,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -9393,9 +8800,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -9423,7 +8827,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9451,9 +8854,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -9477,7 +8877,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9499,7 +8898,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.6441,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -9532,9 +8930,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -9560,7 +8955,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9586,7 +8980,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9608,7 +9001,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.6429,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9635,7 +9027,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9662,9 +9053,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -9690,7 +9078,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9716,7 +9103,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9743,9 +9129,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -9774,9 +9157,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -9804,9 +9184,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -9832,7 +9209,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9859,7 +9235,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9881,7 +9256,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.6407,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9907,7 +9281,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9931,7 +9304,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9960,7 +9332,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -9987,7 +9358,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10015,7 +9385,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10042,7 +9411,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10068,9 +9436,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -10100,7 +9465,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10130,7 +9494,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10157,7 +9520,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10179,7 +9541,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.6358,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -10209,7 +9570,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10239,10 +9599,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -10269,7 +9625,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10294,7 +9649,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10321,7 +9675,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10351,7 +9704,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10378,9 +9730,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -10409,7 +9758,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10434,9 +9782,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -10462,7 +9807,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10488,7 +9832,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10512,7 +9855,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10536,7 +9878,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10561,9 +9902,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -10590,7 +9928,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10615,9 +9952,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -10646,7 +9980,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10673,9 +10006,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -10697,7 +10027,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.6279,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10726,7 +10055,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10752,9 +10080,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -10782,7 +10107,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10811,7 +10135,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10833,7 +10156,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.627,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -10865,7 +10187,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10890,7 +10211,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10916,7 +10236,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10938,7 +10257,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.6259,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -10965,9 +10283,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -10998,10 +10313,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -11030,9 +10341,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -11058,7 +10366,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11084,7 +10391,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11110,7 +10416,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11135,9 +10440,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -11165,7 +10467,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11193,9 +10494,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -11221,7 +10519,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11250,10 +10547,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -11277,7 +10570,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11303,7 +10595,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11330,7 +10621,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11359,7 +10649,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11387,7 +10676,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11411,7 +10699,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11437,7 +10724,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -11470,7 +10756,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11499,7 +10784,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11521,7 +10805,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.6195,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11547,7 +10830,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11573,7 +10855,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11597,9 +10878,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -11626,7 +10904,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11654,9 +10931,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство",
         "06_фон_под_текст"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -11686,7 +10960,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11713,7 +10986,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11739,7 +11011,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11768,7 +11039,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11795,9 +11065,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": [
@@ -11832,9 +11099,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -11858,7 +11122,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11886,7 +11149,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11915,10 +11177,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -11946,7 +11204,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11970,7 +11227,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -11998,7 +11254,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12026,9 +11281,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -12054,9 +11306,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -12086,7 +11335,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12110,7 +11358,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12137,7 +11384,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12165,9 +11411,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -12193,7 +11436,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12217,7 +11459,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12245,7 +11486,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12271,7 +11511,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12299,7 +11538,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12324,7 +11562,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12353,9 +11590,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -12383,7 +11617,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12409,9 +11642,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -12439,7 +11669,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12465,7 +11694,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12497,10 +11725,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -12528,7 +11752,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12552,7 +11775,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12576,7 +11798,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12603,7 +11824,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12627,7 +11847,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12656,7 +11875,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12681,9 +11899,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -12710,7 +11925,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12735,9 +11949,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -12764,9 +11975,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство",
         "06_фон_под_текст"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -12795,9 +12003,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -12823,7 +12028,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12851,7 +12055,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12875,7 +12078,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12899,7 +12101,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12928,7 +12129,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -12955,9 +12155,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -12982,7 +12179,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13010,10 +12206,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "05_атмосфера_и_переход"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -13043,7 +12235,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13071,7 +12262,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13098,7 +12288,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13124,7 +12313,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13152,7 +12340,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13181,7 +12368,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13211,7 +12397,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13239,7 +12424,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13267,7 +12451,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13293,7 +12476,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13320,9 +12502,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство",
         "06_фон_под_текст"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -13352,7 +12531,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13380,9 +12558,6 @@ window.SEKTA_LIBRARY = {
         "01_обложка_личное_присутствие",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -13409,7 +12584,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13435,7 +12609,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13465,7 +12638,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13491,7 +12663,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13517,7 +12688,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13546,7 +12716,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13574,10 +12743,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие",
         "02_действие_и_доказательство"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -13607,7 +12772,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13633,7 +12797,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "01_обложка_личное_присутствие"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13657,7 +12820,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13683,7 +12845,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13710,7 +12871,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13735,7 +12895,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13763,7 +12922,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13791,7 +12949,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13813,7 +12970,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5978,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13838,9 +12994,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -13864,7 +13017,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13890,9 +13042,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -13920,7 +13069,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13948,7 +13096,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -13976,7 +13123,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14001,7 +13147,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14029,7 +13174,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14058,7 +13202,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14086,7 +13229,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14114,7 +13256,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14142,7 +13283,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14169,7 +13309,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14198,10 +13337,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -14229,7 +13364,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14254,7 +13388,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14278,7 +13411,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14305,7 +13437,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14329,7 +13460,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14354,9 +13484,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -14384,7 +13511,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14411,7 +13537,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14439,7 +13564,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14468,7 +13592,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14495,7 +13618,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14524,7 +13646,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14550,7 +13671,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14579,10 +13699,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -14609,9 +13725,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -14636,9 +13749,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -14660,7 +13770,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5906,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14686,7 +13795,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14713,7 +13821,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14737,9 +13844,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -14768,7 +13872,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14794,9 +13897,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -14820,7 +13920,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14848,7 +13947,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14876,9 +13974,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "05_атмосфера_и_переход"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -14908,7 +14003,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14936,7 +14030,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -14962,9 +14055,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -14990,7 +14080,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15018,7 +14107,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15047,7 +14135,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15071,7 +14158,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15097,9 +14183,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "06_фон_под_текст"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -15129,7 +14212,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15157,7 +14239,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15183,7 +14264,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15208,7 +14288,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15232,7 +14311,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15256,7 +14334,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15280,7 +14357,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15308,7 +14384,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15336,7 +14411,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15360,7 +14434,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15389,7 +14462,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15413,7 +14485,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15441,7 +14512,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15463,7 +14533,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5833,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15491,7 +14560,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15515,7 +14583,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15543,7 +14610,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15568,9 +14634,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -15594,7 +14657,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15621,7 +14683,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15646,7 +14707,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15673,7 +14733,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15700,9 +14759,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -15728,7 +14784,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15757,7 +14812,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15786,7 +14840,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15811,9 +14864,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -15841,7 +14891,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15869,10 +14918,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -15894,7 +14939,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5786,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15918,7 +14962,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15945,7 +14988,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15975,7 +15017,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -15999,7 +15040,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16024,7 +15064,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16052,7 +15091,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16080,10 +15118,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "05_атмосфера_и_переход"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -16113,7 +15147,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16135,7 +15168,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5771,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16163,7 +15195,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16187,7 +15218,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16215,7 +15245,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16243,7 +15272,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16267,7 +15295,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16289,7 +15316,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5759,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16313,7 +15339,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16339,9 +15364,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -16365,7 +15387,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16387,7 +15408,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5751,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16415,7 +15435,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16443,7 +15462,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16467,7 +15485,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16495,7 +15512,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16519,7 +15535,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16547,7 +15562,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16575,7 +15589,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16599,7 +15612,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16625,7 +15637,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16647,7 +15658,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5732,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16676,7 +15686,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16702,7 +15711,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16728,7 +15736,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16752,7 +15759,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16779,10 +15785,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "02_действие_и_доказательство"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -16811,7 +15813,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16839,7 +15840,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16864,7 +15864,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16893,7 +15892,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16921,7 +15919,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16950,7 +15947,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -16975,9 +15971,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -17002,7 +15995,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17030,7 +16022,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17054,7 +16045,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17082,7 +16072,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17104,7 +16093,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.568,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -17134,7 +16122,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17162,7 +16149,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17184,7 +16170,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5678,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17206,7 +16191,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5677,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -17241,7 +16225,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17267,7 +16250,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17293,9 +16275,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "02_действие_и_доказательство"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -17323,7 +16302,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17351,7 +16329,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17379,10 +16356,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -17407,9 +16380,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "06_фон_под_текст"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -17437,7 +16407,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17465,7 +16434,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17493,7 +16461,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17521,7 +16488,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17545,9 +16511,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -17573,9 +16536,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -17599,9 +16559,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -17630,7 +16587,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17658,7 +16614,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17687,7 +16642,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17716,7 +16670,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17744,7 +16697,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17768,7 +16720,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17795,7 +16746,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17819,7 +16769,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17845,9 +16794,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "06_фон_под_текст"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -17876,7 +16822,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17904,7 +16849,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17931,7 +16875,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17958,7 +16901,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -17982,7 +16924,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18006,7 +16947,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18034,7 +16974,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18062,7 +17001,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18087,9 +17025,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -18118,7 +17053,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18146,7 +17080,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18174,7 +17107,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18196,7 +17128,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5575,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -18230,7 +17161,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18254,7 +17184,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18276,7 +17205,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5574,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18301,9 +17229,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -18325,7 +17250,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5567,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18354,7 +17278,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18376,7 +17299,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5557,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18404,7 +17326,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18426,7 +17347,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5555,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18452,9 +17372,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -18483,7 +17400,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18510,7 +17426,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18535,9 +17450,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -18562,9 +17474,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -18590,7 +17499,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18618,7 +17526,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18640,7 +17547,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5534,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18667,7 +17573,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18691,7 +17596,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18716,9 +17620,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -18746,7 +17647,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18768,7 +17668,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5528,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18800,10 +17699,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья",
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -18832,7 +17727,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18858,7 +17752,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18886,7 +17779,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18914,7 +17806,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18942,7 +17833,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18970,7 +17860,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -18996,7 +17885,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19018,7 +17906,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5517,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19042,7 +17929,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19068,7 +17954,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -19096,7 +17981,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19122,9 +18006,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -19146,7 +18027,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5505,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19171,9 +18051,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -19200,7 +18077,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19228,7 +18104,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19252,7 +18127,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19277,9 +18151,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -19306,7 +18177,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19334,7 +18204,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19362,7 +18231,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19386,7 +18254,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19414,7 +18281,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19443,7 +18309,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19472,7 +18337,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19499,7 +18363,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19528,7 +18391,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19555,7 +18417,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19579,7 +18440,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19608,7 +18468,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19636,7 +18495,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19660,9 +18518,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -19690,7 +18545,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19718,7 +18572,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19744,7 +18597,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19769,7 +18621,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19797,7 +18648,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19825,7 +18675,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19849,7 +18698,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19879,9 +18727,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -19905,7 +18750,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19930,9 +18774,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -19959,7 +18800,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -19987,7 +18827,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20015,9 +18854,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -20043,7 +18879,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20071,7 +18906,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20100,7 +18934,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20122,7 +18955,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5413,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20151,7 +18983,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20179,7 +19010,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20207,7 +19037,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20235,7 +19064,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20263,7 +19091,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20287,7 +19114,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20315,7 +19141,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20337,7 +19162,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5395,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20361,9 +19185,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -20391,7 +19212,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20415,7 +19235,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20443,7 +19262,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20467,7 +19285,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20494,7 +19311,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20522,7 +19338,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20550,7 +19365,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20575,9 +19389,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "06_фон_под_текст"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -20607,9 +19418,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -20637,7 +19445,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20659,7 +19466,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5381,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20683,7 +19489,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20709,9 +19514,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -20739,7 +19541,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20768,7 +19569,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20796,7 +19596,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20820,7 +19619,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20848,7 +19646,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20876,7 +19673,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20905,7 +19701,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20930,9 +19725,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -20961,7 +19753,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -20985,7 +19776,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21013,7 +19803,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21037,7 +19826,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21063,7 +19851,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21087,7 +19874,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21115,7 +19901,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21137,7 +19922,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5337,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21161,7 +19945,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21189,7 +19972,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21213,7 +19995,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21242,7 +20023,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21270,7 +20050,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21298,7 +20077,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21320,7 +20098,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5323,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21349,7 +20126,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21376,7 +20152,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21405,7 +20180,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21433,7 +20207,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21461,7 +20234,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21487,7 +20259,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21511,7 +20282,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21539,7 +20309,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21567,7 +20336,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21595,7 +20363,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21617,7 +20384,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.528,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21645,7 +20411,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21669,7 +20434,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21698,7 +20462,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21724,7 +20487,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21752,7 +20514,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21777,9 +20538,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -21807,7 +20565,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21834,7 +20591,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21856,7 +20612,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5258,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21880,7 +20635,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21908,7 +20662,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21936,7 +20689,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21965,7 +20717,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -21989,7 +20740,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22017,7 +20767,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22045,7 +20794,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22073,7 +20821,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22097,7 +20844,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22125,7 +20871,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22149,9 +20894,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -22179,7 +20921,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22207,7 +20948,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22229,7 +20969,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5224,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22256,7 +20995,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22280,7 +21018,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22304,7 +21041,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22332,7 +21068,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22360,7 +21095,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22382,7 +21116,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5214,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22411,7 +21144,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22440,7 +21172,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22462,7 +21193,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.521,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22484,7 +21214,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5206,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22511,7 +21240,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -22539,7 +21267,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5204,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22561,7 +21288,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5202,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22587,7 +21313,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22611,7 +21336,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22639,7 +21363,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22665,7 +21388,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22689,7 +21411,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22718,7 +21439,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22744,7 +21464,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22772,7 +21491,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22796,9 +21514,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -22822,9 +21537,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -22852,7 +21564,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22874,7 +21585,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5163,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22902,7 +21612,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22930,7 +21639,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22959,7 +21667,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -22987,7 +21694,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23013,7 +21719,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23043,9 +21748,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -23067,7 +21769,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5136,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23093,7 +21794,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23119,7 +21819,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23148,7 +21847,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23173,9 +21871,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "06_фон_под_текст"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -23202,7 +21897,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23224,7 +21918,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5119,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23250,9 +21943,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -23276,7 +21966,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23303,7 +21992,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23327,7 +22015,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23355,7 +22042,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23379,7 +22065,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23403,7 +22088,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23425,7 +22109,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5104,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23454,7 +22137,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23479,7 +22161,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23507,7 +22188,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23531,7 +22211,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -23559,7 +22238,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23583,7 +22261,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23612,7 +22289,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23636,7 +22312,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -23666,7 +22341,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23694,7 +22368,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23716,7 +22389,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5055,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23744,7 +22416,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23774,9 +22445,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -23804,7 +22472,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23832,7 +22499,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23859,7 +22525,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23883,7 +22548,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23911,7 +22575,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23939,7 +22602,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23966,7 +22628,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -23994,7 +22655,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24016,7 +22676,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.5012,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24046,9 +22705,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -24076,7 +22732,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24102,7 +22757,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24124,7 +22778,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.4952,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -24157,7 +22810,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24185,7 +22837,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24213,7 +22864,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24242,7 +22892,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24267,9 +22916,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "06_фон_под_текст"
-      ],
-      "reviewFlags": [
-        "01_дети_и_семья"
       ],
       "isUtility": false,
       "duplicates": []
@@ -24296,7 +22942,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24318,7 +22963,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.4909,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24344,7 +22988,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24369,9 +23012,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -24399,7 +23039,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24428,7 +23067,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24455,7 +23093,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24479,7 +23116,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -24507,7 +23143,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.4864,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24529,7 +23164,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.485,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24555,7 +23189,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24581,9 +23214,6 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "02_действие_и_доказательство"
-      ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
       ],
       "isUtility": false,
       "duplicates": []
@@ -24612,7 +23242,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24636,7 +23265,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -24670,7 +23298,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24697,7 +23324,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "07_продажа_класса_или_события"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24725,7 +23351,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24750,7 +23375,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24774,7 +23398,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24799,7 +23422,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24823,7 +23445,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": [
         {
@@ -24856,9 +23477,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -24886,7 +23504,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24913,9 +23530,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -24939,7 +23553,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24963,7 +23576,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -24991,7 +23603,6 @@ window.SEKTA_LIBRARY = {
         "03_комьюнити_и_социальное_доказательство",
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25020,7 +23631,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25048,7 +23658,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25072,7 +23681,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25102,9 +23710,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -25133,9 +23738,6 @@ window.SEKTA_LIBRARY = {
         "02_действие_и_доказательство",
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -25163,9 +23765,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -25191,7 +23790,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -25219,7 +23817,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -25243,7 +23840,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25270,7 +23866,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25292,7 +23887,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.4518,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -25316,7 +23910,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25340,7 +23933,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25362,7 +23954,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.4478,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25390,7 +23981,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25414,7 +24004,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25443,7 +24032,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25471,7 +24059,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25499,7 +24086,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25528,7 +24114,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25556,7 +24141,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -25581,9 +24165,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -25605,7 +24186,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.4316,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -25627,7 +24207,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.4281,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25655,7 +24234,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25682,7 +24260,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -25709,7 +24286,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "05_атмосфера_и_переход"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -25737,7 +24313,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -25765,7 +24340,6 @@ window.SEKTA_LIBRARY = {
         "05_атмосфера_и_переход",
         "06_фон_под_текст"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25789,7 +24363,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -25813,7 +24386,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -25837,7 +24409,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25861,7 +24432,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25885,7 +24455,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -25909,7 +24478,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -25936,7 +24504,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "02_действие_и_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -25960,7 +24527,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -25984,7 +24550,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26008,7 +24573,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -26030,7 +24594,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.391,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26054,7 +24617,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26078,7 +24640,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26100,7 +24661,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.3869,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26124,7 +24684,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26148,7 +24707,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26172,7 +24730,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26196,7 +24753,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26220,9 +24776,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -26246,7 +24799,6 @@ window.SEKTA_LIBRARY = {
         "05_музыка_сцена_творчество"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -26268,7 +24820,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.3788,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -26294,7 +24845,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26318,7 +24868,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26342,7 +24891,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26368,9 +24916,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -26394,7 +24939,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26418,7 +24962,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26444,7 +24987,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -26468,7 +25010,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26492,7 +25033,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26516,7 +25056,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26540,9 +25079,6 @@ window.SEKTA_LIBRARY = {
         "01_дети_воспитание_родительство"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -26566,7 +25102,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26590,7 +25125,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26614,7 +25148,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26638,7 +25171,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26662,7 +25194,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26686,7 +25217,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26710,7 +25240,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26734,7 +25263,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26756,7 +25284,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.3472,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -26780,7 +25307,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26804,7 +25330,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26826,7 +25351,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.3447,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26850,7 +25374,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26874,7 +25397,6 @@ window.SEKTA_LIBRARY = {
         "04_красота_сексуальность_самообраз"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26896,7 +25418,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.3351,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26920,7 +25441,6 @@ window.SEKTA_LIBRARY = {
         "08_путешествия_и_многообразие_жизни"
       ],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26944,7 +25464,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -26966,7 +25485,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.3315,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -26990,7 +25508,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27012,7 +25529,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.3299,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27038,7 +25554,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -27060,7 +25575,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.322,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27084,7 +25598,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27106,7 +25619,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.3179,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -27130,7 +25642,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27157,9 +25668,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [
-        "02_тело_и_интимность"
-      ],
       "isUtility": true,
       "duplicates": []
     },
@@ -27183,7 +25691,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27207,7 +25714,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27231,7 +25737,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27255,7 +25760,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27277,7 +25781,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.3133,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27301,7 +25804,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27327,7 +25829,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "03_комьюнити_и_социальное_доказательство"
       ],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -27351,7 +25852,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27376,9 +25876,6 @@ window.SEKTA_LIBRARY = {
         "02_семья_близость_отношения"
       ],
       "carouselRoles": [],
-      "reviewFlags": [
-        "01_дети_и_семья"
-      ],
       "isUtility": false,
       "duplicates": []
     },
@@ -27404,7 +25901,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27430,7 +25926,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27454,7 +25949,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27480,7 +25974,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27506,7 +25999,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27528,7 +26020,6 @@ window.SEKTA_LIBRARY = {
       "agentScore": 0.2238,
       "contentThemes": [],
       "carouselRoles": [],
-      "reviewFlags": [],
       "isUtility": false,
       "duplicates": []
     },
@@ -27552,7 +26043,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27578,7 +26068,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27604,7 +26093,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27628,7 +26116,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     },
@@ -27652,7 +26139,6 @@ window.SEKTA_LIBRARY = {
       "carouselRoles": [
         "04_деталь_пауза_метафора"
       ],
-      "reviewFlags": [],
       "isUtility": true,
       "duplicates": []
     }
