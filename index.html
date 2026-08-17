@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>#Sekta — сетка и медиатека</title>
+  <title>Sekta Mama — Content Room</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,31 +12,31 @@
   <div class="app-shell">
     <aside class="sidebar" id="sidebar">
       <div class="brand">
-        <div class="brand-mark">S</div>
-        <div><strong>#Sekta</strong><span>Content room</span></div>
+        <div class="brand-mark">M</div>
+        <div><strong>Sekta Mama</strong><span>Content room</span></div>
       </div>
       <nav class="primary-nav" aria-label="Разделы">
-        <button class="nav-item is-active" data-view="overview"><span>⌂</span>Обзор</button>
-        <button class="nav-item" data-view="ideal"><span>✦</span>Идеальная сетка <em>6</em></button>
-        <button class="nav-item" data-view="growth"><span>↗</span>Рост и идеи <em>18</em></button>
-        <button class="nav-item" data-view="builder"><span>▤</span>Конструктор <em>NEW</em></button>
-        <button class="nav-item" data-view="current"><span>▦</span>Текущая сетка</button>
-        <button class="nav-item" data-view="library"><span>▧</span>Медиатека <em id="navLibraryCount">1059</em></button>
-        <button class="nav-item" data-view="planner"><span>↗</span>План недели <em id="navPlanCount">7</em></button>
+        <button class="nav-item is-active" data-view="overview"><span aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 7.2 8 2.7l5.5 4.5v6.1h-4V9.5h-3v3.8h-4z"/></svg></span>Обзор</button>
+        <button class="nav-item" data-view="ideal"><span aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m8 1.8 1.4 4.1 4.3 1.4-4.3 1.4L8 12.9 6.6 8.7 2.3 7.3l4.3-1.4z"/></svg></span>Идеальная сетка <em>6</em></button>
+        <button class="nav-item" data-view="growth"><span aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 12.5 6.2 9l2.2 2.1L13 5.7M9.5 5.7H13v3.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Рост и идеи <em>10</em></button>
+        <button class="nav-item" data-view="builder"><span aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 2.5h10v11H3zM5.5 5h5M5.5 8h5M5.5 11h3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>Конструктор <em>NEW</em></button>
+        <button class="nav-item" data-view="current"><span aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 2.5h4v4h-4zM9.5 2.5h4v4h-4zM2.5 9.5h4v4h-4zM9.5 9.5h4v4h-4z"/></svg></span>Текущая сетка</button>
+        <button class="nav-item" data-view="library"><span aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 3h11v10h-11zM5.5 3v10M10.5 3v10M2.5 6.3h11M2.5 9.7h11" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span>Медиатека <em id="navLibraryCount">12</em></button>
+        <button class="nav-item" data-view="planner"><span aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 3.5h10v10H3zM5.5 1.8v3.4M10.5 1.8v3.4M3 6.2h10M5.3 9h2M8.8 9h2M5.3 11.4h2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>План недели <em id="navPlanCount">7</em></button>
       </nav>
       <div class="sidebar-note">
         <span class="live-dot"></span>
-        <div><strong>Снимок актуален</strong><span>13 августа 2026</span></div>
+        <div><strong>Публичный срез</strong><span>17 августа 2026</span></div>
       </div>
     </aside>
 
     <div class="main-column">
       <header class="topbar">
-        <button class="icon-button mobile-menu" id="mobileMenu" aria-label="Открыть меню">☰</button>
+        <button class="icon-button mobile-menu" id="mobileMenu" aria-label="Открыть меню" aria-controls="sidebar" aria-expanded="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11M2.5 8h11M2.5 12h11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
         <div class="topbar-title"><span>Instagram</span><strong id="viewTitle">Рабочий обзор</strong></div>
         <div class="topbar-actions">
           <button class="button button-quiet" id="resetPlanner">Сбросить черновик</button>
-          <button class="avatar-button" title="Рабочий профиль">OL</button>
+          <button class="avatar-button" title="Рабочий профиль Sekta Mama">M</button>
         </div>
       </header>
 
@@ -44,19 +44,19 @@
         <section class="view is-active" data-view-panel="overview">
           <div class="page-heading">
             <div><p class="eyebrow">SMM workspace</p><h1>Что есть сейчас и что выходит дальше</h1></div>
-            <a class="button button-primary" href="https://www.instagram.com/sektaschool/" target="_blank" rel="noreferrer">Открыть @sektaschool ↗</a>
+            <a class="button button-primary" href="https://www.instagram.com/sektamama/" target="_blank" rel="noreferrer">Открыть @sektamama ↗</a>
           </div>
 
           <div class="profile-summary">
-            <div class="profile-badge">#S</div>
-            <div class="profile-copy"><div><h2>@sektaschool</h2><span class="verified">✓</span></div><p>Тебе в Секту, если хочешь полюбить спорт 🩷 И да, начать можно даже с одной минуты в день!</p></div>
-            <div class="profile-stats"><div><strong>6 594</strong><span>публикации</span></div><div><strong>126 022</strong><span>подписчики</span></div><div><strong>4</strong><span>подписки</span></div></div>
+            <div class="profile-badge">M</div>
+            <div class="profile-copy"><div><h2>@sektamama</h2></div><p>Беременность и восстановление после родов · диастаз · эмоциональный голод · тазовое дно. Вернуть себе себя за 15 минут в день.</p></div>
+            <div class="profile-stats"><div><strong>3 617</strong><span>публикаций</span></div><div><strong>39 922</strong><span>подписчика</span></div><div><strong>35</strong><span>подписок</span></div></div>
           </div>
 
           <div class="metric-row">
             <button class="metric metric-accent" data-jump="ideal"><span>Идеальная сетка</span><strong>6</strong><small>обложек · 18–23 августа</small></button>
-            <button class="metric" data-jump="library"><span>Медиатека</span><strong id="metricUnique">1059</strong><small>уникальных фото</small></button>
-            <button class="metric" id="openCarousel"><span>Готовый пакет</span><strong>20</strong><small>слайдов · approved</small></button>
+            <button class="metric" data-jump="library"><span>Публичный срез</span><strong id="metricUnique">12</strong><small>обложек профиля</small></button>
+            <button class="metric open-return-carousel"><span>Готовый сценарий</span><strong>10</strong><small>слайдов · возврат после паузы</small></button>
             <button class="metric" data-jump="planner"><span>План</span><strong>7</strong><small>единиц на неделю</small></button>
           </div>
 
@@ -64,7 +64,7 @@
             <section class="panel current-preview-panel">
               <div class="section-head"><div><h2>Текущая сетка</h2><p>Три закреплённых + свежие публикации</p></div><button class="text-button" data-jump="current">Все 12 →</button></div>
               <div class="feed-grid feed-grid-preview" id="overviewGrid"></div>
-              <div class="visual-read"><span></span><p><strong>Сейчас:</strong> продуктовые обложки, живые фото и Reels смешаны; яркий синий и розовый работают как точечные акценты.</p></div>
+              <div class="visual-read"><span></span><p><strong>Сейчас:</strong> продуктовые обложки, экспертные материалы, иллюстрации и юмор смешаны; следующий шаг — собрать единый Mama-ритм без потери живых форматов.</p></div>
             </section>
 
             <section class="panel week-panel">
@@ -73,19 +73,15 @@
             </section>
           </div>
 
-          <section class="ready-pack">
-            <button class="ready-pack-visual" id="openCarouselVisual"><img src="assets/approved-carousel/contact-sheet.png" alt="Контактный лист готовой карусели из 20 слайдов"></button>
-            <div class="ready-pack-copy"><span class="status status-ready">Готово к публикации</span><h2>«Мои главные победы»</h2><p>20 проверенных слайдов, ZIP, подпись и Stories. Основной аккаунт — @olymarkes, предложить collab @sektaschool.</p><div class="inline-actions"><button class="button button-primary" id="openCarouselSecond">Посмотреть 20 слайдов</button><button class="button button-secondary" data-jump="planner">Открыть в плане</button></div></div>
-          </section>
           <section class="ready-pack ready-pack-new">
-            <button class="ready-pack-visual" id="openReturnCarousel"><img src="assets/return-five-carousel/contact-sheet.png" alt="Контактный лист карусели «Пропустили пять дней?» из 10 слайдов"></button>
+            <button class="ready-pack-visual open-return-carousel"><img src="assets/return-five-carousel/contact-sheet.png" alt="Контактный лист карусели «Пропустили пять дней?» из 10 слайдов"></button>
             <div class="ready-pack-copy"><span class="status status-ready">Новая карусель · готово</span><h2>«Пропустили пять дней?»</h2><p>10 слайдов из медиатеки: без вины, попытки догнать и перезапуска с понедельника. Внутри — готовая подпись, alt-тексты и ZIP для публикации.</p><div class="inline-actions"><button class="button button-primary" id="openReturnCarouselSecond">Посмотреть 10 слайдов</button><a class="button button-secondary" href="assets/return-five-carousel/return-five-carousel.zip" download>Скачать ZIP</a></div></div>
           </section>
         </section>
 
         <section class="view" data-view-panel="ideal">
           <div class="page-heading compact ideal-heading">
-            <div><p class="eyebrow">Редакционная версия · 18–23 августа</p><h1>Лента, на которую хочется подписаться</h1><p>Шесть публикаций собраны как единая серия: эмоция, действие, позиция, игра, узнавание и практика. Нажмите на любую обложку — справа откроется полный разворот.</p></div>
+            <div><p class="eyebrow">Mama-версия · 18–23 августа</p><h1>Поддержка, которой хочется доверять</h1><p>Шесть публикаций собраны как единая серия: экспертность, поддержка, исследование, практика, юмор и комьюнити.</p></div>
             <div class="ideal-heading-actions"><span class="snapshot-label"><i></i>Концепт для ревью</span><button class="button button-secondary" id="openIdealPoster">Открыть крупно</button></div>
           </div>
 
@@ -103,7 +99,7 @@
           <div class="ideal-workspace">
             <section class="ideal-feed-panel">
               <div class="ideal-feed-top">
-                <div class="ideal-profile"><div class="profile-badge small">#S</div><div><strong>@sektaschool</strong><span>предлагаемая верхняя шестёрка</span></div></div>
+                <div class="ideal-profile"><div class="profile-badge small">M</div><div><strong>@sektamama</strong><span>предлагаемая верхняя шестёрка</span></div></div>
                 <span>Новое появляется сверху</span>
               </div>
               <div class="ideal-feed-grid" id="idealFeedGrid"></div>
@@ -120,7 +116,7 @@
         <section class="view" data-view-panel="growth">
           <div class="page-heading compact growth-heading">
             <div><p class="eyebrow">Instagram growth room · версия 1.0</p><h1>Что постить, когда материалов много</h1><p>Выберите цель и исходник — получите хук, режиссуру, покадровый сценарий, CTA и метрику. Все идеи собраны вокруг уже снятого движения, домашних тренировок и живых кадров тела.</p></div>
-            <span class="snapshot-label"><i></i>18 идей · 3 можно собирать сейчас</span>
+            <span class="snapshot-label"><i></i>10 идей · 3 приоритета недели</span>
           </div>
 
           <div class="growth-room-tabs" role="tablist" aria-label="Разделы комнаты роста">
@@ -151,7 +147,7 @@
               </div>
               <label class="growth-asset-filter"><span>Какие кадры есть</span><select id="growthAsset"><option value="all">Любые исходники</option><option value="home">Домашняя тренировка</option><option value="body">Тело / движение</option><option value="community">Команда / люди</option></select></label>
             </div>
-            <div class="growth-result-line"><strong id="growthResultCount">18 идей</strong><span>Нажмите на карточку — справа откроется готовый рецепт</span></div>
+            <div class="growth-result-line"><strong id="growthResultCount">10 идей</strong><span>Нажмите на карточку — справа откроется готовый рецепт</span></div>
 
             <div class="growth-workspace">
               <div class="growth-idea-grid" id="growthIdeaGrid"></div>
@@ -198,11 +194,11 @@
             </section>
 
             <div class="weekly-loop">
-              <article><time>Пн</time><div><span>Новые люди</span><h3>Контринтуитивный хук</h3><p>Тело не ленится. Оно голосует против вашего плана.</p><small>Смотрим: охват неподписчиков, пересылки</small></div></article>
-              <article><time>Вт</time><div><span>Сохранения</span><h3>Протокол возвращения</h3><p>Что делать, если пропустили пять дней.</p><small>Смотрим: сохранения / охват</small></div></article>
-              <article><time>Ср</time><div><span>Теплота</span><h3>Честное признание</h3><p>Я работаю в фитнесе и всё равно иногда не хочу.</p><small>Смотрим: комментарии, ответы, визиты в профиль</small></div></article>
-              <article><time>Пт</time><div><span>Комментарии</span><h3>Узнаваемый юмор</h3><p>Четыре человека перед домашней тренировкой.</p><small>Смотрим: отметки и пересылки</small></div></article>
-              <article><time>Вс</time><div><span>Доверие / продукт</span><h3>Доказательство системы</h3><p>Почему люди возвращаются на двенадцатый день.</p><small>Смотрим: клики и заявки</small></div></article>
+              <article><time>Пн</time><div><span>Новые люди</span><h3>Низкий порог</h3><p>Пять минут тоже считаются.</p><small>Смотрим: охват неподписчиков, сохранения</small></div></article>
+              <article><time>Вт</time><div><span>Экспертность</span><h3>Проверенный материал</h3><p>Тазовое дно — не только упражнения.</p><small>Смотрим: сохранения / переходы</small></div></article>
+              <article><time>Ср</time><div><span>Теплота</span><h3>Поддержка</h3><p>Маме тоже нужна мама.</p><small>Смотрим: пересылки, ответы, визиты в профиль</small></div></article>
+              <article><time>Пт</time><div><span>Практика</span><h3>Возвращение</h3><p>После паузы не нужно догонять.</p><small>Смотрим: сохранения</small></div></article>
+              <article><time>Вс</time><div><span>Комьюнити</span><h3>Одна опора</h3><p>Неделя без идеального режима.</p><small>Смотрим: комментарии и ответы</small></div></article>
             </div>
 
             <section class="experiment-loop">
@@ -215,19 +211,19 @@
         </section>
 
         <section class="view" data-view-panel="current">
-          <div class="page-heading compact"><div><p class="eyebrow">Примерка без удаления публикаций</p><h1>Сетка с новыми обложками</h1><p>Пять слабых входов пересобраны: «Летний прайм» и все четыре Reels. Переключайтесь между фактическим снимком и предлагаемой версией.</p></div><div class="current-heading-actions"><div class="cover-mode-switch" role="group" aria-label="Версия сетки"><button data-cover-mode="current">Сейчас</button><button class="is-active" data-cover-mode="proposed">Новые обложки</button></div><a class="button button-primary" href="assets/proposed-covers/feed-preview-v2.png" target="_blank">PNG всей сетки ↗</a></div></div>
-          <div class="cover-redesign-strip"><div><strong>5 обложек обновлено</strong><span>1 закреп · 4 Reels</span></div><p id="coverModeNote">Предлагаемая примерка: публикации остаются на месте, меняется только то, что человек видит в профиле.</p><a href="assets/proposed-covers/" target="_blank">Открыть файлы →</a></div>
+          <div class="page-heading compact"><div><p class="eyebrow">Стартовый снимок без изменения публикаций</p><h1>Текущая сетка Mama</h1><p>Публичные обложки собраны в одном месте, чтобы увидеть продуктовые, экспертные, человеческие и развлекательные входы как систему.</p></div></div>
+          <div class="cover-redesign-strip"><div><strong>12 обложек подключено</strong><span>3 закрепа · 1 Reel · 8 каруселей</span></div><p id="coverModeNote">Публичный снимок: 12 видимых обложек профиля на 17 августа 2026 года.</p></div>
           <div class="current-layout">
             <div class="instagram-frame">
-              <div class="instagram-profile-line"><div class="profile-badge small">#S</div><div><strong>@sektaschool</strong><span id="gridVersionLabel">примерка новых обложек · 5 замен</span></div></div>
+              <div class="instagram-profile-line"><div class="profile-badge small">M</div><div><strong>@sektamama</strong><span id="gridVersionLabel">публичный снимок · 17 августа</span></div></div>
               <div class="feed-grid" id="currentGrid"></div>
             </div>
             <aside class="insight-rail">
-              <h2>Что изменили</h2>
-              <div class="insight"><span>01</span><div><strong>Летний прайм — живой продукт</strong><p>Человек в движении вместо body-check, короткое название и одна продуктовая строка.</p></div></div>
-              <div class="insight"><span>02</span><div><strong>Reels получили темы</strong><p>Вместо случайного стоп-кадра теперь видны четыре разных обещания: кардио, результат, пресс и развлекательный конфликт.</p></div></div>
-              <div class="insight"><span>03</span><div><strong>Один визуальный алфавит</strong><p>Контрастный гротеск, синий, розовый и лайм. Заголовок читается в центральной квадратной обрезке.</p></div></div>
-              <div class="legend"><span><i class="pin-symbol">◆</i> закреплено</span><span><i class="reel-symbol">NEW</i> новая обложка</span></div>
+              <h2>Что видно сейчас</h2>
+              <div class="insight"><span>01</span><div><strong>Продуктовый слой понятен</strong><p>Курс для мам, беременность и работающая мама образуют три разных входа.</p></div></div>
+              <div class="insight"><span>02</span><div><strong>Экспертность конкурирует с форматами</strong><p>Статьи, партнёрские материалы, иллюстрации и юмор говорят разными визуальными языками.</p></div></div>
+              <div class="insight"><span>03</span><div><strong>Нужен единый Mama-ритм</strong><p>Белая база, холодные акценты, фотография и крупный гротеск могут связать серию без одинаковых шаблонов.</p></div></div>
+              <div class="legend"><span><i class="pin-symbol">◆</i> закреплено</span><span><i class="reel-symbol">▶</i> Reel</span></div>
             </aside>
           </div>
         </section>
@@ -235,7 +231,7 @@
         <section class="view" data-view-panel="builder">
           <div class="page-heading compact builder-heading">
             <div><h1>Идеи и обложки</h1><p>Выберите хук, соберите обложку на фотографии из медиатеки, а затем доработайте сценарий карусели.</p></div>
-            <span class="snapshot-label"><i></i><span id="builderLibraryCount">1059</span> фото подключено</span>
+            <span class="snapshot-label"><i></i><span id="builderLibraryCount">12</span> публичных обложек подключено</span>
           </div>
 
           <section class="panel builder-ideas-panel">
@@ -249,7 +245,7 @@
           <form class="builder-controls" id="builderControls">
             <label><span>Тема сценария</span><select id="builderTopic"></select></label>
             <label><span>Цель</span><select id="builderGoal"><option value="save">Сохранения</option><option value="comment">Комментарии</option><option value="warmth">Теплота</option><option value="class">Запись на класс</option></select></label>
-            <label><span>Аккаунт</span><select id="builderAccount"><option value="@sektaschool">@sektaschool</option><option value="@olymarkes">@olymarkes</option></select></label>
+            <label><span>Аккаунт</span><select id="builderAccount"><option value="@sektamama">@sektamama</option></select></label>
             <label><span>Тон</span><select id="builderTone"><option value="warm">Тёплый</option><option value="bold">Смелый</option><option value="expert">Экспертный</option></select></label>
             <button class="button button-primary" id="builderGenerate" type="submit">Обновить концепт</button>
           </form>
@@ -259,7 +255,7 @@
               <div class="section-head"><div><h2>Конструктор обложки</h2><p>1080 × 1350 · все настройки входят в PNG</p></div><span id="builderCoverStatus">Фото + контраст</span></div>
               <div class="builder-cover builder-cover-dark" id="builderCoverPreview" data-placement="bottom" data-font="condensed" data-text-color="white">
                 <img id="builderCoverImage" src="assets/library/lib-e0e929ba56891c.jpg" alt="Выбранная фотография для обложки">
-                <span class="builder-cover-account" id="builderCoverAccount">@sektaschool</span>
+                <span class="builder-cover-account" id="builderCoverAccount">@sektamama</span>
                 <strong id="builderCoverHeadline">Пропустили пять дней? Ничего не сломалось</strong>
                 <small id="builderCoverPromise">10 слайдов · сохрани</small>
               </div>
@@ -329,23 +325,18 @@
         </section>
 
         <section class="view" data-view-panel="library">
-          <div class="page-heading compact"><div><p class="eyebrow">Полный каталог из <span id="libraryCollectionCount">16 коллекций</span> · оригиналы не изменены</p><h1>Медиатека</h1><p><span id="librarySummary">1059 уникальных фото</span> · <span id="libraryDuplicateSummary">21 дубль скрыт</span>.</p></div></div>
+          <div class="page-heading compact"><div><p class="eyebrow">Стартовый публичный каталог · <span id="libraryCollectionCount">1 коллекция</span></p><h1>Медиатека Mama</h1><p><span id="librarySummary">12 публичных обложек</span> · <span id="libraryDuplicateSummary">0 дублей</span> · внутренняя медиатека подключается отдельно.</p></div></div>
           <div class="toolbar" role="search">
             <label class="search-box"><span>⌕</span><input id="librarySearch" type="search" placeholder="Файл, тема или роль в карусели…" autocomplete="off"></label>
             <div class="filter-group" aria-label="Папка">
               <button class="filter-chip is-active" data-folder="all">Все</button>
-              <button class="filter-chip" data-folder="intake">Новые сегодня</button>
-              <button class="filter-chip" data-folder="archive">Архив</button>
-              <button class="filter-chip" data-folder="snaps">Дизайнерские снепы</button>
-              <button class="filter-chip" data-folder="fitter">Из примерочной</button>
-              <button class="filter-chip" data-folder="bali">Бали</button>
-              <button class="filter-chip" data-folder="carousel">Для карусели</button>
+              <button class="filter-chip" data-folder="current">Публичная сетка</button>
             </div>
-            <select id="themeFilter" aria-label="Тема"><option value="all">Все темы</option><option value="01_дети_воспитание_родительство">Дети и родительство</option><option value="02_семья_близость_отношения">Семья и отношения</option><option value="03_тело_спорт_сила_изменения">Тело, спорт и сила</option><option value="04_красота_сексуальность_самообраз">Красота и самообраз</option><option value="05_музыка_сцена_творчество">Музыка и творчество</option><option value="06_классы_комьюнити_продажа">Классы и комьюнити</option><option value="07_деталь_как_метафора">Детали и метафоры</option><option value="08_путешествия_и_многообразие_жизни">Путешествия и жизнь</option></select>
+            <select id="themeFilter" aria-label="Тема"><option value="all">Все темы</option><option value="01_материнство_и_поддержка">Материнство и поддержка</option><option value="02_беременность_и_движение">Беременность</option><option value="04_восстановление_после_родов">Восстановление</option><option value="05_питание_и_эмоциональный_голод">Питание и эмоциональный голод</option><option value="06_экспертность_и_здоровье">Экспертность и здоровье</option><option value="07_работающая_мама_и_ресурс">Работающая мама</option><option value="08_юмор_и_узнавание">Юмор и узнавание</option><option value="09_продукт_и_оффер">Продукт и оффер</option><option value="10_истории_и_доказательства">Истории и доказательства</option></select>
             <select id="orientationFilter" aria-label="Ориентация"><option value="all">Любая ориентация</option><option value="portrait">Вертикальные</option><option value="landscape">Горизонтальные</option><option value="square">Квадратные</option></select>
             <button class="button button-secondary toolbar-shuffle" id="libraryShuffle" type="button">Перемешать ↻</button>
           </div>
-          <div class="result-line"><span id="libraryResultCount">1059 материалов</span><span>Нажмите на фото, чтобы добавить его в черновую сетку</span></div>
+          <div class="result-line"><span id="libraryResultCount">12 материалов</span><span>Нажмите на фото, чтобы добавить его в черновую сетку</span></div>
           <div class="media-grid" id="mediaGrid"></div>
           <div class="load-more-wrap"><button class="button button-secondary" id="loadMore">Показать ещё</button></div>
         </section>
@@ -381,9 +372,9 @@
   <dialog class="ideal-poster-dialog" id="idealPosterDialog">
     <button class="dialog-close" data-close-ideal-poster aria-label="Закрыть">×</button>
     <div class="poster-shell">
-      <div class="poster-head"><div><span>@sektaschool · 18–23 августа</span><strong>Идеальная неделя в одной картинке</strong></div><p>Эмоция → действие → позиция<br>Игра → узнавание → практика</p></div>
+      <div class="poster-head"><div><span>@sektamama · 18–23 августа</span><strong>Идеальная неделя в одной картинке</strong></div><p>Экспертность → поддержка → исследование<br>Практика → юмор → комьюнити</p></div>
       <div class="ideal-feed-grid poster-grid" id="idealPosterGrid"></div>
-      <div class="poster-foot"><span>6 публикаций</span><span>3 фото · 2 видео · 3 карусели</span><span>#Sekta content room</span></div>
+      <div class="poster-foot"><span>6 публикаций</span><span>health-safe review</span><span>Sekta Mama content room</span></div>
     </div>
   </dialog>
 

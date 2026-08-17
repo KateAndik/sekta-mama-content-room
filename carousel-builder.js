@@ -349,7 +349,7 @@
       image.onload = () => resolve(image);
       image.onerror = reject;
       image.src = location.protocol === "file:" && !/^https?:/.test(source)
-        ? `https://olymarkes.github.io/sekta-smm-content-room/${source}`
+        ? new URL(source, window.location.href).href
         : source;
     });
   }

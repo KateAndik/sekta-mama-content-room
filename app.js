@@ -7,12 +7,13 @@
   const libraryPayload = window.SEKTA_LIBRARY || { items: [], uniqueCount: 0, duplicateCount: 0, sourceCount: 0 };
   const library = libraryPayload.items || [];
   const viewLabels = { overview: "Рабочий обзор", ideal: "Идеальная сетка", growth: "Рост и идеи", builder: "Идеи и обложки", current: "Текущая сетка", library: "Медиатека", planner: "План недели" };
-  const statusClass = (status) => status === "Готово" ? "status-ready" : status === "На ревью" || status === "Текст готов" ? "status-review" : "status-shoot";
+  const statusClass = (status) => status.includes("проверка") ? "status-safety" : status === "Готово" ? "status-ready" : status === "На ревью" || status === "Текст готов" ? "status-review" : "status-shoot";
   const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
 
   const ui = {
     viewTitle: document.querySelector("#viewTitle"),
     sidebar: document.querySelector("#sidebar"),
+    mobileMenu: document.querySelector("#mobileMenu"),
     overviewGrid: document.querySelector("#overviewGrid"),
     currentGrid: document.querySelector("#currentGrid"),
     coverModeNote: document.querySelector("#coverModeNote"),
@@ -62,14 +63,14 @@
   let activeGrowthRoomTab = "ideas";
   let activeGrowthGoal = "all";
   let activeGrowthId = growthRoom.next?.[0] || growthIdeas[0]?.id;
-  let currentCoverMode = "proposed";
+  let currentCoverMode = "current";
   let toastTimer;
   let sandbox = loadSandbox();
 
   function loadSandbox() {
-    const fallback = [{ id: "approved-carousel", thumb: "assets/approved-carousel/slide-01.png", title: "Мои главные победы", source: "Готовая карусель" }];
+    const fallback = [{ id: "mama-08", thumb: "assets/mama-current/08.jpg", title: "История участницы", source: "Публичная сетка @sektamama" }];
     try {
-      const saved = JSON.parse(localStorage.getItem("sekta-sandbox"));
+      const saved = JSON.parse(localStorage.getItem("sekta-mama-sandbox"));
       return Array.isArray(saved) && saved.length ? saved.slice(0, 9) : fallback;
     } catch {
       return fallback;
@@ -77,7 +78,7 @@
   }
 
   function saveSandbox() {
-    localStorage.setItem("sekta-sandbox", JSON.stringify(sandbox));
+    localStorage.setItem("sekta-mama-sandbox", JSON.stringify(sandbox));
   }
 
   function toast(message) {
@@ -107,8 +108,8 @@
     ui.overviewGrid.innerHTML = currentGrid.slice(0, 9).map((item) => feedTile(item)).join("");
     ui.currentGrid.innerHTML = currentGrid.map((item) => feedTile(item, currentCoverMode)).join("");
     document.querySelectorAll("[data-cover-mode]").forEach((button) => button.classList.toggle("is-active", button.dataset.coverMode === currentCoverMode));
-    if (ui.gridVersionLabel) ui.gridVersionLabel.textContent = currentCoverMode === "proposed" ? "примерка новых обложек · 5 замен" : "фактический снимок · 13 августа";
-    if (ui.coverModeNote) ui.coverModeNote.textContent = currentCoverMode === "proposed" ? "Предлагаемая примерка: публикации остаются на месте, меняется только то, что человек видит в профиле." : "Фактический снимок: обложки показаны ровно такими, какими они были в профиле 13 августа.";
+    if (ui.gridVersionLabel) ui.gridVersionLabel.textContent = currentCoverMode === "proposed" ? "Mama-концепт · без замены исходников" : "публичный снимок · 17 августа";
+    if (ui.coverModeNote) ui.coverModeNote.textContent = currentCoverMode === "proposed" ? "Концепт сохраняет публикации и проверяет будущий ритм. Новые обложки добавятся после редакционного ревью." : "Публичный снимок: 12 видимых обложек профиля на 17 августа 2026 года.";
   }
 
   function weekItem(item) {
@@ -304,7 +305,7 @@
     const category = item.sourceCategory ? ` · ${escapeHtml(formatTaxonomy(item.sourceCategory))}` : "";
     const localPathAvailable = Boolean(item.originalUrl);
     const copyAction = localPathAvailable ? `<button class="button button-secondary" data-copy-path="${escapeHtml(item.originalPath)}">Скопировать путь</button>` : "";
-    const sourceNote = localPathAvailable ? `<div class="path-box" title="${escapeHtml(item.originalPath)}">${escapeHtml(item.originalPath)}</div>` : `<div class="path-box">Оригинал — в личной медиатеке; для передачи используйте имя файла выше.</div>`;
+    const sourceNote = localPathAvailable ? `<div class="path-box" title="${escapeHtml(item.originalPath)}">${escapeHtml(item.originalPath)}</div>` : `<div class="path-box">Стартовый публичный срез; внутренняя медиатека Mama пока не подключена.</div>`;
     ui.dialogContent.innerHTML = `<div class="detail-layout"><div class="detail-image"><img src="${escapeHtml(item.thumb)}" alt="${escapeHtml(item.fileName)}"></div><div class="detail-copy"><p class="eyebrow">${escapeHtml(item.folderLabel)}${category}</p><h2>${escapeHtml(item.fileName)}</h2><p>Оригинал остаётся в исходной папке. В стенде используется облегчённое превью.</p><div class="meta-list"><div class="meta-row"><span>Размер</span><strong>${item.width} × ${item.height}</strong></div><div class="meta-row"><span>Ориентация</span><strong>${orientationLabel(item.orientation)}</strong></div><div class="meta-row"><span>Вес оригинала</span><strong>${item.sizeMb} МБ</strong></div><div class="meta-row"><span>Точные дубли</span><strong>${duplicateText}</strong></div></div>${themes}${roles}<div class="detail-actions"><button class="button button-primary" data-add-media="${item.id}">+ В будущую сетку</button>${copyAction}</div>${sourceNote}</div></div>`;
     ui.detailDialog.showModal();
   }
@@ -385,11 +386,29 @@
     renderReturnCarousel();
   }
 
-  document.querySelectorAll(".nav-item").forEach((button) => button.addEventListener("click", () => setView(button.dataset.view)));
+  const mobileSidebarQuery = window.matchMedia("(max-width: 820px)");
+  function syncMobileSidebar(open = ui.sidebar.classList.contains("is-open")) {
+    const isMobile = mobileSidebarQuery.matches;
+    ui.sidebar.classList.toggle("is-open", isMobile && open);
+    ui.sidebar.inert = isMobile && !open;
+    ui.mobileMenu.setAttribute("aria-expanded", String(isMobile && open));
+    ui.mobileMenu.setAttribute("aria-label", isMobile && open ? "Закрыть меню" : "Открыть меню");
+  }
+  function closeMobileSidebar(restoreFocus = false) {
+    syncMobileSidebar(false);
+    if (restoreFocus && mobileSidebarQuery.matches) ui.mobileMenu.focus();
+  }
+
+  document.querySelectorAll(".nav-item").forEach((button) => button.addEventListener("click", () => { setView(button.dataset.view); closeMobileSidebar(); }));
   document.querySelectorAll("[data-jump]").forEach((button) => button.addEventListener("click", () => setView(button.dataset.jump)));
-  document.querySelector("#mobileMenu").addEventListener("click", () => ui.sidebar.classList.toggle("is-open"));
+  ui.mobileMenu.addEventListener("click", () => syncMobileSidebar(!ui.sidebar.classList.contains("is-open")));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && ui.sidebar.classList.contains("is-open")) closeMobileSidebar(true);
+  });
+  mobileSidebarQuery.addEventListener("change", () => syncMobileSidebar(false));
+  syncMobileSidebar(false);
   document.querySelectorAll("#openCarousel, #openCarouselVisual, #openCarouselSecond").forEach((button) => button.addEventListener("click", openCarousel));
-  document.querySelectorAll("#openReturnCarousel, #openReturnCarouselSecond").forEach((button) => button.addEventListener("click", openReturnCarousel));
+  document.querySelectorAll(".open-return-carousel, #openReturnCarouselSecond").forEach((button) => button.addEventListener("click", openReturnCarousel));
   document.querySelector("#openIdealPoster").addEventListener("click", () => ui.idealPosterDialog.showModal());
   document.querySelector("#carouselPrev").addEventListener("click", () => shiftCarousel(-1));
   document.querySelector("#carouselNext").addEventListener("click", () => shiftCarousel(1));
@@ -401,7 +420,7 @@
   document.querySelector("[data-close-ideal-poster]").addEventListener("click", () => ui.idealPosterDialog.close());
   document.querySelector("#resetPlanner").addEventListener("click", () => {
     if (!confirm("Вернуть песочницу к исходному состоянию?")) return;
-    sandbox = [{ id: "approved-carousel", thumb: "assets/approved-carousel/slide-01.png", title: "Мои главные победы", source: "Готовая карусель" }];
+    sandbox = [{ id: "mama-08", thumb: "assets/mama-current/08.jpg", title: "История участницы", source: "Публичная сетка @sektamama" }];
     saveSandbox();
     renderSandbox();
     toast("Черновая сетка сброшена");
@@ -512,7 +531,7 @@
   document.querySelector("#metricUnique").textContent = libraryPayload.uniqueCount;
   document.querySelector("#navLibraryCount").textContent = libraryPayload.uniqueCount;
   document.querySelector("#builderLibraryCount").textContent = libraryPayload.uniqueCount;
-  document.querySelector("#librarySummary").textContent = `${libraryPayload.uniqueCount} уникальных фото из ${libraryPayload.sourceCount}`;
+  document.querySelector("#librarySummary").textContent = `${libraryPayload.uniqueCount} публичных обложек из ${libraryPayload.sourceCount}`;
   const collectionCount = Object.keys(libraryPayload.sourceFolders || {}).length;
   document.querySelector("#libraryCollectionCount").textContent = `${collectionCount} ${plural(collectionCount, "коллекция", "коллекции", "коллекций")}`;
   ui.libraryDuplicateSummary.textContent = `${libraryPayload.duplicateCount} ${plural(libraryPayload.duplicateCount, "точный дубль скрыт", "точных дубля скрыты", "точных дублей скрыты")}`;
