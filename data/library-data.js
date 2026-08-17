@@ -1,21 +1,23 @@
 window.SEKTA_LIBRARY = {
-  "generatedAt": "2026-08-17T08:18:09.414Z",
-  "sourceCount": 1072,
-  "uniqueCount": 1051,
+  "generatedAt": "2026-08-17T08:25:50.244Z",
+  "sourceCount": 1080,
+  "uniqueCount": 1059,
   "duplicateCount": 21,
-  "personalSourceCount": 1072,
-  "personalUniqueCount": 1051,
+  "personalSourceCount": 1080,
+  "personalUniqueCount": 1059,
   "newTodayUniqueCount": 225,
   "byFolder": {
     "intake": 225,
     "archive": 528,
     "bali": 131,
     "carousel": 143,
-    "snaps": 24
+    "snaps": 24,
+    "fitter": 8
   },
   "sourceFolders": {
     "_ДОБАВИТЬ_НОВЫЕ_ФОТО_СЮДА": 225,
     "designer-snaps": 24,
+    "fitting-room": 8,
     "бали фото карусель": 131,
     "дед": 4,
     "для карусели (шеред дима)": 31,
@@ -26787,6 +26789,238 @@ window.SEKTA_LIBRARY = {
       ],
       "carouselRoles": [
         "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "e0e929ba56891c",
+      "folder": "fitter",
+      "folderLabel": "Из примерочной",
+      "sourceCategory": "assets",
+      "sourceFolder": "fitting-room",
+      "fileName": "v3-three-kids.jpg",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-e0e929ba56891c.jpg",
+      "width": 2400,
+      "height": 1800,
+      "orientation": "landscape",
+      "sizeMb": 0.8,
+      "modifiedAt": "2026-08-14T06:17:17.406Z",
+      "agentScore": null,
+      "contentThemes": [
+        "01_дети_воспитание_родительство",
+        "03_тело_спорт_сила_изменения",
+        "08_путешествия_и_многообразие_жизни"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "02_действие_и_доказательство",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "5484cd5718b9e4",
+      "folder": "fitter",
+      "folderLabel": "Из примерочной",
+      "sourceCategory": "assets",
+      "sourceFolder": "fitting-room",
+      "fileName": "v3-ski-with-baby.jpg",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-5484cd5718b9e4.jpg",
+      "width": 2400,
+      "height": 1599,
+      "orientation": "landscape",
+      "sizeMb": 0.6,
+      "modifiedAt": "2026-08-14T06:17:17.267Z",
+      "agentScore": null,
+      "contentThemes": [
+        "01_дети_воспитание_родительство",
+        "03_тело_спорт_сила_изменения",
+        "08_путешествия_и_многообразие_жизни"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "02_действие_и_доказательство",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "9fb189cec7c86f",
+      "folder": "fitter",
+      "folderLabel": "Из примерочной",
+      "sourceCategory": "assets",
+      "sourceFolder": "fitting-room",
+      "fileName": "v3-public-life.jpg",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-9fb189cec7c86f.jpg",
+      "width": 2400,
+      "height": 1600,
+      "orientation": "landscape",
+      "sizeMb": 0.7,
+      "modifiedAt": "2026-08-14T06:17:17.131Z",
+      "agentScore": null,
+      "contentThemes": [
+        "01_дети_воспитание_родительство",
+        "03_тело_спорт_сила_изменения",
+        "08_путешествия_и_многообразие_жизни"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "02_действие_и_доказательство",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "46764c44d02726",
+      "folder": "fitter",
+      "folderLabel": "Из примерочной",
+      "sourceCategory": "assets",
+      "sourceFolder": "fitting-room",
+      "fileName": "v3-open-water.jpg",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-46764c44d02726.jpg",
+      "width": 2400,
+      "height": 1800,
+      "orientation": "landscape",
+      "sizeMb": 0.8,
+      "modifiedAt": "2026-08-14T06:17:17.006Z",
+      "agentScore": null,
+      "contentThemes": [
+        "01_дети_воспитание_родительство",
+        "03_тело_спорт_сила_изменения",
+        "08_путешествия_и_многообразие_жизни"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "02_действие_и_доказательство",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "1a4c33a5b7d8fa",
+      "folder": "fitter",
+      "folderLabel": "Из примерочной",
+      "sourceCategory": "assets",
+      "sourceFolder": "fitting-room",
+      "fileName": "v3-olya-with-kids.jpg",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-1a4c33a5b7d8fa.jpg",
+      "width": 2400,
+      "height": 1800,
+      "orientation": "landscape",
+      "sizeMb": 0.8,
+      "modifiedAt": "2026-08-14T06:17:16.871Z",
+      "agentScore": null,
+      "contentThemes": [
+        "01_дети_воспитание_родительство",
+        "03_тело_спорт_сила_изменения",
+        "08_путешествия_и_многообразие_жизни"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "02_действие_и_доказательство",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "4114ebadec0e97",
+      "folder": "fitter",
+      "folderLabel": "Из примерочной",
+      "sourceCategory": "assets",
+      "sourceFolder": "fitting-room",
+      "fileName": "v3-jump.jpg",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-4114ebadec0e97.jpg",
+      "width": 2400,
+      "height": 1800,
+      "orientation": "landscape",
+      "sizeMb": 1.2,
+      "modifiedAt": "2026-08-14T06:17:16.747Z",
+      "agentScore": null,
+      "contentThemes": [
+        "01_дети_воспитание_родительство",
+        "03_тело_спорт_сила_изменения",
+        "08_путешествия_и_многообразие_жизни"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "02_действие_и_доказательство",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "8eaeaed2b053e6",
+      "folder": "fitter",
+      "folderLabel": "Из примерочной",
+      "sourceCategory": "assets",
+      "sourceFolder": "fitting-room",
+      "fileName": "v3-group-practice.jpg",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-8eaeaed2b053e6.jpg",
+      "width": 2400,
+      "height": 1600,
+      "orientation": "landscape",
+      "sizeMb": 0.5,
+      "modifiedAt": "2026-08-14T06:17:16.606Z",
+      "agentScore": null,
+      "contentThemes": [
+        "01_дети_воспитание_родительство",
+        "03_тело_спорт_сила_изменения",
+        "08_путешествия_и_многообразие_жизни"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "02_действие_и_доказательство",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "03b3f557921852",
+      "folder": "fitter",
+      "folderLabel": "Из примерочной",
+      "sourceCategory": "assets",
+      "sourceFolder": "fitting-room",
+      "fileName": "v3-cycling.jpg",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-03b3f557921852.jpg",
+      "width": 2400,
+      "height": 1800,
+      "orientation": "landscape",
+      "sizeMb": 0.8,
+      "modifiedAt": "2026-08-14T06:17:16.428Z",
+      "agentScore": null,
+      "contentThemes": [
+        "01_дети_воспитание_родительство",
+        "03_тело_спорт_сила_изменения",
+        "08_путешествия_и_многообразие_жизни"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "02_действие_и_доказательство",
         "05_атмосфера_и_переход"
       ],
       "isUtility": false,
