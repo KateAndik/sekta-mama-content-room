@@ -25,6 +25,7 @@
     orientationFilter: document.querySelector("#orientationFilter"),
     libraryResultCount: document.querySelector("#libraryResultCount"),
     libraryDuplicateSummary: document.querySelector("#libraryDuplicateSummary"),
+    libraryShuffle: document.querySelector("#libraryShuffle"),
     loadMore: document.querySelector("#loadMore"),
     sandboxGrid: document.querySelector("#sandboxGrid"),
     sandboxCount: document.querySelector("#sandboxCount"),
@@ -53,6 +54,7 @@
 
   let folderFilter = "all";
   let visibleMedia = 42;
+  let libraryOrder = [...library];
   let carouselSlide = 1;
   let returnCarouselSlide = 1;
   let activeIdealId = "2026-08-23";
@@ -237,7 +239,7 @@
     const query = ui.librarySearch.value.trim().toLocaleLowerCase("ru");
     const orientation = ui.orientationFilter.value;
     const theme = ui.themeFilter.value;
-    return library.filter((item) => {
+    return libraryOrder.filter((item) => {
       const inFolder = folderFilter === "all" || item.folder === folderFilter;
       const hasOrientation = orientation === "all" || item.orientation === orientation;
       const hasTheme = theme === "all" || item.contentThemes.includes(theme);
@@ -245,6 +247,15 @@
       const matchesSearch = !query || searchText.includes(query);
       return inFolder && hasOrientation && hasTheme && matchesSearch;
     });
+  }
+
+  function shuffleLibrary() {
+    for (let index = libraryOrder.length - 1; index > 0; index -= 1) {
+      const target = Math.floor(Math.random() * (index + 1));
+      [libraryOrder[index], libraryOrder[target]] = [libraryOrder[target], libraryOrder[index]];
+    }
+    renderLibrary(true);
+    toast("Медиатека перемешана — показываем новую подборку");
   }
 
   function renderLibrary(reset = false) {
@@ -472,6 +483,7 @@
   ui.themeFilter.addEventListener("change", () => renderLibrary(true));
   ui.orientationFilter.addEventListener("change", () => renderLibrary(true));
   ui.loadMore.addEventListener("click", () => { visibleMedia += 42; renderLibrary(); });
+  ui.libraryShuffle.addEventListener("click", shuffleLibrary);
   ui.carouselDots.innerHTML = Array.from({ length: 20 }, (_, index) => `<button data-slide="${index + 1}" aria-label="Слайд ${index + 1}"></button>`).join("");
   ui.carouselDots.addEventListener("click", (event) => {
     const dot = event.target.closest("[data-slide]");
@@ -499,7 +511,10 @@
 
   document.querySelector("#metricUnique").textContent = libraryPayload.uniqueCount;
   document.querySelector("#navLibraryCount").textContent = libraryPayload.uniqueCount;
+  document.querySelector("#builderLibraryCount").textContent = libraryPayload.uniqueCount;
   document.querySelector("#librarySummary").textContent = `${libraryPayload.uniqueCount} уникальных фото из ${libraryPayload.sourceCount}`;
+  const collectionCount = Object.keys(libraryPayload.sourceFolders || {}).length;
+  document.querySelector("#libraryCollectionCount").textContent = `${collectionCount} ${plural(collectionCount, "коллекция", "коллекции", "коллекций")}`;
   ui.libraryDuplicateSummary.textContent = `${libraryPayload.duplicateCount} ${plural(libraryPayload.duplicateCount, "точный дубль скрыт", "точных дубля скрыты", "точных дублей скрыты")}`;
   renderCurrent();
   renderWeek();

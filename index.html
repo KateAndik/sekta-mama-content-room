@@ -21,7 +21,7 @@
         <button class="nav-item" data-view="growth"><span>↗</span>Рост и идеи <em>18</em></button>
         <button class="nav-item" data-view="builder"><span>▤</span>Конструктор <em>NEW</em></button>
         <button class="nav-item" data-view="current"><span>▦</span>Текущая сетка</button>
-        <button class="nav-item" data-view="library"><span>▧</span>Медиатека <em id="navLibraryCount">1027</em></button>
+        <button class="nav-item" data-view="library"><span>▧</span>Медиатека <em id="navLibraryCount">1051</em></button>
         <button class="nav-item" data-view="planner"><span>↗</span>План недели <em id="navPlanCount">7</em></button>
       </nav>
       <div class="sidebar-note">
@@ -55,7 +55,7 @@
 
           <div class="metric-row">
             <button class="metric metric-accent" data-jump="ideal"><span>Идеальная сетка</span><strong>6</strong><small>обложек · 18–23 августа</small></button>
-            <button class="metric" data-jump="library"><span>Медиатека</span><strong id="metricUnique">1027</strong><small>уникальных фото</small></button>
+            <button class="metric" data-jump="library"><span>Медиатека</span><strong id="metricUnique">1051</strong><small>уникальных фото</small></button>
             <button class="metric" id="openCarousel"><span>Готовый пакет</span><strong>20</strong><small>слайдов · approved</small></button>
             <button class="metric" data-jump="planner"><span>План</span><strong>7</strong><small>единиц на неделю</small></button>
           </div>
@@ -235,7 +235,7 @@
         <section class="view" data-view-panel="builder">
           <div class="page-heading compact builder-heading">
             <div><p class="eyebrow">Карусель за один рабочий проход</p><h1>От темы до обложки и 10 слайдов</h1><p>Выберите идею и задачу — конструктор найдёт релевантные фотографии в медиатеке, предложит хуки и соберёт редактируемый сценарий.</p></div>
-            <span class="snapshot-label"><i></i>1027 фото подключено</span>
+            <span class="snapshot-label"><i></i><span id="builderLibraryCount">1051</span> фото подключено</span>
           </div>
 
           <div class="builder-idea-strip" id="builderIdeaStrip" aria-label="Быстрые идеи"></div>
@@ -277,7 +277,7 @@
             </section>
 
             <aside class="panel builder-media-panel">
-              <div class="section-head"><div><h2>Фото из медиатеки</h2><p id="builderMediaCount">Подбираем по теме</p></div><button class="text-button" id="builderShuffleMedia" type="button">Другие →</button></div>
+              <div class="section-head"><div><h2>Фото из медиатеки</h2><p id="builderMediaCount">Подбираем по теме</p></div><button class="text-button" id="builderShuffleMedia" type="button">Перемешать ↻</button></div>
               <div class="builder-media-grid" id="builderMediaGrid"></div>
               <div class="builder-media-note"><span>Визуальный ритм</span><p>Обложка + 3–4 фотопаузы. Не ставьте больше двух полностью текстовых слайдов подряд.</p></div>
             </aside>
@@ -286,20 +286,22 @@
         </section>
 
         <section class="view" data-view-panel="library">
-          <div class="page-heading compact"><div><p class="eyebrow">Полный каталог из 14 коллекций · оригиналы не изменены</p><h1>Медиатека</h1><p><span id="librarySummary">1027 уникальных фото</span> · <span id="libraryDuplicateSummary">21 дубль скрыт</span>.</p></div></div>
+          <div class="page-heading compact"><div><p class="eyebrow">Полный каталог из <span id="libraryCollectionCount">15 коллекций</span> · оригиналы не изменены</p><h1>Медиатека</h1><p><span id="librarySummary">1051 уникальное фото</span> · <span id="libraryDuplicateSummary">21 дубль скрыт</span>.</p></div></div>
           <div class="toolbar" role="search">
             <label class="search-box"><span>⌕</span><input id="librarySearch" type="search" placeholder="Файл, тема или роль в карусели…" autocomplete="off"></label>
             <div class="filter-group" aria-label="Папка">
               <button class="filter-chip is-active" data-folder="all">Все</button>
               <button class="filter-chip" data-folder="intake">Новые сегодня</button>
               <button class="filter-chip" data-folder="archive">Архив</button>
+              <button class="filter-chip" data-folder="snaps">Дизайнерские снепы</button>
               <button class="filter-chip" data-folder="bali">Бали</button>
               <button class="filter-chip" data-folder="carousel">Для карусели</button>
             </div>
             <select id="themeFilter" aria-label="Тема"><option value="all">Все темы</option><option value="01_дети_воспитание_родительство">Дети и родительство</option><option value="02_семья_близость_отношения">Семья и отношения</option><option value="03_тело_спорт_сила_изменения">Тело, спорт и сила</option><option value="04_красота_сексуальность_самообраз">Красота и самообраз</option><option value="05_музыка_сцена_творчество">Музыка и творчество</option><option value="06_классы_комьюнити_продажа">Классы и комьюнити</option><option value="07_деталь_как_метафора">Детали и метафоры</option><option value="08_путешествия_и_многообразие_жизни">Путешествия и жизнь</option></select>
             <select id="orientationFilter" aria-label="Ориентация"><option value="all">Любая ориентация</option><option value="portrait">Вертикальные</option><option value="landscape">Горизонтальные</option><option value="square">Квадратные</option></select>
+            <button class="button button-secondary toolbar-shuffle" id="libraryShuffle" type="button">Перемешать ↻</button>
           </div>
-          <div class="result-line"><span id="libraryResultCount">1027 материалов</span><span>Нажмите на фото, чтобы добавить его в черновую сетку</span></div>
+          <div class="result-line"><span id="libraryResultCount">1051 материал</span><span>Нажмите на фото, чтобы добавить его в черновую сетку</span></div>
           <div class="media-grid" id="mediaGrid"></div>
           <div class="load-more-wrap"><button class="button button-secondary" id="loadMore">Показать ещё</button></div>
         </section>

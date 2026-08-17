@@ -1,19 +1,21 @@
 window.SEKTA_LIBRARY = {
-  "generatedAt": "2026-08-14T06:42:04.571Z",
-  "sourceCount": 1048,
-  "uniqueCount": 1027,
+  "generatedAt": "2026-08-17T08:18:09.414Z",
+  "sourceCount": 1072,
+  "uniqueCount": 1051,
   "duplicateCount": 21,
-  "personalSourceCount": 1048,
-  "personalUniqueCount": 1027,
+  "personalSourceCount": 1072,
+  "personalUniqueCount": 1051,
   "newTodayUniqueCount": 225,
   "byFolder": {
     "intake": 225,
     "archive": 528,
     "bali": 131,
-    "carousel": 143
+    "carousel": 143,
+    "snaps": 24
   },
   "sourceFolders": {
     "_ДОБАВИТЬ_НОВЫЕ_ФОТО_СЮДА": 225,
+    "designer-snaps": 24,
     "бали фото карусель": 131,
     "дед": 4,
     "для карусели (шеред дима)": 31,
@@ -26140,6 +26142,654 @@ window.SEKTA_LIBRARY = {
         "04_деталь_пауза_метафора"
       ],
       "isUtility": true,
+      "duplicates": []
+    },
+    {
+      "id": "130e6c229aedd7",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "raw_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "raw_09_spontaneous_laugh.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-130e6c229aedd7.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.2,
+      "modifiedAt": "2026-08-17T07:34:33.590Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "fe0a6cbbb48a2d",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "raw_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "raw_08_arms_raised_hair.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-fe0a6cbbb48a2d.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.2,
+      "modifiedAt": "2026-08-17T07:34:33.504Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "42c41ecb8cef79",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "raw_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "raw_07_face_hair_tucked.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-42c41ecb8cef79.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:33.418Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "843275b6556024",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "raw_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "raw_06_high_phone_angle.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-843275b6556024.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.2,
+      "modifiedAt": "2026-08-17T07:34:33.343Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "171639abcf7749",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "raw_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "raw_05_low_phone_angle.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-171639abcf7749.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.2,
+      "modifiedAt": "2026-08-17T07:34:33.255Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "991a237fd1e313",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "raw_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "raw_04_back_three_quarter.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-991a237fd1e313.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.2,
+      "modifiedAt": "2026-08-17T07:34:33.169Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "b31b3ca3011ba0",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "raw_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "raw_03_seated_forward.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-b31b3ca3011ba0.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.2,
+      "modifiedAt": "2026-08-17T07:34:33.078Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "f7cde5f942e0f6",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "raw_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "raw_02_full_body_relaxed.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-f7cde5f942e0f6.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.2,
+      "modifiedAt": "2026-08-17T07:34:32.990Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "0427c67b2d8ebb",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "raw_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "raw_01_waist_up_neutral.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-0427c67b2d8ebb.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.2,
+      "modifiedAt": "2026-08-17T07:34:32.897Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "2adf3a4eaf08df",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "body_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "body_06_right_three_quarter.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-2adf3a4eaf08df.jpg",
+      "width": 512,
+      "height": 512,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:32.813Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "02_действие_и_доказательство",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "53ae965d349c47",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "body_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "body_05_right_profile.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-53ae965d349c47.jpg",
+      "width": 512,
+      "height": 512,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:32.703Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "02_действие_и_доказательство",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "2ff71141deb587",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "body_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "body_04_back.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-2ff71141deb587.jpg",
+      "width": 512,
+      "height": 512,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:32.591Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "02_действие_и_доказательство",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "9c50cce87feeae",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "body_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "body_03_left_profile.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-9c50cce87feeae.jpg",
+      "width": 512,
+      "height": 512,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:32.482Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "02_действие_и_доказательство",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "425e250699589e",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "body_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "body_02_left_three_quarter.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-425e250699589e.jpg",
+      "width": 512,
+      "height": 512,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:32.371Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "02_действие_и_доказательство",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "f2bea25d62b9a6",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "body_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "body_01_front.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-f2bea25d62b9a6.jpg",
+      "width": 512,
+      "height": 512,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:32.261Z",
+      "agentScore": null,
+      "contentThemes": [
+        "03_тело_спорт_сила_изменения",
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "02_действие_и_доказательство",
+        "06_фон_под_текст"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "a9eeebf6160b76",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "face_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "face_09_broad_smile.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-a9eeebf6160b76.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:32.148Z",
+      "agentScore": null,
+      "contentThemes": [
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "dbedf042c522c6",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "face_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "face_08_half_smile.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-dbedf042c522c6.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:32.072Z",
+      "agentScore": null,
+      "contentThemes": [
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "56c4a048409637",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "face_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "face_07_chin_lowered.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-56c4a048409637.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:31.995Z",
+      "agentScore": null,
+      "contentThemes": [
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "ceff72088ba5ed",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "face_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "face_06_chin_raised.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-ceff72088ba5ed.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:31.916Z",
+      "agentScore": null,
+      "contentThemes": [
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "eea14b309e10ec",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "face_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "face_05_right_profile.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-eea14b309e10ec.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:31.836Z",
+      "agentScore": null,
+      "contentThemes": [
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "5db1b9a54e6f1a",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "face_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "face_04_left_profile.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-5db1b9a54e6f1a.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:31.758Z",
+      "agentScore": null,
+      "contentThemes": [
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "05734d48919fd5",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "face_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "face_03_right_three_quarter.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-05734d48919fd5.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:31.682Z",
+      "agentScore": null,
+      "contentThemes": [
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "7f466908c9c2ee",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "face_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "face_02_left_three_quarter.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-7f466908c9c2ee.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:31.604Z",
+      "agentScore": null,
+      "contentThemes": [
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
+      "duplicates": []
+    },
+    {
+      "id": "aba1831a1546bf",
+      "folder": "snaps",
+      "folderLabel": "Дизайнерские снепы",
+      "sourceCategory": "face_panels",
+      "sourceFolder": "designer-snaps",
+      "fileName": "face_01_front_neutral.png",
+      "originalPath": "Локальный оригинал скрыт в публичной версии",
+      "originalUrl": "",
+      "thumb": "assets/library/lib-aba1831a1546bf.jpg",
+      "width": 418,
+      "height": 418,
+      "orientation": "square",
+      "sizeMb": 0.3,
+      "modifiedAt": "2026-08-17T07:34:31.530Z",
+      "agentScore": null,
+      "contentThemes": [
+        "04_красота_сексуальность_самообраз"
+      ],
+      "carouselRoles": [
+        "01_обложка_личное_присутствие",
+        "05_атмосфера_и_переход"
+      ],
+      "isUtility": false,
       "duplicates": []
     }
   ]
