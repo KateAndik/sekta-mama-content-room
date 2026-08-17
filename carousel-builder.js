@@ -6,36 +6,110 @@
   const ui = {
     form: document.querySelector("#builderControls"),
     ideaStrip: document.querySelector("#builderIdeaStrip"),
+    refreshIdeas: document.querySelector("#builderRefreshIdeas"),
     topic: document.querySelector("#builderTopic"),
     goal: document.querySelector("#builderGoal"),
     account: document.querySelector("#builderAccount"),
     tone: document.querySelector("#builderTone"),
     hook: document.querySelector("#builderHook"),
     subtitle: document.querySelector("#builderSubtitle"),
+    workspace: document.querySelector("#builderWorkspace"),
     cover: document.querySelector("#builderCoverPreview"),
     coverImage: document.querySelector("#builderCoverImage"),
     coverAccount: document.querySelector("#builderCoverAccount"),
     coverHeadline: document.querySelector("#builderCoverHeadline"),
     coverPromise: document.querySelector("#builderCoverPromise"),
     coverStatus: document.querySelector("#builderCoverStatus"),
+    focusX: document.querySelector("#builderFocusX"),
+    focusY: document.querySelector("#builderFocusY"),
     slides: document.querySelector("#builderSlides"),
+    refreshScript: document.querySelector("#builderRefreshScript"),
     mediaGrid: document.querySelector("#builderMediaGrid"),
     mediaCount: document.querySelector("#builderMediaCount"),
+    mediaShown: document.querySelector("#builderMediaShown"),
+    mediaSearch: document.querySelector("#builderMediaSearch"),
+    mediaFolder: document.querySelector("#builderMediaFolder"),
+    showAllMedia: document.querySelector("#builderShowAllMedia"),
+    shuffleMedia: document.querySelector("#builderShuffleMedia"),
+    expandMedia: document.querySelector("#builderExpandMedia"),
+    loadMoreMedia: document.querySelector("#builderLoadMoreMedia"),
     wordCount: document.querySelector("#builderWordCount"),
     status: document.querySelector("#builderStatus"),
     download: document.querySelector("#builderDownload"),
     addGrid: document.querySelector("#builderAddGrid"),
-    newHook: document.querySelector("#builderNewHook"),
     copyScript: document.querySelector("#builderCopyScript"),
-    shuffleMedia: document.querySelector("#builderShuffleMedia"),
   };
+
+  const extraHooks = {
+    "return-after-pause": [
+      "Вы не откатились назад. Вы просто сделали паузу",
+      "Не догоняйте пропущенные тренировки",
+      "Возвращение начинается не с наказания",
+      "Что делать в первую тренировку после паузы",
+    ],
+    "home-counts": [
+      "Тренировка без формы и свободного часа всё равно считается",
+      "Почему 12 минут дома — не компромисс",
+      "Минимальная тренировка, которую реально повторить",
+      "Движение помещается даже в очень обычный день",
+    ],
+    "body-neutrality": [
+      "Не любить отражение сегодня — не значит быть против себя",
+      "Забота о теле не требует восторга",
+      "Что делать, когда бодипозитив тоже давит",
+      "Отношения с телом устойчивее ежедневной любви",
+    ],
+    "child-movement": [
+      "Секция не подошла. С ребёнком всё в порядке",
+      "Как отличить лень от неподходящего формата",
+      "Ребёнку можно искать свой способ двигаться",
+      "Три вещи важнее дисциплины в детском спорте",
+    ],
+    "community-effect": [
+      "Иногда тренировка начинается с того, что вас ждут",
+      "Почему рядом с людьми легче не исчезнуть",
+      "Группа не мотивирует. Она помогает остаться",
+      "Что на самом деле дают совместные занятия",
+    ],
+    "life-now": [
+      "Ваша жизнь уже идёт — даже между отпусками",
+      "Как сделать обычный день заметным",
+      "Не ждите свободной недели, чтобы снова почувствовать жизнь",
+      "Три способа перестать проживать вторник на автомате",
+    ],
+    "movement-without-result": [
+      "Движение, после которого не нужно становиться лучше",
+      "Попробуйте подвигаться и ничего не измерять",
+      "Три минуты танца без пользы и отчёта",
+      "Тело умеет играть, а не только выполнять программу",
+    ],
+    "small-anchors": [
+      "Не собирайте идеальный день. Найдите три опоры",
+      "Что остаётся, когда режим снова развалился",
+      "Маленькая система для дней, которые идут не по плану",
+      "Три действия, к которым можно вернуться в любой момент",
+    ],
+  };
+
+  const styleLabels = { dark: "Фото + контраст", pink: "Розовая серия", blue: "Синяя серия", lime: "Лайм-серия", paper: "Редакционная бумага" };
+  const fontLabels = { condensed: "плотная", grotesk: "гротеск", editorial: "редакционная" };
+  const textColors = { white: "#ffffff", ink: "#17221f", pink: "#f35ba7", blue: "#3155e4", lime: "#d4f04a" };
+  const folderLabels = new Map(library.map((item) => [item.folder, item.folderLabel]).filter(([id]) => id));
 
   let activeTopic = config.topics[0];
   let activeStyle = "dark";
+  let activePlacement = "bottom";
+  let activeFont = "condensed";
+  let activeTextColor = "white";
   let hookIndex = 0;
-  let mediaOffset = 0;
-  let candidates = [];
-  let visibleMedia = [];
+  let scriptVariant = 0;
+  let selectedIdeaKey = "";
+  let currentIdeas = [];
+  let mediaScope = "relevant";
+  let mediaLimit = 24;
+  let mediaOrder = [...library];
+  let mediaRandomized = false;
+  let mediaPool = [];
   let selectedPhoto = null;
 
   const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
@@ -47,8 +121,59 @@
     return many;
   };
 
+  function shuffle(items) {
+    const next = [...items];
+    for (let index = next.length - 1; index > 0; index -= 1) {
+      const target = Math.floor(Math.random() * (index + 1));
+      [next[index], next[target]] = [next[target], next[index]];
+    }
+    return next;
+  }
+
   function setStatus(message) {
     ui.status.textContent = message;
+  }
+
+  function ideaPool() {
+    return config.topics.flatMap((topic) => [...topic.hooks, ...(extraHooks[topic.id] || [])].map((hook, index) => ({
+      key: `${topic.id}-${index}-${hook}`,
+      topic,
+      hook,
+    })));
+  }
+
+  function refreshIdeas({ initial = false } = {}) {
+    const previousKeys = new Set(currentIdeas.map((idea) => idea.key));
+    const fresh = shuffle(ideaPool());
+    const unseen = fresh.filter((idea) => !previousKeys.has(idea.key));
+    currentIdeas = [...unseen, ...fresh].slice(0, 10);
+    selectedIdeaKey = "";
+    renderIdeaStrip();
+    if (!initial) setStatus("Собраны ещё 10 идей. Выберите любую — хук сразу появится на обложке.");
+  }
+
+  function renderIdeaStrip() {
+    ui.ideaStrip.innerHTML = currentIdeas.map((idea) => `<button type="button" class="builder-idea${idea.key === selectedIdeaKey ? " is-active" : ""}" data-builder-idea="${escapeHtml(idea.key)}"><span>${escapeHtml(idea.topic.label)}</span><strong>${escapeHtml(idea.hook)}</strong><small>${escapeHtml(idea.topic.promise)}</small></button>`).join("");
+  }
+
+  function selectIdea(key) {
+    const idea = currentIdeas.find((item) => item.key === key);
+    if (!idea) return;
+    selectedIdeaKey = idea.key;
+    activeTopic = idea.topic;
+    hookIndex = [...activeTopic.hooks, ...(extraHooks[activeTopic.id] || [])].indexOf(idea.hook);
+    scriptVariant = 0;
+    ui.topic.value = activeTopic.id;
+    ui.hook.value = idea.hook;
+    ui.subtitle.value = subtitleForGoal();
+    mediaScope = "relevant";
+    mediaLimit = 24;
+    mediaRandomized = false;
+    renderIdeaStrip();
+    renderMedia();
+    renderCover();
+    renderSlides();
+    setStatus(`Идея «${activeTopic.label}» перенесена в обложку и сценарий.`);
   }
 
   function candidateScore(item) {
@@ -59,31 +184,37 @@
     return coverRole + actionRole + portrait + beforePhotoPenalty + Number(item.agentScore || 0);
   }
 
-  function findCandidates() {
-    const exact = library.filter((item) => item.contentThemes?.includes(activeTopic.theme));
-    const pool = exact.length >= 12 ? exact : library;
-    return [...pool].sort((a, b) => candidateScore(b) - candidateScore(a));
-  }
-
-  function mediaWindow() {
-    if (!candidates.length) return [];
-    return Array.from({ length: Math.min(12, candidates.length) }, (_, index) => candidates[(mediaOffset + index) % candidates.length]);
-  }
-
-  function currentSlideMedia() {
-    const pool = visibleMedia.length ? visibleMedia : candidates;
-    return [selectedPhoto, pool[2], pool[5], pool[8]].filter(Boolean);
-  }
-
-  function renderIdeaStrip() {
-    ui.ideaStrip.innerHTML = config.topics.map((topic, index) => `<button type="button" class="builder-idea${topic.id === activeTopic.id ? " is-active" : ""}" data-builder-topic="${escapeHtml(topic.id)}"><span>${String(index + 1).padStart(2, "0")}</span><div><strong>${escapeHtml(topic.label)}</strong><small>${escapeHtml(topic.hooks[0])}</small></div></button>`).join("");
+  function currentMediaPool() {
+    const query = ui.mediaSearch.value.trim().toLocaleLowerCase("ru");
+    const folder = ui.mediaFolder.value;
+    let pool = mediaScope === "relevant"
+      ? mediaOrder.filter((item) => item.contentThemes?.includes(activeTopic.theme))
+      : [...mediaOrder];
+    if (mediaScope === "relevant" && pool.length < 16) pool = [...mediaOrder];
+    if (folder !== "all") pool = pool.filter((item) => item.folder === folder);
+    if (query) pool = pool.filter((item) => [item.fileName, item.folderLabel, item.sourceCategory, ...(item.contentThemes || []), ...(item.carouselRoles || [])].join(" ").toLocaleLowerCase("ru").includes(query));
+    if (mediaScope === "relevant" && !mediaRandomized) pool.sort((a, b) => candidateScore(b) - candidateScore(a));
+    return pool;
   }
 
   function renderMedia() {
-    visibleMedia = mediaWindow();
-    if (!selectedPhoto || !candidates.some((item) => item.id === selectedPhoto.id)) selectedPhoto = visibleMedia[0] || null;
-    ui.mediaCount.textContent = `${candidates.length} ${plural(candidates.length, "релевантное фото", "релевантных фото", "релевантных фото")}`;
-    ui.mediaGrid.innerHTML = visibleMedia.map((item) => `<button type="button" class="builder-media${item.id === selectedPhoto?.id ? " is-selected" : ""}" data-builder-media="${escapeHtml(item.id)}" aria-label="Выбрать ${escapeHtml(item.fileName)}"><img src="${escapeHtml(item.thumb)}" alt="" loading="lazy"></button>`).join("");
+    mediaPool = currentMediaPool();
+    const visible = mediaPool.slice(0, mediaLimit);
+    if (!selectedPhoto) selectedPhoto = visible[0] || library[0] || null;
+    ui.mediaCount.textContent = mediaScope === "relevant"
+      ? `${mediaPool.length} ${plural(mediaPool.length, "фото по теме", "фото по теме", "фото по теме")}`
+      : `${mediaPool.length} ${plural(mediaPool.length, "фото в каталоге", "фото в каталоге", "фото в каталоге")}`;
+    ui.mediaGrid.innerHTML = visible.length
+      ? visible.map((item) => `<button type="button" class="builder-media${item.id === selectedPhoto?.id ? " is-selected" : ""}" data-builder-media="${escapeHtml(item.id)}" data-name="${escapeHtml(item.fileName)}" aria-label="Выбрать ${escapeHtml(item.fileName)}"><img src="${escapeHtml(item.thumb)}" alt="" loading="lazy"></button>`).join("")
+      : `<div class="builder-media-empty"><strong>Ничего не найдено</strong><span>Сбросьте поиск или выберите другую коллекцию.</span></div>`;
+    ui.mediaShown.textContent = `Показано ${visible.length} из ${mediaPool.length}`;
+    ui.loadMoreMedia.hidden = visible.length >= mediaPool.length;
+    ui.showAllMedia.textContent = mediaScope === "all" ? "Только по теме" : "Показать все";
+    ui.showAllMedia.classList.toggle("is-active", mediaScope === "all");
+  }
+
+  function syncMediaSelection() {
+    ui.mediaGrid.querySelectorAll("[data-builder-media]").forEach((button) => button.classList.toggle("is-selected", button.dataset.builderMedia === selectedPhoto?.id));
   }
 
   function subtitleForGoal() {
@@ -93,21 +224,46 @@
 
   function renderCover() {
     ui.cover.className = `builder-cover builder-cover-${activeStyle}`;
+    ui.cover.dataset.placement = activePlacement;
+    ui.cover.dataset.font = activeFont;
+    ui.cover.dataset.textColor = activeTextColor;
+    ui.cover.style.setProperty("--focus-x", `${ui.focusX.value}%`);
+    ui.cover.style.setProperty("--focus-y", `${ui.focusY.value}%`);
     ui.coverImage.src = selectedPhoto?.thumb || "";
     ui.coverHeadline.textContent = ui.hook.value;
     ui.coverPromise.textContent = ui.subtitle.value;
     ui.coverAccount.textContent = ui.account.value;
+    ui.coverStatus.textContent = `${styleLabels[activeStyle]} · ${fontLabels[activeFont]}`;
     document.querySelectorAll("[data-builder-style]").forEach((button) => button.classList.toggle("is-active", button.dataset.builderStyle === activeStyle));
-    ui.coverStatus.textContent = ({ dark: "Фото + контраст", lime: "Лайм-блок", blue: "Синий-блок" })[activeStyle];
+    document.querySelectorAll("[data-builder-placement]").forEach((button) => button.classList.toggle("is-active", button.dataset.builderPlacement === activePlacement));
+    document.querySelectorAll("[data-builder-font]").forEach((button) => button.classList.toggle("is-active", button.dataset.builderFont === activeFont));
+    document.querySelectorAll("[data-builder-text-color]").forEach((button) => button.classList.toggle("is-active", button.dataset.builderTextColor === activeTextColor));
+  }
+
+  function middleSlides() {
+    if (scriptVariant === 1) return [
+      { role: "Главная мысль", title: activeTopic.promise, body: "Сначала называем новый взгляд, затем показываем, почему старый сценарий не помогает." },
+      ...activeTopic.slides.slice(1),
+    ];
+    if (scriptVariant === 2) return [
+      { role: "Вопрос", title: activeTopic.hooks[1] || activeTopic.hooks[0], body: activeTopic.promise },
+      ...activeTopic.slides.slice(0, 7),
+    ];
+    return activeTopic.slides;
   }
 
   function buildSlides() {
     const goal = config.goals[ui.goal.value] || config.goals.save;
     return [
       { role: "Обложка", title: ui.hook.value, body: activeTopic.promise },
-      ...activeTopic.slides,
+      ...middleSlides(),
       { role: "CTA", title: goal.label, body: goal.cta },
     ];
+  }
+
+  function currentSlideMedia() {
+    const pool = mediaPool.length ? mediaPool : currentMediaPool();
+    return [selectedPhoto, pool[2], pool[5], pool[8]].filter(Boolean);
   }
 
   function renderSlides() {
@@ -123,8 +279,7 @@
 
   function updateSlideVisuals() {
     const slideMedia = currentSlideMedia();
-    const slots = [1, 4, 7, 9];
-    slots.forEach((number, index) => {
+    [1, 4, 7, 9].forEach((number, index) => {
       const visual = ui.slides.querySelector(`[data-builder-slide="${number}"] .builder-slide-visual`);
       const photo = slideMedia[index];
       if (!visual || !photo) return;
@@ -151,22 +306,16 @@
     hookIndex = preserveHook ? hookIndex : toneHook % activeTopic.hooks.length;
     if (!preserveHook) ui.hook.value = activeTopic.hooks[hookIndex];
     ui.subtitle.value = subtitleForGoal();
-    mediaOffset = 0;
-    candidates = findCandidates();
-    visibleMedia = mediaWindow();
-    selectedPhoto = visibleMedia[0] || null;
+    scriptVariant = 0;
+    selectedIdeaKey = "";
+    mediaScope = "relevant";
+    mediaLimit = 24;
+    mediaRandomized = false;
     renderIdeaStrip();
     renderMedia();
     renderCover();
     renderSlides();
-    setStatus(`Концепт «${activeTopic.label}» собран: хук, 10 слайдов и ${candidates.length} релевантных фото.`);
-  }
-
-  function nextHook() {
-    hookIndex = (hookIndex + 1) % activeTopic.hooks.length;
-    ui.hook.value = activeTopic.hooks[hookIndex];
-    syncCoverToSlide();
-    setStatus(`Хук ${hookIndex + 1} из ${activeTopic.hooks.length}.`);
+    setStatus(`Концепт «${activeTopic.label}» обновлён: обложка, фотографии и сценарий синхронизированы.`);
   }
 
   function scriptText() {
@@ -209,8 +358,8 @@
     const scale = Math.max(width / image.naturalWidth, height / image.naturalHeight);
     const sourceWidth = width / scale;
     const sourceHeight = height / scale;
-    const sourceX = (image.naturalWidth - sourceWidth) / 2;
-    const sourceY = (image.naturalHeight - sourceHeight) / 2;
+    const sourceX = (image.naturalWidth - sourceWidth) * (Number(ui.focusX.value) / 100);
+    const sourceY = (image.naturalHeight - sourceHeight) * (Number(ui.focusY.value) / 100);
     context.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, x, y, width, height);
   }
 
@@ -245,50 +394,59 @@
     const context = canvas.getContext("2d");
     const image = await loadImage(selectedPhoto.thumb);
     const scale = width / 1080;
-    const panelTop = Math.round(height * .55);
+    drawCoverImage(context, image, 0, 0, width, height);
 
-    context.fillStyle = activeStyle === "lime" ? "#d4f04a" : activeStyle === "blue" ? "#3155e4" : "#17221f";
-    context.fillRect(0, 0, width, height);
     if (activeStyle === "dark") {
-      drawCoverImage(context, image, 0, 0, width, height);
-      const gradient = context.createLinearGradient(0, height * .24, 0, height);
+      const gradient = context.createLinearGradient(0, height * .18, 0, height);
       gradient.addColorStop(0, "rgba(8,14,12,0)");
-      gradient.addColorStop(1, "rgba(8,14,12,.94)");
+      gradient.addColorStop(1, "rgba(8,14,12,.92)");
       context.fillStyle = gradient;
       context.fillRect(0, 0, width, height);
-    } else {
-      drawCoverImage(context, image, 0, 0, width, activeStyle === "blue" ? height * .62 : panelTop);
-      context.fillStyle = activeStyle === "lime" ? "#d4f04a" : "#3155e4";
-      context.fillRect(0, panelTop, width, height - panelTop);
+    }
+    if (activeStyle === "paper") {
+      context.fillStyle = "rgba(20,18,15,.12)";
+      context.fillRect(0, 0, width, height);
     }
 
-    const lightText = activeStyle !== "lime";
-    context.fillStyle = activeStyle === "lime" ? "rgba(23,33,30,.72)" : "rgba(18,27,24,.58)";
+    context.fillStyle = "rgba(18,27,24,.58)";
     roundedRect(context, 54 * scale, 52 * scale, 238 * scale, 58 * scale, 10 * scale);
     context.fillStyle = "#ffffff";
     context.font = `800 ${22 * scale}px Arial, sans-serif`;
+    context.textAlign = "left";
     context.fillText(ui.account.value, 76 * scale, 89 * scale);
 
-    const maxWidth = width - 108 * scale;
-    let fontSize = 92 * scale;
+    const isSide = activePlacement === "left" || activePlacement === "right";
+    const maxWidth = width * (isSide ? .58 : .82);
+    let fontSize = (activeFont === "editorial" ? 78 : activeFont === "grotesk" ? 86 : 96) * scale;
+    const family = activeFont === "editorial" ? "Georgia, serif" : activeFont === "grotesk" ? "Arial, sans-serif" : "Arial Narrow, Arial, sans-serif";
     let lines = [];
     do {
-      context.font = `900 ${fontSize}px Arial, sans-serif`;
+      context.font = `${activeFont === "editorial" ? 700 : 900} ${fontSize}px ${family}`;
       lines = wrapLines(context, ui.hook.value, maxWidth);
       if (lines.length > 5) fontSize -= 5 * scale;
-    } while (lines.length > 5 && fontSize > 54 * scale);
+    } while (lines.length > 5 && fontSize > 50 * scale);
 
-    context.fillStyle = lightText ? "#ffffff" : "#17211e";
+    const lineHeight = fontSize * (activeFont === "editorial" ? 1.03 : .93);
+    const textBlockHeight = lines.length * lineHeight;
+    const x = activePlacement === "right" ? width - 58 * scale : activePlacement === "middle" ? width / 2 : 58 * scale;
+    const startY = activePlacement === "middle" ? (height - textBlockHeight) / 2 : height - textBlockHeight - 118 * scale;
+    context.textAlign = activePlacement === "right" ? "right" : activePlacement === "middle" ? "center" : "left";
+
+    const boxColors = { pink: "#f35ba7", blue: "#3155e4", lime: "#d4f04a", paper: "#fff7e6" };
+    if (boxColors[activeStyle]) {
+      const boxX = activePlacement === "right" ? x - maxWidth - 24 * scale : activePlacement === "middle" ? x - maxWidth / 2 - 24 * scale : x - 24 * scale;
+      context.fillStyle = boxColors[activeStyle];
+      roundedRect(context, boxX, startY - fontSize * .86, maxWidth + 48 * scale, textBlockHeight + 30 * scale, 8 * scale);
+    }
+
+    context.fillStyle = textColors[activeTextColor];
     context.textBaseline = "alphabetic";
-    const lineHeight = fontSize * .93;
-    const subtitleY = height - 64 * scale;
-    const headlineBottom = subtitleY - 64 * scale;
-    const startY = headlineBottom - (lines.length - 1) * lineHeight;
-    lines.forEach((line, index) => context.fillText(line, 54 * scale, startY + index * lineHeight));
+    lines.forEach((line, index) => context.fillText(line, x, startY + index * lineHeight));
 
+    const subtitleY = Math.min(height - 42 * scale, startY + textBlockHeight + 34 * scale);
     context.font = `800 ${20 * scale}px Arial, sans-serif`;
-    context.fillStyle = lightText ? "rgba(255,255,255,.88)" : "rgba(23,33,30,.72)";
-    context.fillText(ui.subtitle.value.toUpperCase(), 56 * scale, subtitleY);
+    context.fillStyle = activeStyle === "paper" && activeTextColor === "white" ? "#17221f" : textColors[activeTextColor];
+    context.fillText(ui.subtitle.value.toUpperCase(), x, subtitleY);
     return canvas;
   }
 
@@ -298,12 +456,13 @@
       ui.download.textContent = "Собираю PNG…";
       const canvas = await makeCoverCanvas();
       const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+      if (!blob) throw new Error("PNG не собран");
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = `sekta-carousel-${activeTopic.id}-cover.png`;
+      link.download = `sekta-${activeTopic.id}-cover.png`;
       link.click();
       setTimeout(() => URL.revokeObjectURL(link.href), 1000);
-      setStatus("Обложка 1080 × 1350 скачана в PNG.");
+      setStatus("Обложка 1080 × 1350 скачана в PNG со всеми настройками.");
     } catch {
       setStatus("Не удалось собрать PNG. Откройте командную версию через GitHub Pages и попробуйте снова.");
     } finally {
@@ -320,7 +479,7 @@
         id: `builder-${activeTopic.id}-${Date.now()}`,
         thumb,
         title: ui.hook.value,
-        source: "Конструктор каруселей",
+        source: "Конструктор идей и обложек",
       } }));
       setStatus("Обложка добавлена в будущую сетку.");
     } catch {
@@ -329,41 +488,60 @@
   }
 
   ui.topic.innerHTML = config.topics.map((topic) => `<option value="${escapeHtml(topic.id)}">${escapeHtml(topic.label)}</option>`).join("");
+  ui.mediaFolder.innerHTML += [...folderLabels.entries()].map(([id, label]) => `<option value="${escapeHtml(id)}">${escapeHtml(label)}</option>`).join("");
+
   ui.form.addEventListener("submit", (event) => { event.preventDefault(); generateConcept(); });
+  ui.refreshIdeas.addEventListener("click", () => refreshIdeas());
   ui.ideaStrip.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-builder-topic]");
-    if (!button) return;
-    ui.topic.value = button.dataset.builderTopic;
-    generateConcept();
+    const button = event.target.closest("[data-builder-idea]");
+    if (button) selectIdea(button.dataset.builderIdea);
   });
   ui.mediaGrid.addEventListener("click", (event) => {
     const button = event.target.closest("[data-builder-media]");
     if (!button) return;
-    selectedPhoto = candidates.find((item) => item.id === button.dataset.builderMedia) || selectedPhoto;
-    renderMedia();
+    selectedPhoto = library.find((item) => item.id === button.dataset.builderMedia) || selectedPhoto;
+    syncMediaSelection();
     renderCover();
     updateSlideVisuals();
     setStatus(`Фото ${selectedPhoto.fileName} выбрано для обложки.`);
   });
-  document.querySelectorAll("[data-builder-style]").forEach((button) => button.addEventListener("click", () => {
-    activeStyle = button.dataset.builderStyle;
-    renderCover();
-  }));
+  document.querySelectorAll("[data-builder-style]").forEach((button) => button.addEventListener("click", () => { activeStyle = button.dataset.builderStyle; renderCover(); }));
+  document.querySelectorAll("[data-builder-placement]").forEach((button) => button.addEventListener("click", () => { activePlacement = button.dataset.builderPlacement; renderCover(); }));
+  document.querySelectorAll("[data-builder-font]").forEach((button) => button.addEventListener("click", () => { activeFont = button.dataset.builderFont; renderCover(); }));
+  document.querySelectorAll("[data-builder-text-color]").forEach((button) => button.addEventListener("click", () => { activeTextColor = button.dataset.builderTextColor; renderCover(); }));
   ui.hook.addEventListener("input", syncCoverToSlide);
   ui.subtitle.addEventListener("input", renderCover);
   ui.account.addEventListener("change", renderCover);
   ui.goal.addEventListener("change", () => generateConcept({ preserveHook: true }));
+  ui.focusX.addEventListener("input", renderCover);
+  ui.focusY.addEventListener("input", renderCover);
   ui.slides.addEventListener("input", updateWordCount);
-  ui.newHook.addEventListener("click", nextHook);
+  ui.refreshScript.addEventListener("click", () => {
+    scriptVariant = (scriptVariant + 1) % 3;
+    renderSlides();
+    setStatus(`Сценарий обновлён: вариант ${scriptVariant + 1} из 3.`);
+  });
   ui.copyScript.addEventListener("click", async () => { await copyText(scriptText()); setStatus("Сценарий скопирован в буфер обмена."); });
-  ui.shuffleMedia.addEventListener("click", () => {
-    mediaOffset = (mediaOffset + 12) % Math.max(candidates.length, 1);
-    visibleMedia = mediaWindow();
-    selectedPhoto = visibleMedia[0] || selectedPhoto;
+  ui.mediaSearch.addEventListener("input", () => { mediaLimit = 24; renderMedia(); });
+  ui.mediaFolder.addEventListener("change", () => { mediaLimit = 24; renderMedia(); });
+  ui.showAllMedia.addEventListener("click", () => {
+    mediaScope = mediaScope === "all" ? "relevant" : "all";
+    mediaLimit = 24;
     renderMedia();
-    renderCover();
-    updateSlideVisuals();
-    setStatus("Показана следующая подборка фотографий.");
+    setStatus(mediaScope === "all" ? "Открыт весь каталог медиатеки." : "Показаны фотографии по теме карусели.");
+  });
+  ui.shuffleMedia.addEventListener("click", () => {
+    mediaOrder = shuffle(mediaOrder);
+    mediaRandomized = true;
+    mediaLimit = Math.max(mediaLimit, 24);
+    renderMedia();
+    setStatus("Фотографии перемешаны. Выбранная обложка сохранена.");
+  });
+  ui.loadMoreMedia.addEventListener("click", () => { mediaLimit += 24; renderMedia(); });
+  ui.expandMedia.addEventListener("click", () => {
+    const expanded = ui.workspace.classList.toggle("is-media-expanded");
+    ui.expandMedia.textContent = expanded ? "Вернуть обложку" : "Развернуть";
+    ui.expandMedia.setAttribute("aria-expanded", String(expanded));
   });
   ui.download.addEventListener("click", downloadCover);
   ui.addGrid.addEventListener("click", addCoverToGrid);
@@ -371,10 +549,8 @@
   ui.topic.value = activeTopic.id;
   ui.hook.value = activeTopic.hooks[0];
   ui.subtitle.value = subtitleForGoal();
-  candidates = findCandidates();
-  visibleMedia = mediaWindow();
-  selectedPhoto = visibleMedia[0] || null;
-  renderIdeaStrip();
+  refreshIdeas({ initial: true });
+  selectedPhoto = currentMediaPool()[0] || library[0] || null;
   renderMedia();
   renderCover();
   renderSlides();
