@@ -348,7 +348,7 @@ main { width: min(1480px, 100%); margin: 0 auto; padding: 30px 32px 56px; }
 .builder-cover-actions .button { flex: 1; }
 .builder-media-panel { min-width: 0; }
 .builder-media-head { padding: 0 0 14px; }
-.builder-media-toolbar { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(140px, .7fr) auto auto; gap: 7px; margin-bottom: 10px; }
+.builder-media-toolbar { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(140px, .7fr) auto auto auto; gap: 7px; margin-bottom: 10px; }
 .builder-media-search { display: flex; align-items: center; gap: 7px; padding: 0 9px; }
 .builder-media-search span { color: var(--soft); }
 .builder-media-search input { min-width: 0; width: 100%; height: 36px; border: 0; outline: 0; background: transparent; font-size: 10px; }

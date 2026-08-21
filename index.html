@@ -231,7 +231,7 @@
         <section class="view" data-view-panel="builder">
           <div class="page-heading compact builder-heading">
             <div><h1>Идеи и обложки</h1><p>Выберите хук, соберите обложку на фотографии из медиатеки, а затем доработайте сценарий карусели.</p></div>
-            <span class="snapshot-label"><i></i><span id="builderLibraryCount">12</span> публичных обложек подключено</span>
+            <span class="snapshot-label"><i></i><span id="builderLibraryCount">82</span> фото подключено</span>
           </div>
 
           <section class="panel builder-ideas-panel">
@@ -311,6 +311,8 @@
                 <select id="builderMediaFolder" aria-label="Коллекция"><option value="all">Все коллекции</option></select>
                 <button class="button button-secondary" id="builderShowAllMedia" type="button">Показать все</button>
                 <button class="button button-secondary" id="builderShuffleMedia" type="button">Перемешать ↻</button>
+                <button class="button button-primary" id="builderUploadLocal" type="button">Добавить фото</button>
+                <input id="builderLocalUpload" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" multiple hidden>
               </div>
               <div class="builder-media-grid" id="builderMediaGrid"></div>
               <div class="builder-media-footer"><span id="builderMediaShown">Показано 0</span><button class="text-button" id="builderLoadMoreMedia" type="button">Показать ещё</button></div>
@@ -325,14 +327,15 @@
         </section>
 
         <section class="view" data-view-panel="library">
-          <div class="page-heading compact"><div><p class="eyebrow">Стартовый публичный каталог · <span id="libraryCollectionCount">1 коллекция</span></p><h1>Медиатека Mama</h1><p><span id="librarySummary">12 публичных обложек</span> · <span id="libraryDuplicateSummary">0 дублей</span> · внутренняя медиатека подключается отдельно.</p></div></div>
+          <div class="page-heading compact"><div><p class="eyebrow">Mama-каталог · <span id="libraryCollectionCount">3 коллекции</span></p><h1>Медиатека Mama</h1><p><span id="librarySummary">12 обложек и 70 архивных фото</span> · <span id="libraryDuplicateSummary">0 дублей</span> · свои фото можно добавить локально в конструкторе.</p></div></div>
           <div class="toolbar" role="search">
             <label class="search-box"><span>⌕</span><input id="librarySearch" type="search" placeholder="Файл, тема или роль в карусели…" autocomplete="off"></label>
             <div class="filter-group" aria-label="Папка">
               <button class="filter-chip is-active" data-folder="all">Все</button>
               <button class="filter-chip" data-folder="current">Публичная сетка</button>
+              <button class="filter-chip" data-folder="mama-archive">Семья и дети</button>
             </div>
-            <select id="themeFilter" aria-label="Тема"><option value="all">Все темы</option><option value="01_материнство_и_поддержка">Материнство и поддержка</option><option value="02_беременность_и_движение">Беременность</option><option value="04_восстановление_после_родов">Восстановление</option><option value="05_питание_и_эмоциональный_голод">Питание и эмоциональный голод</option><option value="06_экспертность_и_здоровье">Экспертность и здоровье</option><option value="07_работающая_мама_и_ресурс">Работающая мама</option><option value="08_юмор_и_узнавание">Юмор и узнавание</option><option value="09_продукт_и_оффер">Продукт и оффер</option><option value="10_истории_и_доказательства">Истории и доказательства</option></select>
+            <select id="themeFilter" aria-label="Тема"><option value="all">Все темы</option><option value="01_материнство_и_поддержка">Материнство и поддержка</option><option value="02_беременность_и_движение">Беременность</option><option value="04_восстановление_после_родов">Восстановление</option><option value="05_питание_и_эмоциональный_голод">Питание и эмоциональный голод</option><option value="06_экспертность_и_здоровье">Экспертность и здоровье</option><option value="07_работающая_мама_и_ресурс">Работающая мама</option><option value="08_юмор_и_узнавание">Юмор и узнавание</option><option value="09_продукт_и_оффер">Продукт и оффер</option><option value="10_истории_и_доказательства">Истории и доказательства</option><option value="01_дети_воспитание_родительство">Дети и родительство</option><option value="02_семья_близость_отношения">Семья и близость</option><option value="03_тело_спорт_сила_изменения">Тело и движение</option></select>
             <select id="orientationFilter" aria-label="Ориентация"><option value="all">Любая ориентация</option><option value="portrait">Вертикальные</option><option value="landscape">Горизонтальные</option><option value="square">Квадратные</option></select>
             <button class="button button-secondary toolbar-shuffle" id="libraryShuffle" type="button">Перемешать ↻</button>
           </div>
