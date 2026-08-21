@@ -1,6 +1,6 @@
 (() => {
   const config = window.SEKTA_CAROUSEL_BUILDER;
-  const library = window.SEKTA_LIBRARY?.items || [];
+  const library = [...(window.SEKTA_LIBRARY?.items || [])];
   if (!config?.topics?.length) return;
 
   const ui = {
@@ -31,6 +31,8 @@
     mediaFolder: document.querySelector("#builderMediaFolder"),
     showAllMedia: document.querySelector("#builderShowAllMedia"),
     shuffleMedia: document.querySelector("#builderShuffleMedia"),
+    uploadLocal: document.querySelector("#builderUploadLocal"),
+    localUpload: document.querySelector("#builderLocalUpload"),
     expandMedia: document.querySelector("#builderExpandMedia"),
     loadMoreMedia: document.querySelector("#builderLoadMoreMedia"),
     wordCount: document.querySelector("#builderWordCount"),
@@ -111,6 +113,7 @@
   let mediaRandomized = false;
   let mediaPool = [];
   let selectedPhoto = null;
+  const localObjectUrls = new Set();
 
   const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
   const plural = (number, one, few, many) => {
@@ -132,6 +135,84 @@
 
   function setStatus(message) {
     ui.status.textContent = message;
+  }
+
+  function ensureLocalFolderOption() {
+    if (ui.mediaFolder.querySelector('option[value="local"]')) return;
+    const option = document.createElement("option");
+    option.value = "local";
+    option.textContent = "С компьютера · локально";
+    ui.mediaFolder.append(option);
+  }
+
+  function localImageItem(file) {
+    return new Promise((resolve, reject) => {
+      const thumb = URL.createObjectURL(file);
+      const image = new Image();
+      image.onload = () => {
+        localObjectUrls.add(thumb);
+        resolve({
+          id: `local-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+          folder: "local",
+          folderLabel: "С компьютера · локально",
+          sourceCategory: "Личное фото",
+          sourceFolder: "Локальная загрузка",
+          fileName: file.name,
+          originalPath: "Файл доступен только в этом браузере до обновления страницы",
+          originalUrl: "",
+          thumb,
+          width: image.naturalWidth,
+          height: image.naturalHeight,
+          orientation: image.naturalWidth === image.naturalHeight ? "square" : image.naturalWidth > image.naturalHeight ? "landscape" : "portrait",
+          sizeMb: Number((file.size / 1024 / 1024).toFixed(1)),
+          modifiedAt: new Date(file.lastModified || Date.now()).toISOString(),
+          agentScore: 3,
+          contentThemes: [activeTopic.theme],
+          carouselRoles: ["01_обложка_личное_присутствие"],
+          isUtility: false,
+          duplicates: [],
+        });
+      };
+      image.onerror = () => {
+        URL.revokeObjectURL(thumb);
+        reject(new Error(`Не удалось открыть ${file.name}`));
+      };
+      image.src = thumb;
+    });
+  }
+
+  async function addLocalImages(files) {
+    const candidates = [...files].filter((file) => /\.(jpe?g|png|webp)$/i.test(file.name) && file.size <= 25 * 1024 * 1024);
+    if (!candidates.length) {
+      setStatus("Выберите JPG, PNG или WebP до 25 МБ. HEIC сначала сохраните как JPEG.");
+      return;
+    }
+
+    ui.uploadLocal.disabled = true;
+    ui.uploadLocal.textContent = "Добавляю…";
+    const results = await Promise.allSettled(candidates.map(localImageItem));
+    const added = results.filter((result) => result.status === "fulfilled").map((result) => result.value);
+
+    if (added.length) {
+      library.push(...added);
+      mediaOrder = [...added, ...mediaOrder];
+      ensureLocalFolderOption();
+      ui.mediaFolder.value = "local";
+      mediaScope = "all";
+      mediaLimit = 24;
+      mediaRandomized = false;
+      selectedPhoto = added[0];
+      renderMedia();
+      renderCover();
+      updateSlideVisuals();
+      setStatus(`${added.length} ${plural(added.length, "фото добавлено", "фото добавлены", "фото добавлено")} локально. Файлы не отправлены в репозиторий и исчезнут после обновления страницы.`);
+    } else {
+      setStatus("Не удалось открыть выбранные файлы. Используйте JPG, PNG или WebP.");
+    }
+
+    ui.uploadLocal.disabled = false;
+    ui.uploadLocal.textContent = "Добавить фото";
+    ui.localUpload.value = "";
   }
 
   function ideaPool() {
@@ -537,6 +618,8 @@
     renderMedia();
     setStatus("Фотографии перемешаны. Выбранная обложка сохранена.");
   });
+  ui.uploadLocal.addEventListener("click", () => ui.localUpload.click());
+  ui.localUpload.addEventListener("change", () => addLocalImages(ui.localUpload.files));
   ui.loadMoreMedia.addEventListener("click", () => { mediaLimit += 24; renderMedia(); });
   ui.expandMedia.addEventListener("click", () => {
     const expanded = ui.workspace.classList.toggle("is-media-expanded");
@@ -545,6 +628,7 @@
   });
   ui.download.addEventListener("click", downloadCover);
   ui.addGrid.addEventListener("click", addCoverToGrid);
+  window.addEventListener("beforeunload", () => localObjectUrls.forEach((url) => URL.revokeObjectURL(url)));
 
   ui.topic.value = activeTopic.id;
   ui.hook.value = activeTopic.hooks[0];
