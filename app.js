@@ -528,10 +528,12 @@
     }
   });
 
-  document.querySelector("#metricUnique").textContent = libraryPayload.uniqueCount;
+  document.querySelector("#metricUnique").textContent = libraryPayload.byFolder?.current || 12;
   document.querySelector("#navLibraryCount").textContent = libraryPayload.uniqueCount;
   document.querySelector("#builderLibraryCount").textContent = libraryPayload.uniqueCount;
-  document.querySelector("#librarySummary").textContent = `${libraryPayload.uniqueCount} публичных обложек из ${libraryPayload.sourceCount}`;
+  const currentMediaCount = libraryPayload.byFolder?.current || 0;
+  const archiveMediaCount = libraryPayload.byFolder?.["mama-archive"] || 0;
+  document.querySelector("#librarySummary").textContent = `${currentMediaCount} обложек и ${archiveMediaCount} архивных фото`;
   const collectionCount = Object.keys(libraryPayload.sourceFolders || {}).length;
   document.querySelector("#libraryCollectionCount").textContent = `${collectionCount} ${plural(collectionCount, "коллекция", "коллекции", "коллекций")}`;
   ui.libraryDuplicateSummary.textContent = `${libraryPayload.duplicateCount} ${plural(libraryPayload.duplicateCount, "точный дубль скрыт", "точных дубля скрыты", "точных дублей скрыты")}`;
