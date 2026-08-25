@@ -6,6 +6,8 @@
   const DRAFT_KEY = "sekta-mama-carousel-studio-draft-v1";
   const SAVED_KEY = "sekta-mama-carousel-studio-series-v1";
   const IMPORT_KEY = "sekta-mama-carousel-studio-taste-import-v1";
+  const LOCAL_MEDIA_DB = "sekta-mama-local-media-v1";
+  const LOCAL_MEDIA_STORE = "media";
   const MAX_VIDEO_SECONDS = 60;
   const DEFAULT_LONGREAD = document.querySelector("#carouselLongreadText")?.value || "";
   const formatPresets = {
@@ -253,6 +255,98 @@
   const photoById = (id) => library.find((item) => item.id === id) || null;
   const preferredPhoto = () => library.find((item) => item.orientation === "portrait" && item.carouselRoles?.includes("01_обложка_личное_присутствие")) || library.find((item) => item.orientation === "portrait") || library[0] || null;
 
+  let localMediaDbPromise;
+
+  function openLocalMediaDb() {
+    if (!window.indexedDB) return Promise.reject(new Error("IndexedDB unavailable"));
+    if (localMediaDbPromise) return localMediaDbPromise;
+    localMediaDbPromise = new Promise((resolve, reject) => {
+      const request = indexedDB.open(LOCAL_MEDIA_DB, 1);
+      request.onupgradeneeded = () => {
+        const db = request.result;
+        if (!db.objectStoreNames.contains(LOCAL_MEDIA_STORE)) db.createObjectStore(LOCAL_MEDIA_STORE, { keyPath: "id" });
+      };
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error || new Error("IndexedDB open failed"));
+    });
+    return localMediaDbPromise;
+  }
+
+  async function localMediaTransaction(mode, action) {
+    const db = await openLocalMediaDb();
+    return new Promise((resolve, reject) => {
+      const transaction = db.transaction(LOCAL_MEDIA_STORE, mode);
+      const store = transaction.objectStore(LOCAL_MEDIA_STORE);
+      let request;
+      try { request = action(store); } catch (error) { reject(error); return; }
+      transaction.oncomplete = () => resolve(request?.result);
+      transaction.onerror = () => reject(transaction.error || request?.error || new Error("IndexedDB transaction failed"));
+      transaction.onabort = () => reject(transaction.error || new Error("IndexedDB transaction aborted"));
+    });
+  }
+
+  function persistentRecord(item, file) {
+    return {
+      id: item.id,
+      fileName: item.fileName,
+      blob: file,
+      poster: item.kind === "video" ? item.thumb : "",
+      width: item.width,
+      height: item.height,
+      duration: item.duration || 0,
+      originalDuration: item.originalDuration || 0,
+      orientation: item.orientation,
+      kind: item.kind,
+      createdAt: new Date().toISOString(),
+    };
+  }
+
+  async function persistLocalMedia(item, file) {
+    await localMediaTransaction("readwrite", (store) => store.put(persistentRecord(item, file)));
+    item.isPersistentLocal = true;
+    navigator.storage?.persist?.().catch(() => {});
+  }
+
+  function restoredLocalItem(record) {
+    const source = URL.createObjectURL(record.blob);
+    return {
+      id: record.id,
+      folder: "local",
+      folderLabel: "С компьютера · сохранено в браузере",
+      sourceCategory: record.kind === "video" ? "Личное видео" : "Личное фото",
+      sourceFolder: "Локальная загрузка",
+      fileName: record.fileName,
+      originalPath: "Локальный файл",
+      originalUrl: "",
+      thumb: record.kind === "video" ? record.poster : source,
+      exportImage: source,
+      width: record.width,
+      height: record.height,
+      duration: record.duration || 0,
+      originalDuration: record.originalDuration || 0,
+      orientation: record.orientation,
+      contentThemes: [],
+      carouselRoles: ["01_обложка_личное_присутствие"],
+      kind: record.kind,
+      isLocal: true,
+      isPersistentLocal: true,
+    };
+  }
+
+  async function restoreLocalMedia() {
+    try {
+      const records = await localMediaTransaction("readonly", (store) => store.getAll());
+      const restored = (records || []).sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt))).filter((record) => record?.blob && !photoById(record.id)).map(restoredLocalItem);
+      if (!restored.length) return 0;
+      library.unshift(...restored);
+      slideMediaOrder = [...restored, ...slideMediaOrder];
+      renderAll();
+      return restored.length;
+    } catch {
+      return 0;
+    }
+  }
+
   function localImageItem(file) {
     return new Promise((resolve, reject) => {
       const thumb = URL.createObjectURL(file);
@@ -347,7 +441,11 @@
       return;
     }
     setStatus("Добавляю фото и видео с компьютера…");
-    const results = await Promise.allSettled(candidates.map((file) => /\.(mp4|mov|webm)$/i.test(file.name) ? localVideoItem(file) : localImageItem(file)));
+    const results = await Promise.allSettled(candidates.map(async (file) => {
+      const item = await (/\.(mp4|mov|webm)$/i.test(file.name) ? localVideoItem(file) : localImageItem(file));
+      try { await persistLocalMedia(item, file); } catch { item.persistenceFailed = true; }
+      return item;
+    }));
     const added = results.filter((result) => result.status === "fulfilled").map((result) => result.value);
     if (!added.length) {
       setStatus("Не удалось открыть выбранные файлы. Для видео надёжнее всего использовать MP4.");
@@ -362,7 +460,8 @@
     renderAll();
     markChanged();
     const videos = added.filter((item) => item.kind === "video").length;
-    setStatus(`${added.length} файлов добавлено локально${videos ? ` · видео: ${videos}, максимум по 1 минуте` : ""}. Они останутся до обновления страницы; текст и настройки сохранятся.`);
+    const failedToPersist = added.filter((item) => item.persistenceFailed).length;
+    setStatus(failedToPersist ? `${added.length} файлов добавлено, но ${failedToPersist} не поместилось в хранилище браузера. Они исчезнут после обновления.` : `${added.length} файлов сохранено в этом браузере${videos ? ` · видео: ${videos}, максимум по 1 минуте` : ""}. Они останутся после обновления страницы.`);
   }
 
   function fontChoices() {
@@ -877,12 +976,51 @@
   function mediaPool(query = "", order = library) {
     const normalized = query.trim().toLocaleLowerCase("ru");
     const pool = normalized ? order.filter((item) => [item.fileName, item.folderLabel, ...(item.contentThemes || []), ...(item.carouselRoles || [])].join(" ").toLocaleLowerCase("ru").includes(normalized)) : order;
-    return (order === library ? [...pool].sort((a, b) => Number(b.orientation === "portrait") - Number(a.orientation === "portrait")) : [...pool]).slice(0, 24);
+    return (order === library ? [...pool].sort((a, b) => Number(!!b.isLocal) - Number(!!a.isLocal) || Number(b.orientation === "portrait") - Number(a.orientation === "portrait")) : [...pool]).slice(0, 24);
   }
 
   function renderMediaStrip(element, selectedId, query = "", order = library) {
     const pool = mediaPool(query, order);
-    element.innerHTML = pool.length ? pool.map((photo) => `<button type="button" class="${photo.id === selectedId ? "is-selected" : ""}" data-carousel-photo="${escapeHtml(photo.id)}" aria-label="Выбрать ${escapeHtml(photo.fileName)}"><img src="${escapeHtml(photo.thumb)}" alt="" loading="lazy">${photo.kind === "video" ? `<span class="carousel-video-badge">▶ ${Math.ceil(photo.duration)}с</span>` : ""}</button>`).join("") : `<span class="carousel-media-empty">Ничего не найдено.</span>`;
+    element.innerHTML = pool.length ? pool.map((photo) => `<span class="carousel-media-item${photo.isLocal ? " is-local" : ""}"><button type="button" class="carousel-media-select${photo.id === selectedId ? " is-selected" : ""}" data-carousel-photo="${escapeHtml(photo.id)}" aria-label="Выбрать ${escapeHtml(photo.fileName)}"><img src="${escapeHtml(photo.thumb)}" alt="" loading="lazy">${photo.kind === "video" ? `<span class="carousel-video-badge">▶ ${Math.ceil(photo.duration)}с</span>` : ""}</button>${photo.isLocal ? `<button type="button" class="carousel-media-delete" data-delete-local-media="${escapeHtml(photo.id)}" aria-label="Удалить ${escapeHtml(photo.fileName)} из локальной медиатеки" title="Удалить из локальной медиатеки">×</button>` : ""}</span>`).join("") : `<span class="carousel-media-empty">Ничего не найдено.</span>`;
+  }
+
+  function releaseLocalMediaUrls(item) {
+    if (String(item.thumb).startsWith("blob:")) URL.revokeObjectURL(item.thumb);
+    if (String(item.exportImage).startsWith("blob:") && item.exportImage !== item.thumb) URL.revokeObjectURL(item.exportImage);
+  }
+
+  async function deleteLocalMedia(id) {
+    const item = photoById(id);
+    if (!item?.isLocal) return;
+    const currentUses = series.slides.filter((slide) => slide.photoId === id).length;
+    const savedUses = savedSeries.reduce((sum, saved) => sum + (saved.slides || []).filter((slide) => slide.photoId === id).length, 0);
+    const uses = currentUses + savedUses;
+    const warning = uses ? `Файл «${item.fileName}» используется в ${uses} карточках. Удалить его и убрать из этих карточек?` : `Удалить «${item.fileName}» из локальной медиатеки этого браузера?`;
+    if (!confirm(warning)) return;
+    try { await localMediaTransaction("readwrite", (store) => store.delete(id)); } catch {
+      setStatus("Не получилось удалить файл из хранилища браузера.");
+      return;
+    }
+    series.slides.forEach((slide) => {
+      if (slide.photoId !== id) return;
+      slide.photoId = null;
+      if (!["paper", "field", "dark", "quote"].includes(slide.scene)) slide.scene = "paper";
+      slide.savedAt = null;
+    });
+    savedSeries.forEach((saved) => (saved.slides || []).forEach((slide) => {
+      if (slide.photoId !== id) return;
+      slide.photoId = null;
+      if (!["paper", "field", "dark", "quote"].includes(slide.scene)) slide.scene = "paper";
+      slide.savedAt = null;
+    }));
+    localStorage.setItem(SAVED_KEY, JSON.stringify(savedSeries));
+    releaseLocalMediaUrls(item);
+    const libraryIndex = library.findIndex((media) => media.id === id);
+    if (libraryIndex >= 0) library.splice(libraryIndex, 1);
+    slideMediaOrder = slideMediaOrder.filter((media) => media.id !== id);
+    renderAll();
+    markChanged();
+    setStatus(`«${item.fileName}» удалён из локальной медиатеки.`);
   }
 
   function coverSlide() {
@@ -1786,7 +1924,9 @@
     renderCanvas(ui.coverCanvas, coverSlide(), 0);
     markChanged();
   }));
-  ui.coverMedia.addEventListener("click", (event) => {
+  ui.coverMedia.addEventListener("click", async (event) => {
+    const deleteButton = event.target.closest("[data-delete-local-media]");
+    if (deleteButton) { await deleteLocalMedia(deleteButton.dataset.deleteLocalMedia); return; }
     const button = event.target.closest("[data-carousel-photo]");
     if (!button) return;
     coverSlide().photoId = button.dataset.carouselPhoto;
@@ -1868,7 +2008,9 @@
     markChanged();
     setStatus(slide.font ? `${slide.font.family} применён только к слайду ${series.activeSlide + 1}.` : `Слайд ${series.activeSlide + 1} снова использует шрифт всей серии.`);
   });
-  ui.slideMedia.addEventListener("click", (event) => {
+  ui.slideMedia.addEventListener("click", async (event) => {
+    const deleteButton = event.target.closest("[data-delete-local-media]");
+    if (deleteButton) { await deleteLocalMedia(deleteButton.dataset.deleteLocalMedia); return; }
     const button = event.target.closest("[data-carousel-photo]");
     if (!button) return;
     const slide = activeSlide();
@@ -1974,10 +2116,7 @@
   window.addEventListener("sekta:open-carousel-studio", () => renderAll());
   window.addEventListener("sekta:post-builder-load", (event) => loadIdea(event.detail || fallbackIdea));
   window.addEventListener("beforeunload", () => {
-    library.filter((item) => item.isLocal).forEach((item) => {
-      if (String(item.thumb).startsWith("blob:")) URL.revokeObjectURL(item.thumb);
-      if (String(item.exportImage).startsWith("blob:") && item.exportImage !== item.thumb) URL.revokeObjectURL(item.exportImage);
-    });
+    library.filter((item) => item.isLocal).forEach(releaseLocalMediaUrls);
   });
 
   ensureFont(series.font);
@@ -1993,5 +2132,8 @@
     renderAll();
     setStatus(`Импортировано: ${choices.length} шрифтовых вариантов, ${tasteBundle.systems?.length || 0} сохранённых систем и ${likedPalettes.length} цветовых сцен.`);
   }
+  restoreLocalMedia().then((count) => {
+    if (count) setStatus(`${count} ${plural(count, "файл восстановлен", "файла восстановлены", "файлов восстановлено")} из локальной медиатеки браузера.`);
+  });
   markChanged();
 })();
