@@ -359,6 +359,14 @@
 
           <section class="panel carousel-system-bar" aria-label="Система всей карусели">
             <label class="carousel-series-name"><span>Название серии</span><input id="carouselSeriesName" type="text" value="Возвращение после паузы"></label>
+            <div class="carousel-format-control">
+              <span>Формат серии</span>
+              <div class="carousel-format-switch" id="carouselFormatSwitch" role="group" aria-label="Формат карточек">
+                <button class="is-active" type="button" data-carousel-format="feed" aria-pressed="true"><strong>Пост 4:5</strong><small>1080 × 1350</small></button>
+                <button type="button" data-carousel-format="story" aria-pressed="false"><strong>Stories 9:16</strong><small>1080 × 1920</small></button>
+              </div>
+              <small id="carouselFormatHint">Карусель для ленты Instagram</small>
+            </div>
             <div class="carousel-system-fonts">
               <div class="carousel-system-label"><span>Шрифтовая система всей серии</span><div><button type="button" id="carouselImportTaste">Вернуть базовый шрифт</button></div></div>
               <div class="carousel-font-summary" id="carouselFontSummary">Загружаю выбранные гарнитуры и пары…</div>
@@ -388,7 +396,7 @@
               </section>
 
               <section class="panel carousel-controls-panel">
-                <div class="section-head"><div><h2>Обложка серии</h2><p>Все изменения видны на макете сразу</p></div><span>1080 × 1350</span></div>
+                <div class="section-head"><div><h2>Обложка серии</h2><p>Все изменения видны на макете сразу</p></div><span id="carouselCoverDimensions">1080 × 1350</span></div>
                 <label class="carousel-field"><span>Что пишем на обложке</span><textarea id="carouselCoverTitle" rows="4">Пропустили пять дней? Ничего не сломалось</textarea></label>
                 <label class="carousel-field"><span>Подстрочник или служебная строка</span><input id="carouselCoverSubtitle" type="text" value="10 слайдов · сохрани"></label>
                 <fieldset class="carousel-control-group"><legend>Сцена</legend><div class="carousel-choice-row">
@@ -397,6 +405,10 @@
                   <button type="button" data-carousel-scene="plate">Плашка</button>
                   <button type="button" data-carousel-scene="field">Цветовое поле</button>
                   <button type="button" data-carousel-scene="paper">Без фото</button>
+                  <button type="button" data-carousel-scene="dark">Тёмное поле</button>
+                  <button type="button" data-carousel-scene="split">Split</button>
+                  <button type="button" data-carousel-scene="window">Фото-окно</button>
+                  <button type="button" data-carousel-scene="quote">Цитата</button>
                 </div></fieldset>
                 <div class="carousel-control-grid">
                   <label><span>Размер заголовка</span><div class="carousel-size-presets" data-size-target="carouselCoverSize"><button type="button" data-size="112">Очень крупный</button><button type="button" data-size="88" class="is-active">Крупный</button><button type="button" data-size="68">Средний</button><button type="button" data-size="54">Мелкий</button></div><input id="carouselCoverSize" type="range" min="54" max="132" value="88"><output id="carouselCoverSizeValue">88 px</output></label>
@@ -404,6 +416,24 @@
                   <label><span>Выравнивание</span><select id="carouselCoverAlign"><option value="left">По левому краю</option><option value="center">По центру</option><option value="right">По правому краю</option></select></label>
                   <label><span>Регистр</span><select id="carouselCoverCase"><option value="original">Как написано</option><option value="lower">Строчные</option><option value="upper">КАПС</option></select></label>
                 </div>
+                <details class="carousel-advanced-panel" open>
+                  <summary>Точная настройка дизайна</summary>
+                  <div class="carousel-control-grid">
+                    <label><span>Цвет фона</span><input id="carouselCoverBackgroundColor" type="color" value="#17221f"><button class="text-button" id="carouselCoverBackgroundReset" type="button">Из палитры</button></label>
+                    <label><span>Цвет заголовка</span><input id="carouselCoverTitleColor" type="color" value="#ffffff"><button class="text-button" id="carouselCoverTitleColorReset" type="button">Авто</button></label>
+                    <label><span>Насыщенность заголовка</span><input id="carouselCoverTitleWeight" type="range" min="400" max="900" step="100" value="800"><output id="carouselCoverTitleWeightValue">800</output></label>
+                    <label><span>Интерлиньяж</span><input id="carouselCoverTitleLineHeight" type="range" min="0.75" max="1.35" step="0.01" value="0.96"><output id="carouselCoverTitleLineHeightValue">0.96</output></label>
+                    <label><span>Трекинг</span><input id="carouselCoverTitleTracking" type="range" min="-0.06" max="0.16" step="0.005" value="-0.035"><output id="carouselCoverTitleTrackingValue">−0.035 em</output></label>
+                    <label><span>Масштаб фото</span><input id="carouselCoverPhotoScale" type="range" min="100" max="220" value="100"><output id="carouselCoverPhotoScaleValue">100%</output></label>
+                    <label><span>Фото влево / вправо</span><input id="carouselCoverPhotoFocusX" type="range" min="0" max="100" value="50"><output id="carouselCoverPhotoFocusXValue">50%</output></label>
+                    <label><span>Фото вверх / вниз</span><input id="carouselCoverPhotoFocusY" type="range" min="0" max="100" value="50"><output id="carouselCoverPhotoFocusYValue">50%</output></label>
+                  </div>
+                  <fieldset class="carousel-control-group carousel-plaque-control"><legend>Плашка под текстом</legend><div class="carousel-plaque-row">
+                    <label class="carousel-check"><input id="carouselCoverPlaqueEnabled" type="checkbox"><span>Добавить плашку</span></label>
+                    <label><span>Цвет</span><input id="carouselCoverPlaqueColor" type="color" value="#fff7e6"></label>
+                    <label><span>Непрозрачность</span><input id="carouselCoverPlaqueOpacity" type="range" min="20" max="100" step="5" value="92"><output id="carouselCoverPlaqueOpacityValue">92%</output></label>
+                  </div></fieldset>
+                </details>
                 <fieldset class="carousel-control-group carousel-visibility-controls"><legend>Служебные элементы</legend><div>
                   <label class="carousel-check"><input id="carouselCoverShowSeries" type="checkbox" checked><span>Название серии сверху</span></label>
                   <label class="carousel-check"><input id="carouselCoverShowNumber" type="checkbox" checked><span>Номер карточки снизу</span></label>
@@ -475,6 +505,7 @@
                 </div>
                 <div class="carousel-control-grid">
                   <label><span>Тип слайда</span><select id="carouselSlideRole"><option value="cover">Обложка</option><option value="longread">Лонгрид</option><option value="quote">Цитата</option><option value="proof">Фото-доказательство</option><option value="pause">Фотопауза</option><option value="cta">Финал / CTA</option></select></label>
+                  <label><span>Готовый макет</span><select id="carouselSlideTemplate"><option value="custom">Своя композиция</option><option value="light-column">Светлая колонка</option><option value="photo-field">Фото сверху + поле</option><option value="side-plaque">Фото + боковая плашка</option><option value="top-plaque">Фото + верхняя плашка</option><option value="photo-window">Фото-окно</option><option value="photo-scrim">Фото + затемнение</option><option value="text-photo">Текст на фото</option><option value="accent-thought">Крупный тезис</option><option value="color-final">Цветовой финал</option></select></label>
                   <label><span>Сцена</span><select id="carouselSlideScene"><option value="paper">Светлое поле</option><option value="dark">Тёмное поле</option><option value="photo-dim">Фото + затемнение</option><option value="photo-clean">Текст на фото</option><option value="plate">Плашка на фото</option><option value="split">Split</option><option value="window">Фото-окно</option><option value="field">Цветовое поле</option><option value="quote">Цитатная</option></select></label>
                   <label><span>Цвет слайда</span><select id="carouselSlidePalette"></select></label>
                   <label><span>Шрифт этого слайда</span><select id="carouselSlideFont"></select></label>
@@ -485,6 +516,29 @@
                   <label><span>Сдвиг по горизонтали</span><input id="carouselSlideOffsetX" type="range" min="-20" max="20" value="0"><output id="carouselSlideOffsetXValue">0%</output></label>
                   <label><span>Сдвиг по вертикали</span><input id="carouselSlideOffsetY" type="range" min="-20" max="20" value="0"><output id="carouselSlideOffsetYValue">0%</output></label>
                 </div>
+                <details class="carousel-advanced-panel" open>
+                  <summary>Точная настройка дизайна</summary>
+                  <div class="carousel-control-grid">
+                    <label><span>Цвет фона</span><input id="carouselSlideBackgroundColor" type="color" value="#17221f"><button class="text-button" id="carouselSlideBackgroundReset" type="button">Из палитры</button></label>
+                    <label><span>Фактура</span><select id="carouselSlideTexture"><option value="none">Без фактуры</option><option value="paper">Бумага</option><option value="grain">Мягкое зерно</option><option value="dots">Редкие точки</option></select></label>
+                    <label><span>Цвет заголовка</span><input id="carouselSlideTitleColor" type="color" value="#ffffff"><button class="text-button" id="carouselSlideTitleColorReset" type="button">Авто</button></label>
+                    <label><span>Насыщенность заголовка</span><input id="carouselSlideTitleWeight" type="range" min="400" max="900" step="100" value="800"><output id="carouselSlideTitleWeightValue">800</output></label>
+                    <label><span>Интерлиньяж заголовка</span><input id="carouselSlideTitleLineHeight" type="range" min="0.75" max="1.35" step="0.01" value="0.96"><output id="carouselSlideTitleLineHeightValue">0.96</output></label>
+                    <label><span>Трекинг заголовка</span><input id="carouselSlideTitleTracking" type="range" min="-0.06" max="0.16" step="0.005" value="-0.035"><output id="carouselSlideTitleTrackingValue">−0.035 em</output></label>
+                    <label><span>Шрифт основного текста</span><select id="carouselSlideBodyFont"></select></label>
+                    <label><span>Насыщенность текста</span><input id="carouselSlideBodyWeight" type="range" min="300" max="800" step="50" value="450"><output id="carouselSlideBodyWeightValue">450</output></label>
+                    <label><span>Интерлиньяж текста</span><input id="carouselSlideBodyLineHeight" type="range" min="1" max="1.7" step="0.05" value="1.25"><output id="carouselSlideBodyLineHeightValue">1.25</output></label>
+                    <label><span>Трекинг текста</span><input id="carouselSlideBodyTracking" type="range" min="-0.03" max="0.12" step="0.005" value="0"><output id="carouselSlideBodyTrackingValue">0 em</output></label>
+                    <label><span>Масштаб фото</span><input id="carouselSlidePhotoScale" type="range" min="100" max="220" value="100"><output id="carouselSlidePhotoScaleValue">100%</output></label>
+                    <label><span>Фото влево / вправо</span><input id="carouselSlidePhotoFocusX" type="range" min="0" max="100" value="50"><output id="carouselSlidePhotoFocusXValue">50%</output></label>
+                    <label><span>Фото вверх / вниз</span><input id="carouselSlidePhotoFocusY" type="range" min="0" max="100" value="50"><output id="carouselSlidePhotoFocusYValue">50%</output></label>
+                  </div>
+                  <fieldset class="carousel-control-group carousel-plaque-control"><legend>Плашка под текстом</legend><div class="carousel-plaque-row">
+                    <label class="carousel-check"><input id="carouselSlidePlaqueEnabled" type="checkbox"><span>Добавить плашку</span></label>
+                    <label><span>Цвет</span><input id="carouselSlidePlaqueColor" type="color" value="#fff7e6"></label>
+                    <label><span>Непрозрачность</span><input id="carouselSlidePlaqueOpacity" type="range" min="20" max="100" step="5" value="92"><output id="carouselSlidePlaqueOpacityValue">92%</output></label>
+                  </div></fieldset>
+                </details>
                 <fieldset class="carousel-control-group carousel-visibility-controls"><legend>Служебные элементы</legend><div>
                   <label class="carousel-check"><input id="carouselSlideShowSeries" type="checkbox" checked><span>Название серии сверху</span></label>
                   <label class="carousel-check"><input id="carouselSlideShowNumber" type="checkbox" checked><span>Номер карточки снизу</span></label>
@@ -501,7 +555,7 @@
               <div class="carousel-saved-grid" id="carouselSavedSeries"></div>
             </section>
             <section class="carousel-lab-link">
-              <div><strong>Выгрузка готовой серии</strong><span>Статичные карточки сохранятся в PNG, видеокарточки — видео до 1 минуты. Всё будет упаковано в один ZIP.</span></div>
+              <div><strong>Выгрузка готовой серии</strong><span id="carouselExportDescription">Статичные карточки сохранятся в PNG, видеокарточки — видео до 1 минуты. Всё будет упаковано в один ZIP.</span></div>
               <div><button class="button button-primary" id="carouselDownloadAll" type="button">Скачать всю карусель ZIP</button></div>
             </section>
           </div>
