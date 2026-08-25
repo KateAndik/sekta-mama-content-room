@@ -506,6 +506,18 @@
     ensureFontFamily(font?.body);
   }
 
+  async function loadSlideFonts(slide, slideFont) {
+    const scale = series.format === "story" ? 1.5 : 1;
+    const bodyFamily = slide.bodyFont || slideFont.body || companionFor(slideFont.family);
+    ensureFontFamily(bodyFamily);
+    try {
+      await Promise.all([
+        document.fonts.load(`${slide.titleWeight || 800} ${Math.round((slide.size || 46) * scale)}px "${slideFont.family}"`),
+        document.fonts.load(`${slide.bodyWeight || 500} ${Math.round((slide.bodySize || 34) * scale)}px "${bodyFamily}"`),
+      ]);
+    } catch {}
+  }
+
   function layoutLikeIds() {
     const importedLikes = (tasteBundle.layoutLikes || []).map((key) => String(key).split("|").at(-1));
     return [...new Set(importedLikes)].filter((id) => layoutPresets[id]);
@@ -1521,6 +1533,7 @@
     const format = currentFormat();
     const width = format.width;
     const height = format.height;
+    const storyTypographyScale = format === formatPresets.story ? 1.5 : 1;
     const palette = paletteFor(slide.palette);
     const photo = photoById(slide.photoId);
     const slideFont = slide.font?.family ? normalizeFontSystem(slide.font) : series.font;
@@ -1555,21 +1568,21 @@
     const fontFamily = `"${slideFont.family}", Arial, sans-serif`;
     const bodyFontFamily = `"${slide.bodyFont || slideFont.body || companionFor(slideFont.family)}", Arial, sans-serif`;
     const titleText = displayText(slide.title, slide.caseKind || slideFont.caseKind);
-    let titleSize = Math.max(40, Math.min(132, Number(slide.size) || 46));
+    let titleSize = Math.max(40, Math.min(132, Number(slide.size) || 46)) * storyTypographyScale;
     context.font = `${slide.titleWeight || 800} ${titleSize}px ${fontFamily}`;
     if ("letterSpacing" in context) context.letterSpacing = `${Number(slide.titleTracking) || 0}em`;
     let titleLines = wrapCanvasText(context, titleText, maxWidth);
-    while (titleLines.length > 6 && titleSize > 42) {
-      titleSize -= 4;
+    while (titleLines.length > 6 && titleSize > 42 * storyTypographyScale) {
+      titleSize -= 4 * storyTypographyScale;
       context.font = `${slide.titleWeight || 800} ${titleSize}px ${fontFamily}`;
       titleLines = wrapCanvasText(context, titleText, maxWidth);
     }
-    const bodySize = Math.max(24, Math.min(64, Number(slide.bodySize) || Math.round(titleSize * .55)));
+    const bodySize = Math.max(24, Math.min(64, Number(slide.bodySize) || Math.round((titleSize / storyTypographyScale) * .55))) * storyTypographyScale;
     const bodyLines = layoutRichLines(context, richRuns(slide), maxWidth, bodySize, bodyFontFamily, slide.bodyWeight || 500);
     const titleHeight = titleLines.length * titleSize * (slide.titleLineHeight || .96);
     const bodyHeight = bodyLines.length * bodySize * (slide.bodyLineHeight || 1.3);
     const blockHeight = titleHeight + (titleLines.length && bodyLines.length ? 50 : 0) + bodyHeight;
-    let startY = slide.placement === "top" ? (format === formatPresets.story ? 300 : 210) : slide.placement === "bottom" ? height - (format === formatPresets.story ? 260 : 170) - blockHeight : (height - blockHeight) / 2;
+    let startY = slide.placement === "top" ? (format === formatPresets.story ? 230 : 210) : slide.placement === "bottom" ? height - (format === formatPresets.story ? 260 : 170) - blockHeight : (height - blockHeight) / 2;
     if (["window"].includes(slide.scene)) startY = Math.round(height * (format === formatPresets.story ? .56 : .533));
     startY += yShift;
     if (slide.scene === "plate" || slide.plaqueEnabled) {
@@ -1590,15 +1603,15 @@
       drawRichLines(context, bodyLines, x, bodyY, slide.align || "left", bodySize, bodyFontFamily, slide.plaqueEnabled || slide.scene === "plate" ? palette.ink : foreground, slide.bodyWeight || 500, slide.bodyLineHeight || 1.3);
     }
     if ("letterSpacing" in context) context.letterSpacing = "0px";
-    context.font = `700 24px Arial, sans-serif`;
+    context.font = `700 ${format === formatPresets.story ? 32 : 24}px Arial, sans-serif`;
     context.fillStyle = foreground;
     if (slide.showSeriesLabel !== false) {
       context.textAlign = "left";
-      context.fillText(series.name, 100, format === formatPresets.story ? 170 : 90);
+      context.fillText(series.name, 100, format === formatPresets.story ? 230 : 90);
     }
     if (slide.showPagination !== false) {
       context.textAlign = "right";
-      context.fillText(`${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}`, 980, height - (format === formatPresets.story ? 170 : 70));
+      context.fillText(`${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}`, 980, height - (format === formatPresets.story ? 230 : 70));
     }
     return canvas;
   }
@@ -1677,7 +1690,7 @@
       const media = photoById(slide.photoId);
       const slideFont = slide.font?.family ? normalizeFontSystem(slide.font) : series.font;
       ensureFont(slideFont);
-      try { await document.fonts.load(`800 ${slide.size}px "${slideFont.family}"`); } catch {}
+      await loadSlideFonts(slide, slideFont);
       let blob;
       let extension;
       if (media?.kind === "video") {
@@ -1795,7 +1808,7 @@
         const slide = series.slides[index];
         const slideFont = slide.font?.family ? normalizeFontSystem(slide.font) : series.font;
         ensureFont(slideFont);
-        try { await document.fonts.load(`800 ${slide.size}px "${slideFont.family}"`); } catch {}
+        await loadSlideFonts(slide, slideFont);
         const media = photoById(slide.photoId);
         let blob;
         let extension;
