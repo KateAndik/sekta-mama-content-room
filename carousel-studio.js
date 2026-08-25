@@ -93,6 +93,10 @@
     coverPlacement: document.querySelector("#carouselCoverPlacement"),
     coverAlign: document.querySelector("#carouselCoverAlign"),
     coverCase: document.querySelector("#carouselCoverCase"),
+    coverOffsetX: document.querySelector("#carouselCoverOffsetX"),
+    coverOffsetXValue: document.querySelector("#carouselCoverOffsetXValue"),
+    coverOffsetY: document.querySelector("#carouselCoverOffsetY"),
+    coverOffsetYValue: document.querySelector("#carouselCoverOffsetYValue"),
     coverShowSeries: document.querySelector("#carouselCoverShowSeries"),
     coverShowNumber: document.querySelector("#carouselCoverShowNumber"),
     coverBackgroundColor: document.querySelector("#carouselCoverBackgroundColor"),
@@ -923,7 +927,7 @@
         ? `<video class="carousel-render-photo" src="${escapeHtml(photo.exportImage)}" autoplay muted loop playsinline preload="auto"></video>`
         : `<img class="carousel-render-photo" src="${escapeHtml(photo.thumb)}" alt="">`
       : "";
-    const title = slide.title ? `<strong>${escapeHtml(displayText(slide.title, slide.caseKind || slideFont.caseKind))}</strong>` : "";
+    const title = slide.title ? `<strong>${escapeHtml(displayText(slide.title, slide.caseKind || slideFont.caseKind)).replace(/\n/g, "<br>")}</strong>` : "";
     const body = slide.body ? `<div class="carousel-render-body"><p>${richBodyMarkup(slide)}</p></div>` : "";
     const seriesLabel = slide.showSeriesLabel !== false ? `<span class="carousel-render-series">${escapeHtml(series.name)}</span>` : "";
     const pagination = slide.showPagination !== false ? `<small>${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}</small>` : "";
@@ -1042,6 +1046,10 @@
     ui.coverPlacement.value = slide.placement || "bottom";
     ui.coverAlign.value = slide.align || "left";
     ui.coverCase.value = slide.caseKind || "original";
+    ui.coverOffsetX.value = slide.offsetX || 0;
+    ui.coverOffsetXValue.textContent = `${Number(slide.offsetX) || 0}%`;
+    ui.coverOffsetY.value = slide.offsetY || 0;
+    ui.coverOffsetYValue.textContent = `${Number(slide.offsetY) || 0}%`;
     ui.coverShowSeries.checked = slide.showSeriesLabel !== false;
     ui.coverShowNumber.checked = slide.showPagination !== false;
     ui.coverBackgroundColor.value = slide.backgroundColor || paletteFor(slide.palette).background;
@@ -1227,6 +1235,8 @@
     slide.placement = ui.coverPlacement.value;
     slide.align = ui.coverAlign.value;
     slide.caseKind = ui.coverCase.value;
+    slide.offsetX = Number(ui.coverOffsetX.value);
+    slide.offsetY = Number(ui.coverOffsetY.value);
     slide.showSeriesLabel = ui.coverShowSeries.checked;
     slide.showPagination = ui.coverShowNumber.checked;
     slide.backgroundColor = ui.coverBackgroundColor.dataset.custom === "true" ? ui.coverBackgroundColor.value : "";
@@ -1242,6 +1252,8 @@
     slide.plaqueOpacity = Number(ui.coverPlaqueOpacity.value) / 100;
     slide.savedAt = null;
     ui.coverSizeValue.textContent = `${slide.size} px`;
+    ui.coverOffsetXValue.textContent = `${slide.offsetX}%`;
+    ui.coverOffsetYValue.textContent = `${slide.offsetY}%`;
     ui.coverTitleWeightValue.textContent = String(slide.titleWeight);
     ui.coverTitleLineHeightValue.textContent = slide.titleLineHeight.toFixed(2);
     ui.coverTitleTrackingValue.textContent = `${slide.titleTracking.toFixed(3)} em`;
@@ -1413,7 +1425,12 @@
 
   function wrapCanvasText(context, text, maxWidth) {
     const result = [];
-    String(text || "").split(/\n\s*\n/).forEach((paragraph, paragraphIndex) => {
+    const sourceLines = String(text || "").replace(/\r/g, "").split("\n");
+    sourceLines.forEach((paragraph) => {
+      if (!paragraph.trim()) {
+        result.push("");
+        return;
+      }
       let line = "";
       words(paragraph).forEach((word) => {
         const candidate = line ? `${line} ${word}` : word;
@@ -1423,7 +1440,6 @@
         } else line = candidate;
       });
       if (line) result.push(line);
-      if (paragraphIndex < String(text || "").split(/\n\s*\n/).length - 1) result.push("");
     });
     return result;
   }
@@ -1912,7 +1928,7 @@
     ui.localUpload.value = "";
   });
 
-  [ui.seriesName, ui.coverTitle, ui.coverSubtitle, ui.coverSize, ui.coverPlacement, ui.coverAlign, ui.coverCase, ui.coverShowSeries, ui.coverShowNumber, ui.coverTitleWeight, ui.coverTitleLineHeight, ui.coverTitleTracking, ui.coverPhotoScale, ui.coverPhotoFocusX, ui.coverPhotoFocusY, ui.coverPlaqueEnabled, ui.coverPlaqueColor, ui.coverPlaqueOpacity].forEach((control) => control.addEventListener("input", updateCoverFromForm));
+  [ui.seriesName, ui.coverTitle, ui.coverSubtitle, ui.coverSize, ui.coverPlacement, ui.coverAlign, ui.coverCase, ui.coverOffsetX, ui.coverOffsetY, ui.coverShowSeries, ui.coverShowNumber, ui.coverTitleWeight, ui.coverTitleLineHeight, ui.coverTitleTracking, ui.coverPhotoScale, ui.coverPhotoFocusX, ui.coverPhotoFocusY, ui.coverPlaqueEnabled, ui.coverPlaqueColor, ui.coverPlaqueOpacity].forEach((control) => control.addEventListener("input", updateCoverFromForm));
   ui.coverBackgroundColor.addEventListener("input", () => { ui.coverBackgroundColor.dataset.custom = "true"; updateCoverFromForm(); });
   ui.coverTitleColor.addEventListener("input", () => { ui.coverTitleColor.dataset.custom = "true"; updateCoverFromForm(); });
   ui.coverBackgroundReset.addEventListener("click", () => { ui.coverBackgroundColor.dataset.custom = "false"; coverSlide().backgroundColor = ""; renderCover(); markChanged(); });
@@ -1980,6 +1996,12 @@
   ui.slideBody.addEventListener("paste", (event) => {
     event.preventDefault();
     document.execCommand("insertText", false, event.clipboardData.getData("text/plain"));
+  });
+  ui.slideBody.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    document.execCommand("insertHTML", false, event.shiftKey ? "<br>" : "<br><br>");
+    ui.slideBody.dispatchEvent(new Event("input", { bubbles: true }));
   });
   ui.richToolbar.addEventListener("pointerdown", (event) => event.preventDefault());
   ui.richToolbar.addEventListener("click", (event) => {
