@@ -6,6 +6,7 @@
   const DRAFT_KEY = "sekta-mama-carousel-studio-draft-v1";
   const SAVED_KEY = "sekta-mama-carousel-studio-series-v1";
   const IMPORT_KEY = "sekta-mama-carousel-studio-taste-import-v1";
+  const MAX_VIDEO_SECONDS = 60;
   const DEFAULT_LONGREAD = document.querySelector("#carouselLongreadText")?.value || "";
   const palettes = {
     ink: { name: "Контрастная", background: "#17221f", foreground: "#ffffff", accent: "#f7f7f2", ink: "#17221f" },
@@ -64,6 +65,8 @@
     coverPlacement: document.querySelector("#carouselCoverPlacement"),
     coverAlign: document.querySelector("#carouselCoverAlign"),
     coverCase: document.querySelector("#carouselCoverCase"),
+    coverShowSeries: document.querySelector("#carouselCoverShowSeries"),
+    coverShowNumber: document.querySelector("#carouselCoverShowNumber"),
     coverMedia: document.querySelector("#carouselCoverMedia"),
     coverMediaSearch: document.querySelector("#carouselCoverMediaSearch"),
     coverPhotoName: document.querySelector("#carouselCoverPhotoName"),
@@ -84,6 +87,7 @@
     activeMeta: document.querySelector("#carouselActiveMeta"),
     slideTitle: document.querySelector("#carouselSlideTitle"),
     slideBody: document.querySelector("#carouselSlideBody"),
+    richToolbar: document.querySelector("#carouselRichToolbar"),
     slideRole: document.querySelector("#carouselSlideRole"),
     slideScene: document.querySelector("#carouselSlideScene"),
     slidePalette: document.querySelector("#carouselSlidePalette"),
@@ -98,6 +102,8 @@
     slideOffsetXValue: document.querySelector("#carouselSlideOffsetXValue"),
     slideOffsetY: document.querySelector("#carouselSlideOffsetY"),
     slideOffsetYValue: document.querySelector("#carouselSlideOffsetYValue"),
+    slideShowSeries: document.querySelector("#carouselSlideShowSeries"),
+    slideShowNumber: document.querySelector("#carouselSlideShowNumber"),
     slideMedia: document.querySelector("#carouselSlideMedia"),
     slideMediaSearch: document.querySelector("#carouselSlideMediaSearch"),
     shuffleSlideMedia: document.querySelector("#carouselShuffleSlideMedia"),
@@ -192,6 +198,7 @@
         orientation: image.naturalWidth === image.naturalHeight ? "square" : image.naturalWidth > image.naturalHeight ? "landscape" : "portrait",
         contentThemes: [],
         carouselRoles: ["01_обложка_личное_присутствие"],
+        kind: "image",
         isLocal: true,
       });
       image.onerror = () => { URL.revokeObjectURL(thumb); reject(new Error(file.name)); };
@@ -199,17 +206,76 @@
     });
   }
 
-  async function addLocalImages(files, target = "active") {
-    const candidates = [...files].filter((file) => /\.(jpe?g|png|webp)$/i.test(file.name) && file.size <= 25 * 1024 * 1024);
+  function localVideoItem(file) {
+    return new Promise((resolve, reject) => {
+      const source = URL.createObjectURL(file);
+      const video = document.createElement("video");
+      video.muted = true;
+      video.playsInline = true;
+      video.preload = "metadata";
+      video.onloadedmetadata = () => {
+        if (!Number.isFinite(video.duration) || video.duration <= 0 || !video.videoWidth || !video.videoHeight) {
+          URL.revokeObjectURL(source);
+          reject(new Error(file.name));
+          return;
+        }
+        const capture = () => {
+          try {
+            const posterCanvas = document.createElement("canvas");
+            const ratio = Math.min(1, 720 / Math.max(video.videoWidth, video.videoHeight));
+            posterCanvas.width = Math.max(1, Math.round(video.videoWidth * ratio));
+            posterCanvas.height = Math.max(1, Math.round(video.videoHeight * ratio));
+            posterCanvas.getContext("2d").drawImage(video, 0, 0, posterCanvas.width, posterCanvas.height);
+            resolve({
+              id: `mama-video-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+              folder: "local",
+              folderLabel: "С компьютера · локально",
+              sourceCategory: "Личное видео",
+              sourceFolder: "Локальная загрузка",
+              fileName: file.name,
+              originalPath: "Локальный файл",
+              originalUrl: "",
+              thumb: posterCanvas.toDataURL("image/jpeg", .82),
+              exportImage: source,
+              width: video.videoWidth,
+              height: video.videoHeight,
+              duration: Math.min(MAX_VIDEO_SECONDS, video.duration),
+              originalDuration: video.duration,
+              orientation: video.videoWidth === video.videoHeight ? "square" : video.videoWidth > video.videoHeight ? "landscape" : "portrait",
+              contentThemes: [],
+              carouselRoles: ["01_обложка_личное_присутствие"],
+              kind: "video",
+              isLocal: true,
+            });
+          } catch {
+            URL.revokeObjectURL(source);
+            reject(new Error(file.name));
+          }
+        };
+        video.onseeked = capture;
+        video.currentTime = Math.min(.12, Math.max(0, video.duration / 2));
+        if (video.currentTime === 0) capture();
+      };
+      video.onerror = () => { URL.revokeObjectURL(source); reject(new Error(file.name)); };
+      video.src = source;
+    });
+  }
+
+  async function addLocalMedia(files, target = "active") {
+    const candidates = [...files].filter((file) => {
+      if (/\.(jpe?g|png|webp)$/i.test(file.name)) return file.size <= 25 * 1024 * 1024;
+      if (/\.(mp4|mov|webm)$/i.test(file.name)) return file.size <= 250 * 1024 * 1024;
+      return false;
+    });
     if (!candidates.length) {
-      setStatus("Выберите JPG, PNG или WebP до 25 МБ. HEIC сначала сохраните как JPEG.");
+      setStatus("Выберите JPG, PNG или WebP до 25 МБ либо MP4, MOV или WebM до 250 МБ.");
       return;
     }
-    setStatus("Добавляю фотографии с компьютера…");
-    const results = await Promise.allSettled(candidates.map(localImageItem));
+    setStatus("Добавляю фото и видео с компьютера…");
+    const results = await Promise.allSettled(candidates.map((file) => /\.(mp4|mov|webm)$/i.test(file.name) ? localVideoItem(file) : localImageItem(file)));
     const added = results.filter((result) => result.status === "fulfilled").map((result) => result.value);
     if (!added.length) {
-      setStatus("Не удалось открыть выбранные файлы.");
+      setStatus("Не удалось открыть выбранные файлы. Для видео надёжнее всего использовать MP4.");
       return;
     }
     library.unshift(...added);
@@ -220,7 +286,8 @@
     targetSlide.savedAt = null;
     renderAll();
     markChanged();
-    setStatus(`${added.length} фото добавлено локально. Они останутся до обновления страницы; текст и настройки сохранятся.`);
+    const videos = added.filter((item) => item.kind === "video").length;
+    setStatus(`${added.length} файлов добавлено локально${videos ? ` · видео: ${videos}, максимум по 1 минуте` : ""}. Они останутся до обновления страницы; текст и настройки сохранятся.`);
   }
 
   function fontChoices() {
@@ -297,6 +364,7 @@
       role: "longread",
       title: "",
       body: "",
+      bodyHtml: "",
       scene: "paper",
       palette: "ink",
       size: 46,
@@ -308,6 +376,8 @@
       caseKind: "original",
       font: null,
       photoId: null,
+      showSeriesLabel: true,
+      showPagination: true,
       savedAt: null,
       ...overrides,
     };
@@ -571,6 +641,38 @@
     return String(text || "");
   }
 
+  function safeRichColor(value) {
+    const color = String(value || "").trim();
+    return /^(#[0-9a-f]{3,8}|rgba?\([\d\s.,%]+\))$/i.test(color) ? color : "";
+  }
+
+  function sanitizeRichHtml(input) {
+    const template = document.createElement("template");
+    template.innerHTML = String(input || "");
+    const cleanNode = (node) => {
+      if (node.nodeType === Node.TEXT_NODE) return escapeHtml(node.nodeValue || "");
+      if (node.nodeType !== Node.ELEMENT_NODE) return "";
+      const tag = node.tagName.toLowerCase();
+      const content = [...node.childNodes].map(cleanNode).join("");
+      if (tag === "br") return "<br>";
+      if (["b", "strong"].includes(tag)) return `<strong>${content}</strong>`;
+      if (["p", "div"].includes(tag)) return `${content}<br><br>`;
+      if (["span", "font", "mark"].includes(tag)) {
+        const color = safeRichColor(node.getAttribute("color") || node.style.color);
+        const background = safeRichColor(node.style.backgroundColor || (tag === "mark" ? node.getAttribute("data-color") : ""));
+        const styles = [color ? `color:${color}` : "", background ? `background-color:${background}` : ""].filter(Boolean).join(";");
+        return styles ? `<span style="${styles}">${content}</span>` : content;
+      }
+      return content;
+    };
+    return [...template.content.childNodes].map(cleanNode).join("");
+  }
+
+  function richBodyMarkup(slide) {
+    if (slide.bodyHtml) return sanitizeRichHtml(slide.bodyHtml);
+    return escapeHtml(slide.body || "").replace(/\n/g, "<br>");
+  }
+
   function renderCanvas(element, slide, index) {
     if (!element || !slide) return;
     const photo = photoById(slide.photoId);
@@ -593,12 +695,20 @@
     element.style.setProperty("--carousel-body-size", `${Math.max(12, Math.min(31, Math.round((slide.bodySize || 34) * .48)))}px`);
     element.style.setProperty("--carousel-offset-x", `${Number(slide.offsetX) || 0}%`);
     element.style.setProperty("--carousel-offset-y", `${Number(slide.offsetY) || 0}%`);
-    const image = photo && !["paper", "field", "dark", "quote"].includes(slide.scene)
-      ? `<img class="carousel-render-photo" src="${escapeHtml(photo.thumb)}" alt="">`
+    const media = photo && !["paper", "field", "dark", "quote"].includes(slide.scene)
+      ? photo.kind === "video"
+        ? `<video class="carousel-render-photo" src="${escapeHtml(photo.exportImage)}" autoplay muted loop playsinline preload="auto"></video>`
+        : `<img class="carousel-render-photo" src="${escapeHtml(photo.thumb)}" alt="">`
       : "";
     const title = slide.title ? `<strong>${escapeHtml(displayText(slide.title, slide.caseKind || slideFont.caseKind))}</strong>` : "";
-    const body = slide.body ? `<p>${escapeHtml(slide.body).replace(/\n\n/g, "</p><p>")}</p>` : "";
-    element.innerHTML = `${image}<div class="carousel-render-shade"></div><div class="carousel-render-content"><span class="carousel-render-series">${escapeHtml(series.name)}</span>${title}${body}<small>${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}</small></div>`;
+    const body = slide.body ? `<div class="carousel-render-body"><p>${richBodyMarkup(slide)}</p></div>` : "";
+    const seriesLabel = slide.showSeriesLabel !== false ? `<span class="carousel-render-series">${escapeHtml(series.name)}</span>` : "";
+    const pagination = slide.showPagination !== false ? `<small>${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}</small>` : "";
+    element.innerHTML = `${media}<div class="carousel-render-shade"></div><div class="carousel-render-content">${seriesLabel}${title}${body}${pagination}</div>`;
+    const video = element.querySelector("video");
+    if (video) video.addEventListener("timeupdate", () => {
+      if (video.currentTime >= Math.min(MAX_VIDEO_SECONDS, photo.duration || MAX_VIDEO_SECONDS)) video.currentTime = 0;
+    });
   }
 
   function renderFontStrip() {
@@ -643,7 +753,7 @@
 
   function renderMediaStrip(element, selectedId, query = "", order = library) {
     const pool = mediaPool(query, order);
-    element.innerHTML = pool.length ? pool.map((photo) => `<button type="button" class="${photo.id === selectedId ? "is-selected" : ""}" data-carousel-photo="${escapeHtml(photo.id)}" aria-label="Выбрать ${escapeHtml(photo.fileName)}"><img src="${escapeHtml(photo.thumb)}" alt="" loading="lazy"></button>`).join("") : `<span class="carousel-media-empty">Ничего не найдено.</span>`;
+    element.innerHTML = pool.length ? pool.map((photo) => `<button type="button" class="${photo.id === selectedId ? "is-selected" : ""}" data-carousel-photo="${escapeHtml(photo.id)}" aria-label="Выбрать ${escapeHtml(photo.fileName)}"><img src="${escapeHtml(photo.thumb)}" alt="" loading="lazy">${photo.kind === "video" ? `<span class="carousel-video-badge">▶ ${Math.ceil(photo.duration)}с</span>` : ""}</button>`).join("") : `<span class="carousel-media-empty">Ничего не найдено.</span>`;
   }
 
   function coverSlide() {
@@ -665,11 +775,14 @@
     ui.coverPlacement.value = slide.placement || "bottom";
     ui.coverAlign.value = slide.align || "left";
     ui.coverCase.value = slide.caseKind || "original";
+    ui.coverShowSeries.checked = slide.showSeriesLabel !== false;
+    ui.coverShowNumber.checked = slide.showPagination !== false;
     ui.longread.value = series.longread;
     ui.slideCount.value = String(series.totalSlides || series.slides.length);
     document.querySelectorAll("[data-carousel-scene]").forEach((button) => button.classList.toggle("is-active", button.dataset.carouselScene === slide.scene));
     const photo = photoById(slide.photoId);
-    ui.coverPhotoName.textContent = photo?.fileName || "без фотографии";
+    ui.coverPhotoName.textContent = photo ? `${photo.fileName}${photo.kind === "video" ? ` · ${Math.round(photo.duration)} сек.` : ""}` : "без фото или видео";
+    ui.downloadCover.textContent = photo?.kind === "video" ? "Скачать видео" : "Скачать PNG";
     renderMediaStrip(ui.coverMedia, slide.photoId, ui.coverMediaSearch.value);
   }
 
@@ -691,7 +804,7 @@
     const palette = paletteFor(slide.palette);
     const slideFont = slide.font?.family ? slide.font : series.font;
     const photo = photoById(slide.photoId);
-    const image = photo && !["paper", "field", "dark", "quote"].includes(slide.scene) ? `<img src="${escapeHtml(photo.thumb)}" alt="">` : "";
+    const image = photo && !["paper", "field", "dark", "quote"].includes(slide.scene) ? `<img src="${escapeHtml(photo.thumb)}" alt="">${photo.kind === "video" ? `<i class="carousel-mini-video">▶</i>` : ""}` : "";
     const label = slide.title || slide.body || roleLabels[slide.role];
     return `<button type="button" class="carousel-mini-slide${index === series.activeSlide ? " is-active" : ""}${slide.savedAt ? " is-saved" : ""}" data-carousel-slide-index="${index}" style="--mini-bg:${palette.background};--mini-fg:${palette.foreground};--mini-font:'${escapeHtml(slideFont.family)}'"><span>${String(index + 1).padStart(2, "0")}</span><div>${image}<strong>${escapeHtml(label)}</strong></div><small>${escapeHtml(roleLabels[slide.role] || slide.role)}</small></button>`;
   }
@@ -705,7 +818,7 @@
     ui.activeTitle.textContent = `Слайд ${series.activeSlide + 1}`;
     ui.activeMeta.textContent = `${roleLabels[slide.role] || slide.role} · ${slide.savedAt ? "сохранён" : "есть изменения"}`;
     ui.slideTitle.value = slide.title || "";
-    ui.slideBody.value = slide.body || "";
+    ui.slideBody.innerHTML = richBodyMarkup(slide);
     ui.slideRole.value = slide.role;
     ui.slideScene.value = slide.scene;
     renderSlidePaletteOptions(slide.palette);
@@ -722,8 +835,11 @@
     ui.slideOffsetXValue.textContent = `${Number(slide.offsetX) || 0}%`;
     ui.slideOffsetY.value = slide.offsetY || 0;
     ui.slideOffsetYValue.textContent = `${Number(slide.offsetY) || 0}%`;
+    ui.slideShowSeries.checked = slide.showSeriesLabel !== false;
+    ui.slideShowNumber.checked = slide.showPagination !== false;
     const photo = photoById(slide.photoId);
-    ui.slidePhotoName.textContent = photo?.fileName || "без фотографии";
+    ui.slidePhotoName.textContent = photo ? `${photo.fileName}${photo.kind === "video" ? ` · ${Math.round(photo.duration)} сек.` : ""}` : "без фото или видео";
+    ui.downloadActive.textContent = photo?.kind === "video" ? "Скачать видео" : "Скачать PNG";
     ui.removePhoto.disabled = !slide.photoId;
     renderMediaStrip(ui.slideMedia, slide.photoId, ui.slideMediaSearch.value, slideMediaOrder);
   }
@@ -787,6 +903,8 @@
     slide.placement = ui.coverPlacement.value;
     slide.align = ui.coverAlign.value;
     slide.caseKind = ui.coverCase.value;
+    slide.showSeriesLabel = ui.coverShowSeries.checked;
+    slide.showPagination = ui.coverShowNumber.checked;
     slide.savedAt = null;
     ui.coverSizeValue.textContent = `${slide.size} px`;
     renderCanvas(ui.coverCanvas, slide, 0);
@@ -796,7 +914,8 @@
   function updateActiveFromForm() {
     const slide = activeSlide();
     slide.title = ui.slideTitle.value;
-    slide.body = ui.slideBody.value;
+    slide.body = ui.slideBody.innerText.trim();
+    slide.bodyHtml = sanitizeRichHtml(ui.slideBody.innerHTML);
     slide.role = ui.slideRole.value;
     slide.scene = ui.slideScene.value;
     slide.palette = ui.slidePalette.value;
@@ -806,6 +925,8 @@
     slide.align = ui.slideAlign.value;
     slide.offsetX = Number(ui.slideOffsetX.value);
     slide.offsetY = Number(ui.slideOffsetY.value);
+    slide.showSeriesLabel = ui.slideShowSeries.checked;
+    slide.showPagination = ui.slideShowNumber.checked;
     slide.savedAt = null;
     ui.slideSizeValue.textContent = `${slide.size} px`;
     ui.slideBodySizeValue.textContent = `${slide.bodySize} px`;
@@ -867,13 +988,37 @@
     });
   }
 
+  function mediaDimensions(media) {
+    return { width: media.videoWidth || media.naturalWidth || media.width, height: media.videoHeight || media.naturalHeight || media.height };
+  }
+
   function cropImage(context, image, x, y, width, height) {
-    const scale = Math.max(width / image.naturalWidth, height / image.naturalHeight);
+    const dimensions = mediaDimensions(image);
+    const scale = Math.max(width / dimensions.width, height / dimensions.height);
     const sourceWidth = width / scale;
     const sourceHeight = height / scale;
-    const sourceX = (image.naturalWidth - sourceWidth) / 2;
-    const sourceY = (image.naturalHeight - sourceHeight) / 2;
+    const sourceX = (dimensions.width - sourceWidth) / 2;
+    const sourceY = (dimensions.height - sourceHeight) / 2;
     context.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, x, y, width, height);
+  }
+
+  function loadVideo(source, seekTo = 0) {
+    return new Promise((resolve, reject) => {
+      const video = document.createElement("video");
+      video.muted = true;
+      video.playsInline = true;
+      video.preload = "auto";
+      video.onloadedmetadata = () => {
+        const target = Math.min(Math.max(0, seekTo), Math.max(0, video.duration - .02));
+        if (target > 0) {
+          video.onseeked = () => resolve(video);
+          video.currentTime = target;
+        } else if (video.readyState >= 2) resolve(video);
+        else video.onloadeddata = () => resolve(video);
+      };
+      video.onerror = reject;
+      video.src = source;
+    });
   }
 
   function wrapCanvasText(context, text, maxWidth) {
@@ -893,10 +1038,79 @@
     return result;
   }
 
-  async function makeSlideCanvas(slide, index) {
-    const canvas = document.createElement("canvas");
-    canvas.width = 1080;
-    canvas.height = 1350;
+  function richRuns(slide) {
+    const root = document.createElement("div");
+    root.innerHTML = richBodyMarkup(slide);
+    const runs = [];
+    const visit = (node, style = {}) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        if (node.nodeValue) runs.push({ text: node.nodeValue, ...style });
+        return;
+      }
+      if (node.nodeType !== Node.ELEMENT_NODE) return;
+      if (node.tagName === "BR") {
+        runs.push({ text: "\n", ...style });
+        return;
+      }
+      const next = { ...style };
+      if (["B", "STRONG"].includes(node.tagName)) next.bold = true;
+      const color = safeRichColor(node.style.color || node.getAttribute("color"));
+      const background = safeRichColor(node.style.backgroundColor);
+      if (color) next.color = color;
+      if (background) next.background = background;
+      [...node.childNodes].forEach((child) => visit(child, next));
+    };
+    [...root.childNodes].forEach((node) => visit(node));
+    return runs.length ? runs : [{ text: slide.body || "" }];
+  }
+
+  function layoutRichLines(context, runs, maxWidth, size, family) {
+    const lines = [];
+    let line = { segments: [], width: 0 };
+    let pendingSpace = false;
+    const pushLine = () => { lines.push(line); line = { segments: [], width: 0 }; pendingSpace = false; };
+    runs.forEach((run) => {
+      String(run.text || "").split(/(\n|\s+)/).forEach((token) => {
+        if (!token) return;
+        if (token === "\n") { pushLine(); return; }
+        if (/^\s+$/.test(token)) { pendingSpace = line.segments.length > 0; return; }
+        context.font = `${run.bold ? 800 : 500} ${size}px ${family}`;
+        let text = pendingSpace ? ` ${token}` : token;
+        let width = context.measureText(text).width;
+        if (line.segments.length && line.width + width > maxWidth) {
+          pushLine();
+          text = token;
+          width = context.measureText(text).width;
+        }
+        line.segments.push({ text, width, bold: !!run.bold, color: run.color || "", background: run.background || "" });
+        line.width += width;
+        pendingSpace = false;
+      });
+    });
+    if (line.segments.length || !lines.length) lines.push(line);
+    while (lines.length > 1 && !lines.at(-1).segments.length) lines.pop();
+    return lines;
+  }
+
+  function drawRichLines(context, lines, x, firstBaseline, align, size, family, fallbackColor) {
+    lines.forEach((line, lineIndex) => {
+      const baseline = firstBaseline + lineIndex * size * 1.3;
+      let cursor = align === "center" ? x - line.width / 2 : align === "right" ? x - line.width : x;
+      line.segments.forEach((segment) => {
+        context.font = `${segment.bold ? 800 : 500} ${size}px ${family}`;
+        if (segment.background) {
+          context.fillStyle = segment.background;
+          context.fillRect(cursor - 5, baseline - size * .92, segment.width + 10, size * 1.16);
+        }
+        context.fillStyle = segment.color || fallbackColor;
+        context.textAlign = "left";
+        context.fillText(segment.text, cursor, baseline);
+        cursor += segment.width;
+      });
+    });
+  }
+
+  async function drawSlideCanvas(canvas, slide, index, suppliedMedia = null) {
     const context = canvas.getContext("2d");
     const palette = paletteFor(slide.palette);
     const photo = photoById(slide.photoId);
@@ -905,7 +1119,7 @@
     context.fillStyle = palette.background;
     context.fillRect(0, 0, 1080, 1350);
     if (usesPhoto) {
-      const image = await loadImage(photo.exportImage || photo.thumb);
+      const image = suppliedMedia || (photo.kind === "video" ? await loadVideo(photo.exportImage, .04) : await loadImage(photo.exportImage || photo.thumb));
       if (slide.scene === "split") cropImage(context, image, 600, 0, 480, 1350);
       else if (slide.scene === "window") cropImage(context, image, 90, 90, 900, 520);
       else cropImage(context, image, 0, 0, 1080, 1350);
@@ -938,8 +1152,7 @@
       titleLines = wrapCanvasText(context, titleText, maxWidth);
     }
     const bodySize = Math.max(24, Math.min(64, Number(slide.bodySize) || Math.round(titleSize * .55)));
-    context.font = `500 ${bodySize}px ${bodyFontFamily}`;
-    const bodyLines = wrapCanvasText(context, slide.body, maxWidth);
+    const bodyLines = layoutRichLines(context, richRuns(slide), maxWidth, bodySize, bodyFontFamily);
     const titleHeight = titleLines.length * titleSize * .98;
     const bodyHeight = bodyLines.length * bodySize * 1.3;
     const blockHeight = titleHeight + (titleLines.length && bodyLines.length ? 50 : 0) + bodyHeight;
@@ -958,37 +1171,120 @@
       context.fillText(line, x, startY + titleSize * (lineIndex + .85), maxWidth);
     });
     let bodyY = startY + titleHeight + (titleLines.length && bodyLines.length ? 50 : 0);
-    context.font = `500 ${bodySize}px ${bodyFontFamily}`;
-    bodyLines.forEach((line) => {
-      bodyY += bodySize * (line ? 1.3 : .7);
-      if (line) context.fillText(line, x, bodyY, maxWidth);
-    });
+    if (bodyLines.length) {
+      bodyY += bodySize;
+      drawRichLines(context, bodyLines, x, bodyY, slide.align || "left", bodySize, bodyFontFamily, context.fillStyle);
+    }
     context.font = `700 24px Arial, sans-serif`;
     context.fillStyle = foreground;
-    context.textAlign = "left";
-    context.fillText(series.name, 100, 90);
-    context.textAlign = "right";
-    context.fillText(`${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}`, 980, 1280);
+    if (slide.showSeriesLabel !== false) {
+      context.textAlign = "left";
+      context.fillText(series.name, 100, 90);
+    }
+    if (slide.showPagination !== false) {
+      context.textAlign = "right";
+      context.fillText(`${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}`, 980, 1280);
+    }
     return canvas;
+  }
+
+  async function makeSlideCanvas(slide, index, suppliedMedia = null) {
+    const canvas = document.createElement("canvas");
+    canvas.width = 1080;
+    canvas.height = 1350;
+    await drawSlideCanvas(canvas, slide, index, suppliedMedia);
+    return canvas;
+  }
+
+  function createVideoRecorder(stream) {
+    const types = ["video/mp4;codecs=avc1.42E01E", "video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"];
+    for (const mime of types) {
+      if (!window.MediaRecorder?.isTypeSupported(mime)) continue;
+      try { return new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 5_000_000 }); } catch {}
+    }
+    return new MediaRecorder(stream, { videoBitsPerSecond: 5_000_000 });
+  }
+
+  async function makeVideoSlideBlob(slide, index, onProgress = () => {}) {
+    const photo = photoById(slide.photoId);
+    if (photo?.kind !== "video" || !window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream) throw new Error("video export unsupported");
+    const video = await loadVideo(photo.exportImage, 0);
+    const duration = Math.min(MAX_VIDEO_SECONDS, photo.duration || video.duration, video.duration);
+    const canvas = document.createElement("canvas");
+    canvas.width = 1080;
+    canvas.height = 1350;
+    await drawSlideCanvas(canvas, slide, index, video);
+    const stream = canvas.captureStream(30);
+    const recorder = createVideoRecorder(stream);
+    const chunks = [];
+    const finished = new Promise((resolve, reject) => {
+      recorder.ondataavailable = (event) => { if (event.data.size) chunks.push(event.data); };
+      recorder.onerror = () => reject(recorder.error || new Error("video recorder error"));
+      recorder.onstop = () => resolve(new Blob(chunks, { type: recorder.mimeType || "video/webm" }));
+    });
+    try {
+      recorder.start(1000);
+      video.currentTime = 0;
+      await video.play();
+      await new Promise((resolve, reject) => {
+        let drawing = false;
+        const frame = async () => {
+          if (drawing) { requestAnimationFrame(frame); return; }
+          drawing = true;
+          try {
+            await drawSlideCanvas(canvas, slide, index, video);
+            onProgress(Math.min(1, video.currentTime / duration));
+            if (video.currentTime >= duration || video.ended) {
+              video.pause();
+              resolve();
+              return;
+            }
+          } catch (error) { reject(error); return; }
+          finally { drawing = false; }
+          requestAnimationFrame(frame);
+        };
+        requestAnimationFrame(frame);
+      });
+      recorder.stop();
+      const blob = await finished;
+      return { blob, extension: recorder.mimeType.startsWith("video/mp4") ? "mp4" : "webm" };
+    } catch (error) {
+      video.pause();
+      if (recorder.state !== "inactive") recorder.stop();
+      throw error;
+    } finally {
+      stream.getTracks().forEach((track) => track.stop());
+    }
   }
 
   async function downloadSlide(slide, index) {
     try {
-      setStatus("Собираем PNG 1080 × 1350…");
+      const media = photoById(slide.photoId);
       const slideFont = slide.font?.family ? normalizeFontSystem(slide.font) : series.font;
       ensureFont(slideFont);
       try { await document.fonts.load(`800 ${slide.size}px "${slideFont.family}"`); } catch {}
-      const canvas = await makeSlideCanvas(slide, index);
-      const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
-      if (!blob) throw new Error("empty PNG");
+      let blob;
+      let extension;
+      if (media?.kind === "video") {
+        setStatus("Собираю видеокарточку · до 1 минуты…");
+        const result = await makeVideoSlideBlob(slide, index, (progress) => setStatus(`Собираю видео: ${Math.round(progress * 100)}%`));
+        blob = result.blob;
+        extension = result.extension;
+      } else {
+        setStatus("Собираем PNG 1080 × 1350…");
+        const canvas = await makeSlideCanvas(slide, index);
+        blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+        extension = "png";
+      }
+      if (!blob) throw new Error("empty export");
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = `${series.name.toLocaleLowerCase("ru-RU").replace(/[^a-zа-яё0-9]+/gi, "-").replace(/^-|-$/g, "") || "carousel"}-${String(index + 1).padStart(2, "0")}.png`;
+      link.download = `${series.name.toLocaleLowerCase("ru-RU").replace(/[^a-zа-яё0-9]+/gi, "-").replace(/^-|-$/g, "") || "carousel"}-${String(index + 1).padStart(2, "0")}.${extension}`;
       link.click();
       setTimeout(() => URL.revokeObjectURL(link.href), 1000);
-      setStatus(`Слайд ${index + 1} скачан в PNG.`);
+      setStatus(`Слайд ${index + 1} скачан: ${extension.toUpperCase()}.`);
     } catch {
-      setStatus("PNG не собрался. Откройте опубликованную версию и попробуйте ещё раз.");
+      setStatus("Файл не собрался. Для видеокарточки используйте свежий Chrome или Edge и MP4-видео.");
     }
   }
 
@@ -1085,17 +1381,31 @@
         const slideFont = slide.font?.family ? normalizeFontSystem(slide.font) : series.font;
         ensureFont(slideFont);
         try { await document.fonts.load(`800 ${slide.size}px "${slideFont.family}"`); } catch {}
-        const canvas = await makeSlideCanvas(slide, index);
-        const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
-        if (!blob) throw new Error("empty PNG");
-        entries.push({ name: `${base}-${String(index + 1).padStart(2, "0")}.png`, data: new Uint8Array(await blob.arrayBuffer()) });
+        const media = photoById(slide.photoId);
+        let blob;
+        let extension;
+        if (media?.kind === "video") {
+          const result = await makeVideoSlideBlob(slide, index, (progress) => {
+            const percent = Math.round(progress * 100);
+            buttons.forEach((button) => { button.textContent = `Видео ${index + 1}: ${percent}%`; });
+            setStatus(`Собираю видеокарточку ${index + 1} из ${series.slides.length}: ${percent}%`);
+          });
+          blob = result.blob;
+          extension = result.extension;
+        } else {
+          const canvas = await makeSlideCanvas(slide, index);
+          blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+          extension = "png";
+        }
+        if (!blob) throw new Error("empty export");
+        entries.push({ name: `${base}-${String(index + 1).padStart(2, "0")}.${extension}`, data: new Uint8Array(await blob.arrayBuffer()) });
       }
       const link = document.createElement("a");
       link.href = URL.createObjectURL(makeZip(entries));
       link.download = `${base}-${series.slides.length}-cards.zip`;
       link.click();
       setTimeout(() => URL.revokeObjectURL(link.href), 1500);
-      setStatus(`Готово: ${series.slides.length} карточек скачаны одним ZIP.`);
+      setStatus(`Готово: ${series.slides.length} карточек скачаны одним ZIP · PNG и видео лежат по порядку.`);
     } catch {
       setStatus("Не получилось собрать ZIP. Попробуйте скачать активную карточку отдельно.");
     } finally {
@@ -1189,11 +1499,11 @@
     ui.localUpload.click();
   });
   ui.localUpload.addEventListener("change", async () => {
-    await addLocalImages(ui.localUpload.files, localUploadTarget);
+    await addLocalMedia(ui.localUpload.files, localUploadTarget);
     ui.localUpload.value = "";
   });
 
-  [ui.seriesName, ui.coverTitle, ui.coverSubtitle, ui.coverSize, ui.coverPlacement, ui.coverAlign, ui.coverCase].forEach((control) => control.addEventListener("input", updateCoverFromForm));
+  [ui.seriesName, ui.coverTitle, ui.coverSubtitle, ui.coverSize, ui.coverPlacement, ui.coverAlign, ui.coverCase, ui.coverShowSeries, ui.coverShowNumber].forEach((control) => control.addEventListener("input", updateCoverFromForm));
   document.querySelectorAll("[data-carousel-scene]").forEach((button) => button.addEventListener("click", () => {
     coverSlide().scene = button.dataset.carouselScene;
     coverSlide().savedAt = null;
@@ -1237,7 +1547,25 @@
     renderActiveEditor();
     markChanged();
   });
-  [ui.slideTitle, ui.slideBody, ui.slideRole, ui.slideScene, ui.slidePalette, ui.slideSize, ui.slideBodySize, ui.slidePlacement, ui.slideAlign, ui.slideOffsetX, ui.slideOffsetY].forEach((control) => control.addEventListener("input", updateActiveFromForm));
+  [ui.slideTitle, ui.slideBody, ui.slideRole, ui.slideScene, ui.slidePalette, ui.slideSize, ui.slideBodySize, ui.slidePlacement, ui.slideAlign, ui.slideOffsetX, ui.slideOffsetY, ui.slideShowSeries, ui.slideShowNumber].forEach((control) => control.addEventListener("input", updateActiveFromForm));
+  ui.slideBody.addEventListener("paste", (event) => {
+    event.preventDefault();
+    document.execCommand("insertText", false, event.clipboardData.getData("text/plain"));
+  });
+  ui.richToolbar.addEventListener("pointerdown", (event) => event.preventDefault());
+  ui.richToolbar.addEventListener("click", (event) => {
+    const button = event.target.closest("button");
+    if (!button) return;
+    ui.slideBody.focus();
+    document.execCommand("styleWithCSS", false, true);
+    if (button.dataset.richCommand) document.execCommand(button.dataset.richCommand, false, null);
+    if (button.dataset.richColor) document.execCommand("foreColor", false, button.dataset.richColor);
+    if (button.dataset.richHighlight) {
+      const supported = document.execCommand("hiliteColor", false, button.dataset.richHighlight);
+      if (!supported) document.execCommand("backColor", false, button.dataset.richHighlight);
+    }
+    ui.slideBody.dispatchEvent(new Event("input", { bubbles: true }));
+  });
   ui.slideFont.addEventListener("change", () => {
     const slide = activeSlide();
     if (ui.slideFont.value === "series") slide.font = null;
@@ -1357,7 +1685,10 @@
   window.addEventListener("sekta:open-carousel-studio", () => renderAll());
   window.addEventListener("sekta:post-builder-load", (event) => loadIdea(event.detail || fallbackIdea));
   window.addEventListener("beforeunload", () => {
-    library.filter((item) => item.isLocal).forEach((item) => URL.revokeObjectURL(item.thumb));
+    library.filter((item) => item.isLocal).forEach((item) => {
+      if (String(item.thumb).startsWith("blob:")) URL.revokeObjectURL(item.thumb);
+      if (String(item.exportImage).startsWith("blob:") && item.exportImage !== item.thumb) URL.revokeObjectURL(item.exportImage);
+    });
   });
 
   ensureFont(series.font);
