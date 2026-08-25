@@ -1456,6 +1456,90 @@
     return result;
   }
 
+  function renderedTextLines(element) {
+    if (!element) return [];
+    const wordsByLine = [];
+    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node = walker.nextNode())) {
+      const value = node.nodeValue || "";
+      for (const match of value.matchAll(/\S+/gu)) {
+        const range = document.createRange();
+        range.setStart(node, match.index);
+        range.setEnd(node, match.index + match[0].length);
+        const rect = range.getClientRects()[0];
+        if (!rect) continue;
+        let line = wordsByLine.find((item) => Math.abs(item.top - rect.top) < 1.5);
+        if (!line) {
+          line = { top: rect.top, words: [] };
+          wordsByLine.push(line);
+        }
+        line.words.push({ left: rect.left, text: match[0] });
+      }
+    }
+    return wordsByLine
+      .sort((a, b) => a.top - b.top)
+      .map((line) => line.words.sort((a, b) => a.left - b.left).map((word) => word.text).join(" "));
+  }
+
+  async function measureSlidePreview(slide, index) {
+    let element = slide === coverSlide() ? ui.coverCanvas : index === series.activeSlide && slide === activeSlide() ? ui.activeCanvas : null;
+    let temporary = false;
+    if (!element?.isConnected || !element.getBoundingClientRect().width) {
+      temporary = true;
+      element = document.createElement("div");
+      element.style.cssText = `position:fixed;left:-10000px;top:0;width:${series.format === "story" ? 360 : 520}px;max-width:none;visibility:hidden;pointer-events:none`;
+      document.body.append(element);
+      renderCanvas(element, slide, index);
+    }
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    const elementRect = element.getBoundingClientRect();
+    const content = element.querySelector(".carousel-render-content");
+    const title = content?.querySelector(":scope > strong");
+    const body = content?.querySelector(".carousel-render-body");
+    const seriesLabel = content?.querySelector(".carousel-render-series");
+    const pagination = content?.querySelector(":scope > small");
+    const scale = currentFormat().width / elementRect.width;
+    const rectFor = (node) => {
+      if (!node) return null;
+      const rect = node.getBoundingClientRect();
+      return {
+        left: (rect.left - elementRect.left) * scale,
+        top: (rect.top - elementRect.top) * scale,
+        right: (rect.right - elementRect.left) * scale,
+        bottom: (rect.bottom - elementRect.top) * scale,
+        width: rect.width * scale,
+        height: rect.height * scale,
+      };
+    };
+    const styleFor = (node) => {
+      if (!node) return null;
+      const style = getComputedStyle(node);
+      return {
+        fontFamily: style.fontFamily,
+        fontSize: parseFloat(style.fontSize) * scale,
+        fontWeight: style.fontWeight,
+        lineHeight: parseFloat(style.lineHeight) * scale,
+        letterSpacing: style.letterSpacing === "normal" ? 0 : parseFloat(style.letterSpacing) * scale,
+        textTransform: style.textTransform,
+      };
+    };
+    const measured = {
+      titleLines: renderedTextLines(title),
+      content: rectFor(content),
+      title: rectFor(title),
+      body: rectFor(body),
+      seriesLabel: rectFor(seriesLabel),
+      pagination: rectFor(pagination),
+      titleStyle: styleFor(title),
+      bodyStyle: styleFor(body?.querySelector("p")),
+      seriesStyle: styleFor(seriesLabel),
+      paginationStyle: styleFor(pagination),
+    };
+    if (temporary) element.remove();
+    return measured;
+  }
+
   function richRuns(slide) {
     const root = document.createElement("div");
     root.innerHTML = richBodyMarkup(slide);
@@ -1528,12 +1612,11 @@
     });
   }
 
-  async function drawSlideCanvas(canvas, slide, index, suppliedMedia = null) {
+  async function drawSlideCanvas(canvas, slide, index, suppliedMedia = null, previewLayout = null) {
     const context = canvas.getContext("2d");
     const format = currentFormat();
     const width = format.width;
     const height = format.height;
-    const storyTypographyScale = format === formatPresets.story ? 1.5 : 1;
     const palette = paletteFor(slide.palette);
     const photo = photoById(slide.photoId);
     const slideFont = slide.font?.family ? normalizeFontSystem(slide.font) : series.font;
@@ -1563,28 +1646,35 @@
     context.textBaseline = "alphabetic";
     const xShift = (Number(slide.offsetX) || 0) * 10.8;
     const yShift = (Number(slide.offsetY) || 0) * height / 100;
-    const x = (slide.align === "center" ? 540 : slide.align === "right" ? 980 : 100) + xShift;
-    const maxWidth = slide.scene === "split" ? 440 : 880;
-    const fontFamily = `"${slideFont.family}", Arial, sans-serif`;
-    const bodyFontFamily = `"${slide.bodyFont || slideFont.body || companionFor(slideFont.family)}", Arial, sans-serif`;
+    const fallbackX = (slide.align === "center" ? 540 : slide.align === "right" ? 980 : 100) + xShift;
+    const x = previewLayout?.title ? (slide.align === "center" ? (previewLayout.title.left + previewLayout.title.right) / 2 : slide.align === "right" ? previewLayout.title.right : previewLayout.title.left) : fallbackX;
+    const maxWidth = previewLayout?.content?.width || (slide.scene === "split" ? 440 : 880);
+    const fontFamily = previewLayout?.titleStyle?.fontFamily || `"${slideFont.family}", Arial, sans-serif`;
+    const bodyFontFamily = previewLayout?.bodyStyle?.fontFamily || `"${slide.bodyFont || slideFont.body || companionFor(slideFont.family)}", Arial, sans-serif`;
     const titleText = displayText(slide.title, slide.caseKind || slideFont.caseKind);
-    let titleSize = Math.max(40, Math.min(132, Number(slide.size) || 46)) * storyTypographyScale;
-    context.font = `${slide.titleWeight || 800} ${titleSize}px ${fontFamily}`;
-    if ("letterSpacing" in context) context.letterSpacing = `${Number(slide.titleTracking) || 0}em`;
-    let titleLines = wrapCanvasText(context, titleText, maxWidth);
-    while (titleLines.length > 6 && titleSize > 42 * storyTypographyScale) {
-      titleSize -= 4 * storyTypographyScale;
+    let titleSize = previewLayout?.titleStyle?.fontSize || Math.max(40, Math.min(132, Number(slide.size) || 46));
+    const titleWeight = previewLayout?.titleStyle?.fontWeight || slide.titleWeight || 800;
+    context.font = `${titleWeight} ${titleSize}px ${fontFamily}`;
+    if ("letterSpacing" in context) context.letterSpacing = previewLayout?.titleStyle ? `${previewLayout.titleStyle.letterSpacing}px` : `${Number(slide.titleTracking) || 0}em`;
+    let titleLines = previewLayout?.titleLines?.length ? previewLayout.titleLines : wrapCanvasText(context, titleText, maxWidth);
+    while (!previewLayout && titleLines.length > 6 && titleSize > 42) {
+      titleSize -= 4;
       context.font = `${slide.titleWeight || 800} ${titleSize}px ${fontFamily}`;
       titleLines = wrapCanvasText(context, titleText, maxWidth);
     }
-    const bodySize = Math.max(24, Math.min(64, Number(slide.bodySize) || Math.round((titleSize / storyTypographyScale) * .55))) * storyTypographyScale;
-    const bodyLines = layoutRichLines(context, richRuns(slide), maxWidth, bodySize, bodyFontFamily, slide.bodyWeight || 500);
-    const titleHeight = titleLines.length * titleSize * (slide.titleLineHeight || .96);
-    const bodyHeight = bodyLines.length * bodySize * (slide.bodyLineHeight || 1.3);
+    const bodySize = previewLayout?.bodyStyle?.fontSize || Math.max(24, Math.min(64, Number(slide.bodySize) || Math.round(titleSize * .55)));
+    const bodyWeight = previewLayout?.bodyStyle?.fontWeight || slide.bodyWeight || 500;
+    const bodyMaxWidth = previewLayout?.body?.width || maxWidth;
+    const bodyLines = layoutRichLines(context, richRuns(slide), bodyMaxWidth, bodySize, bodyFontFamily, bodyWeight);
+    const titleLineHeight = previewLayout?.titleStyle?.lineHeight ? previewLayout.titleStyle.lineHeight / titleSize : slide.titleLineHeight || .96;
+    const bodyLineHeight = previewLayout?.bodyStyle?.lineHeight ? previewLayout.bodyStyle.lineHeight / bodySize : slide.bodyLineHeight || 1.3;
+    const titleHeight = titleLines.length * titleSize * titleLineHeight;
+    const bodyHeight = bodyLines.length * bodySize * bodyLineHeight;
     const blockHeight = titleHeight + (titleLines.length && bodyLines.length ? 50 : 0) + bodyHeight;
     let startY = slide.placement === "top" ? (format === formatPresets.story ? 230 : 210) : slide.placement === "bottom" ? height - (format === formatPresets.story ? 260 : 170) - blockHeight : (height - blockHeight) / 2;
     if (["window"].includes(slide.scene)) startY = Math.round(height * (format === formatPresets.story ? .56 : .533));
     startY += yShift;
+    if (previewLayout?.title) startY = previewLayout.title.top;
     if (slide.scene === "plate" || slide.plaqueEnabled) {
       context.fillStyle = colorWithAlpha(slide.plaqueColor || palette.background, slide.plaqueOpacity ?? .92);
       context.beginPath();
@@ -1592,26 +1682,32 @@
       context.fill();
     }
     context.fillStyle = titleColor;
-    context.font = `${slide.titleWeight || 800} ${titleSize}px ${fontFamily}`;
+    context.font = `${titleWeight} ${titleSize}px ${fontFamily}`;
     titleLines.forEach((line, lineIndex) => {
-      context.fillText(line, x, startY + titleSize * (.85 + lineIndex * (slide.titleLineHeight || .96)), maxWidth);
+      context.fillText(line, x, startY + titleSize * .85 + lineIndex * titleSize * titleLineHeight, maxWidth);
     });
-    let bodyY = startY + titleHeight + (titleLines.length && bodyLines.length ? 50 : 0);
+    let bodyY = previewLayout?.body ? previewLayout.body.top : startY + titleHeight + (titleLines.length && bodyLines.length ? 50 : 0);
     if (bodyLines.length) {
       bodyY += bodySize;
-      if ("letterSpacing" in context) context.letterSpacing = `${Number(slide.bodyTracking) || 0}em`;
-      drawRichLines(context, bodyLines, x, bodyY, slide.align || "left", bodySize, bodyFontFamily, slide.plaqueEnabled || slide.scene === "plate" ? palette.ink : foreground, slide.bodyWeight || 500, slide.bodyLineHeight || 1.3);
+      if ("letterSpacing" in context) context.letterSpacing = previewLayout?.bodyStyle ? `${previewLayout.bodyStyle.letterSpacing}px` : `${Number(slide.bodyTracking) || 0}em`;
+      const bodyX = previewLayout?.body ? (slide.align === "center" ? (previewLayout.body.left + previewLayout.body.right) / 2 : slide.align === "right" ? previewLayout.body.right : previewLayout.body.left) : x;
+      drawRichLines(context, bodyLines, bodyX, bodyY, slide.align || "left", bodySize, bodyFontFamily, slide.plaqueEnabled || slide.scene === "plate" ? palette.ink : foreground, bodyWeight, bodyLineHeight);
     }
     if ("letterSpacing" in context) context.letterSpacing = "0px";
     context.font = `700 ${format === formatPresets.story ? 32 : 24}px Arial, sans-serif`;
     context.fillStyle = foreground;
     if (slide.showSeriesLabel !== false) {
       context.textAlign = "left";
-      context.fillText(series.name, 100, format === formatPresets.story ? 230 : 90);
+      const labelStyle = previewLayout?.seriesStyle;
+      const labelText = labelStyle?.textTransform === "uppercase" ? series.name.toLocaleUpperCase("ru-RU") : series.name;
+      if (labelStyle) context.font = `${labelStyle.fontWeight} ${labelStyle.fontSize}px ${labelStyle.fontFamily}`;
+      context.fillText(labelText, previewLayout?.seriesLabel?.left ?? 100, (previewLayout?.seriesLabel?.top ?? (format === formatPresets.story ? 230 : 90)) + (labelStyle?.fontSize || 0) * .85);
     }
     if (slide.showPagination !== false) {
       context.textAlign = "right";
-      context.fillText(`${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}`, 980, height - (format === formatPresets.story ? 230 : 70));
+      const pageStyle = previewLayout?.paginationStyle;
+      if (pageStyle) context.font = `${pageStyle.fontWeight} ${pageStyle.fontSize}px ${pageStyle.fontFamily}`;
+      context.fillText(`${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}`, previewLayout?.pagination?.right ?? 980, (previewLayout?.pagination?.top ?? (height - (format === formatPresets.story ? 230 : 70))) + (pageStyle?.fontSize || 0) * .85);
     }
     return canvas;
   }
@@ -1620,7 +1716,8 @@
     const canvas = document.createElement("canvas");
     canvas.width = currentFormat().width;
     canvas.height = currentFormat().height;
-    await drawSlideCanvas(canvas, slide, index, suppliedMedia);
+    const previewLayout = await measureSlidePreview(slide, index);
+    await drawSlideCanvas(canvas, slide, index, suppliedMedia, previewLayout);
     return canvas;
   }
 
@@ -1641,7 +1738,8 @@
     const canvas = document.createElement("canvas");
     canvas.width = currentFormat().width;
     canvas.height = currentFormat().height;
-    await drawSlideCanvas(canvas, slide, index, video);
+    const previewLayout = await measureSlidePreview(slide, index);
+    await drawSlideCanvas(canvas, slide, index, video, previewLayout);
     const stream = canvas.captureStream(30);
     const recorder = createVideoRecorder(stream);
     const chunks = [];
@@ -1660,7 +1758,7 @@
           if (drawing) { requestAnimationFrame(frame); return; }
           drawing = true;
           try {
-            await drawSlideCanvas(canvas, slide, index, video);
+            await drawSlideCanvas(canvas, slide, index, video, previewLayout);
             onProgress(Math.min(1, video.currentTime / duration));
             if (video.currentTime >= duration || video.ended) {
               video.pause();
