@@ -404,7 +404,11 @@
                   <label><span>Выравнивание</span><select id="carouselCoverAlign"><option value="left">По левому краю</option><option value="center">По центру</option><option value="right">По правому краю</option></select></label>
                   <label><span>Регистр</span><select id="carouselCoverCase"><option value="original">Как написано</option><option value="lower">Строчные</option><option value="upper">КАПС</option></select></label>
                 </div>
-                <div class="carousel-media-head"><div><strong>Фотография · медиатека Mama и свои файлы</strong><span id="carouselCoverPhotoName">выбирайте лентой или через поиск</span></div><div class="carousel-media-actions"><label class="carousel-search"><input id="carouselCoverMediaSearch" type="search" placeholder="Найти фото…"></label><button class="button button-primary" id="carouselUploadLocal" type="button">Добавить фото</button><input id="carouselLocalUpload" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" multiple hidden></div></div>
+                <fieldset class="carousel-control-group carousel-visibility-controls"><legend>Служебные элементы</legend><div>
+                  <label class="carousel-check"><input id="carouselCoverShowSeries" type="checkbox" checked><span>Название серии сверху</span></label>
+                  <label class="carousel-check"><input id="carouselCoverShowNumber" type="checkbox" checked><span>Номер карточки снизу</span></label>
+                </div></fieldset>
+                <div class="carousel-media-head"><div><strong>Фото или видео · медиатека Mama и свои файлы</strong><span id="carouselCoverPhotoName">видео обрежется до первой минуты · без звука</span></div><div class="carousel-media-actions"><label class="carousel-search"><input id="carouselCoverMediaSearch" type="search" placeholder="Найти медиа…"></label><button class="button button-primary" id="carouselUploadLocal" type="button">Добавить фото / видео</button><input id="carouselLocalUpload" type="file" accept="image/jpeg,image/png,image/webp,video/mp4,video/quicktime,video/webm,.jpg,.jpeg,.png,.webp,.mp4,.mov,.webm" multiple hidden></div></div>
                 <div class="carousel-media-strip" id="carouselCoverMedia"></div>
                 <button class="button button-secondary carousel-next-stage" type="button" data-carousel-go="longread">Дальше: вставить лонгрид →</button>
               </section>
@@ -453,7 +457,22 @@
               <section class="panel carousel-controls-panel">
                 <div class="section-head"><div><h2 id="carouselActiveTitle">Слайд 1</h2><p id="carouselActiveMeta">обложка · не сохранён</p></div><button class="button button-quiet" id="carouselDuplicateSlide" type="button">Дублировать</button></div>
                 <label class="carousel-field"><span>Заголовок</span><textarea id="carouselSlideTitle" rows="3"></textarea></label>
-                <label class="carousel-field"><span>Основной текст</span><textarea id="carouselSlideBody" rows="9"></textarea></label>
+                <div class="carousel-field carousel-rich-field"><span>Основной текст</span>
+                  <div class="carousel-rich-toolbar" id="carouselRichToolbar" role="toolbar" aria-label="Выделение текста">
+                    <button type="button" data-rich-command="bold" title="Жирный текст"><strong>Жирный</strong></button>
+                    <span>Текст:</span>
+                    <button type="button" class="rich-swatch rich-ink" data-rich-color="#17221f" aria-label="Тёмный текст"></button>
+                    <button type="button" class="rich-swatch rich-pink" data-rich-color="#f35ba7" aria-label="Розовый текст"></button>
+                    <button type="button" class="rich-swatch rich-blue" data-rich-color="#3155e4" aria-label="Синий текст"></button>
+                    <span>Подложка:</span>
+                    <button type="button" class="rich-swatch rich-highlight-pink" data-rich-highlight="#ffb6d9" aria-label="Розовая подложка"></button>
+                    <button type="button" class="rich-swatch rich-highlight-lime" data-rich-highlight="#d4f04a" aria-label="Лаймовая подложка"></button>
+                    <button type="button" class="rich-swatch rich-highlight-paper" data-rich-highlight="#fff0c7" aria-label="Светлая подложка"></button>
+                    <button type="button" data-rich-command="removeFormat">Сбросить</button>
+                  </div>
+                  <div id="carouselSlideBody" class="carousel-rich-editor" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Введите основной текст карточки"></div>
+                  <small>Выделите слова мышкой, затем нажмите «Жирный», цвет или подложку.</small>
+                </div>
                 <div class="carousel-control-grid">
                   <label><span>Тип слайда</span><select id="carouselSlideRole"><option value="cover">Обложка</option><option value="longread">Лонгрид</option><option value="quote">Цитата</option><option value="proof">Фото-доказательство</option><option value="pause">Фотопауза</option><option value="cta">Финал / CTA</option></select></label>
                   <label><span>Сцена</span><select id="carouselSlideScene"><option value="paper">Светлое поле</option><option value="dark">Тёмное поле</option><option value="photo-dim">Фото + затемнение</option><option value="photo-clean">Текст на фото</option><option value="plate">Плашка на фото</option><option value="split">Split</option><option value="window">Фото-окно</option><option value="field">Цветовое поле</option><option value="quote">Цитатная</option></select></label>
@@ -466,7 +485,11 @@
                   <label><span>Сдвиг по горизонтали</span><input id="carouselSlideOffsetX" type="range" min="-20" max="20" value="0"><output id="carouselSlideOffsetXValue">0%</output></label>
                   <label><span>Сдвиг по вертикали</span><input id="carouselSlideOffsetY" type="range" min="-20" max="20" value="0"><output id="carouselSlideOffsetYValue">0%</output></label>
                 </div>
-                <div class="carousel-media-head"><div><strong>Фото этого слайда</strong><span id="carouselSlidePhotoName">можно выбрать отдельно</span></div><div class="carousel-media-actions"><label class="carousel-search"><input id="carouselSlideMediaSearch" type="search" placeholder="Найти фото…"></label><button class="button button-primary" id="carouselUploadLocalSlide" type="button">Добавить фото</button><button class="button button-quiet" id="carouselShuffleSlideMedia" type="button">Перемешать</button><button class="button button-quiet" id="carouselRemovePhoto" type="button">Убрать</button></div></div>
+                <fieldset class="carousel-control-group carousel-visibility-controls"><legend>Служебные элементы</legend><div>
+                  <label class="carousel-check"><input id="carouselSlideShowSeries" type="checkbox" checked><span>Название серии сверху</span></label>
+                  <label class="carousel-check"><input id="carouselSlideShowNumber" type="checkbox" checked><span>Номер карточки снизу</span></label>
+                </div></fieldset>
+                <div class="carousel-media-head"><div><strong>Фото или видео этого слайда</strong><span id="carouselSlidePhotoName">видео обрежется до первой минуты · без звука</span></div><div class="carousel-media-actions"><label class="carousel-search"><input id="carouselSlideMediaSearch" type="search" placeholder="Найти медиа…"></label><button class="button button-primary" id="carouselUploadLocalSlide" type="button">Добавить фото / видео</button><button class="button button-quiet" id="carouselShuffleSlideMedia" type="button">Перемешать</button><button class="button button-quiet" id="carouselRemovePhoto" type="button">Убрать</button></div></div>
                 <div class="carousel-media-strip" id="carouselSlideMedia"></div>
               </section>
             </div>
@@ -478,7 +501,7 @@
               <div class="carousel-saved-grid" id="carouselSavedSeries"></div>
             </section>
             <section class="carousel-lab-link">
-              <div><strong>Выгрузка готовой серии</strong><span>Все карточки будут собраны в PNG 1080 × 1350 и упакованы в один ZIP.</span></div>
+              <div><strong>Выгрузка готовой серии</strong><span>Статичные карточки сохранятся в PNG, видеокарточки — видео до 1 минуты. Всё будет упаковано в один ZIP.</span></div>
               <div><button class="button button-primary" id="carouselDownloadAll" type="button">Скачать всю карусель ZIP</button></div>
             </section>
           </div>
