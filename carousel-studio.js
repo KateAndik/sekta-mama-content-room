@@ -8,12 +8,34 @@
   const IMPORT_KEY = "sekta-mama-carousel-studio-taste-import-v1";
   const MAX_VIDEO_SECONDS = 60;
   const DEFAULT_LONGREAD = document.querySelector("#carouselLongreadText")?.value || "";
+  const formatPresets = {
+    feed: { name: "Пост 4:5", width: 1080, height: 1350, ratio: "4 / 5", label: "1080 × 1350" },
+    story: { name: "Stories 9:16", width: 1080, height: 1920, ratio: "9 / 16", label: "1080 × 1920" },
+  };
   const palettes = {
     ink: { name: "Контрастная", background: "#17221f", foreground: "#ffffff", accent: "#f7f7f2", ink: "#17221f" },
     pink: { name: "Розовая", background: "#f35ba7", foreground: "#17221f", accent: "#ffffff", ink: "#17221f" },
     blue: { name: "Синяя", background: "#3155e4", foreground: "#ffffff", accent: "#dce5ff", ink: "#17211e" },
     lime: { name: "Лайм", background: "#d4f04a", foreground: "#17221f", accent: "#ffffff", ink: "#17221f" },
     paper: { name: "Бумага", background: "#fff7e6", foreground: "#5b493b", accent: "#f35ba7", ink: "#392f29" },
+    sky: { name: "Небо", background: "#c8edf2", foreground: "#17221f", accent: "#3155e4", ink: "#17221f" },
+    mint: { name: "Мята", background: "#62d9a4", foreground: "#17221f", accent: "#fff7e6", ink: "#17221f" },
+    blush: { name: "Пудра", background: "#f8cfe0", foreground: "#17221f", accent: "#f35ba7", ink: "#17221f" },
+    sun: { name: "Солнце", background: "#f7c943", foreground: "#17221f", accent: "#ffffff", ink: "#17221f" },
+    coral: { name: "Коралл", background: "#ef6c5b", foreground: "#ffffff", accent: "#fff7e6", ink: "#17221f" },
+    lilac: { name: "Сирень", background: "#c7b8f5", foreground: "#17221f", accent: "#ffffff", ink: "#17221f" },
+  };
+  const layoutTemplates = {
+    custom: { name: "Своя композиция" },
+    "light-column": { scene: "paper", placement: "middle", size: 68, bodySize: 30, plaqueEnabled: false },
+    "photo-field": { scene: "window", placement: "bottom", size: 64, bodySize: 28, plaqueEnabled: false },
+    "side-plaque": { scene: "split", placement: "middle", size: 64, bodySize: 28, plaqueEnabled: true },
+    "top-plaque": { scene: "photo-dim", placement: "top", size: 68, bodySize: 28, plaqueEnabled: true },
+    "photo-window": { scene: "window", placement: "bottom", size: 64, bodySize: 28, plaqueEnabled: false },
+    "photo-scrim": { scene: "photo-dim", placement: "bottom", size: 72, bodySize: 30, plaqueEnabled: false },
+    "text-photo": { scene: "photo-clean", placement: "middle", size: 72, bodySize: 30, plaqueEnabled: false },
+    "accent-thought": { scene: "field", placement: "middle", size: 96, bodySize: 34, plaqueEnabled: false },
+    "color-final": { scene: "field", placement: "middle", size: 78, bodySize: 32, plaqueEnabled: false },
   };
   const layoutPresets = {
     "paper-column": { name: "Бумажная колонка", role: "longread", scene: "paper", background: "#f3f1e9", foreground: "#171814", accent: "#e9a692", ink: "#171814" },
@@ -50,6 +72,10 @@
     saveState: document.querySelector("#carouselSaveState"),
     status: document.querySelector("#carouselStudioStatus"),
     seriesName: document.querySelector("#carouselSeriesName"),
+    formatSwitch: document.querySelector("#carouselFormatSwitch"),
+    formatHint: document.querySelector("#carouselFormatHint"),
+    coverDimensions: document.querySelector("#carouselCoverDimensions"),
+    exportDescription: document.querySelector("#carouselExportDescription"),
     fontStrip: document.querySelector("#carouselFontStrip"),
     fontSummary: document.querySelector("#carouselFontSummary"),
     importTaste: document.querySelector("#carouselImportTaste"),
@@ -67,6 +93,26 @@
     coverCase: document.querySelector("#carouselCoverCase"),
     coverShowSeries: document.querySelector("#carouselCoverShowSeries"),
     coverShowNumber: document.querySelector("#carouselCoverShowNumber"),
+    coverBackgroundColor: document.querySelector("#carouselCoverBackgroundColor"),
+    coverBackgroundReset: document.querySelector("#carouselCoverBackgroundReset"),
+    coverTitleColor: document.querySelector("#carouselCoverTitleColor"),
+    coverTitleColorReset: document.querySelector("#carouselCoverTitleColorReset"),
+    coverTitleWeight: document.querySelector("#carouselCoverTitleWeight"),
+    coverTitleWeightValue: document.querySelector("#carouselCoverTitleWeightValue"),
+    coverTitleLineHeight: document.querySelector("#carouselCoverTitleLineHeight"),
+    coverTitleLineHeightValue: document.querySelector("#carouselCoverTitleLineHeightValue"),
+    coverTitleTracking: document.querySelector("#carouselCoverTitleTracking"),
+    coverTitleTrackingValue: document.querySelector("#carouselCoverTitleTrackingValue"),
+    coverPhotoScale: document.querySelector("#carouselCoverPhotoScale"),
+    coverPhotoScaleValue: document.querySelector("#carouselCoverPhotoScaleValue"),
+    coverPhotoFocusX: document.querySelector("#carouselCoverPhotoFocusX"),
+    coverPhotoFocusXValue: document.querySelector("#carouselCoverPhotoFocusXValue"),
+    coverPhotoFocusY: document.querySelector("#carouselCoverPhotoFocusY"),
+    coverPhotoFocusYValue: document.querySelector("#carouselCoverPhotoFocusYValue"),
+    coverPlaqueEnabled: document.querySelector("#carouselCoverPlaqueEnabled"),
+    coverPlaqueColor: document.querySelector("#carouselCoverPlaqueColor"),
+    coverPlaqueOpacity: document.querySelector("#carouselCoverPlaqueOpacity"),
+    coverPlaqueOpacityValue: document.querySelector("#carouselCoverPlaqueOpacityValue"),
     coverMedia: document.querySelector("#carouselCoverMedia"),
     coverMediaSearch: document.querySelector("#carouselCoverMediaSearch"),
     coverPhotoName: document.querySelector("#carouselCoverPhotoName"),
@@ -92,6 +138,35 @@
     slideScene: document.querySelector("#carouselSlideScene"),
     slidePalette: document.querySelector("#carouselSlidePalette"),
     slideFont: document.querySelector("#carouselSlideFont"),
+    slideTemplate: document.querySelector("#carouselSlideTemplate"),
+    slideBackgroundColor: document.querySelector("#carouselSlideBackgroundColor"),
+    slideBackgroundReset: document.querySelector("#carouselSlideBackgroundReset"),
+    slideTexture: document.querySelector("#carouselSlideTexture"),
+    slideTitleColor: document.querySelector("#carouselSlideTitleColor"),
+    slideTitleColorReset: document.querySelector("#carouselSlideTitleColorReset"),
+    slideTitleWeight: document.querySelector("#carouselSlideTitleWeight"),
+    slideTitleWeightValue: document.querySelector("#carouselSlideTitleWeightValue"),
+    slideTitleLineHeight: document.querySelector("#carouselSlideTitleLineHeight"),
+    slideTitleLineHeightValue: document.querySelector("#carouselSlideTitleLineHeightValue"),
+    slideTitleTracking: document.querySelector("#carouselSlideTitleTracking"),
+    slideTitleTrackingValue: document.querySelector("#carouselSlideTitleTrackingValue"),
+    slideBodyFont: document.querySelector("#carouselSlideBodyFont"),
+    slideBodyWeight: document.querySelector("#carouselSlideBodyWeight"),
+    slideBodyWeightValue: document.querySelector("#carouselSlideBodyWeightValue"),
+    slideBodyLineHeight: document.querySelector("#carouselSlideBodyLineHeight"),
+    slideBodyLineHeightValue: document.querySelector("#carouselSlideBodyLineHeightValue"),
+    slideBodyTracking: document.querySelector("#carouselSlideBodyTracking"),
+    slideBodyTrackingValue: document.querySelector("#carouselSlideBodyTrackingValue"),
+    slidePhotoScale: document.querySelector("#carouselSlidePhotoScale"),
+    slidePhotoScaleValue: document.querySelector("#carouselSlidePhotoScaleValue"),
+    slidePhotoFocusX: document.querySelector("#carouselSlidePhotoFocusX"),
+    slidePhotoFocusXValue: document.querySelector("#carouselSlidePhotoFocusXValue"),
+    slidePhotoFocusY: document.querySelector("#carouselSlidePhotoFocusY"),
+    slidePhotoFocusYValue: document.querySelector("#carouselSlidePhotoFocusYValue"),
+    slidePlaqueEnabled: document.querySelector("#carouselSlidePlaqueEnabled"),
+    slidePlaqueColor: document.querySelector("#carouselSlidePlaqueColor"),
+    slidePlaqueOpacity: document.querySelector("#carouselSlidePlaqueOpacity"),
+    slidePlaqueOpacityValue: document.querySelector("#carouselSlidePlaqueOpacityValue"),
     slideSize: document.querySelector("#carouselSlideSize"),
     slideSizeValue: document.querySelector("#carouselSlideSizeValue"),
     slideBodySize: document.querySelector("#carouselSlideBodySize"),
@@ -378,6 +453,23 @@
       photoId: null,
       showSeriesLabel: true,
       showPagination: true,
+      template: "custom",
+      backgroundColor: "",
+      texture: "none",
+      titleColor: "",
+      titleWeight: 800,
+      titleLineHeight: .96,
+      titleTracking: -.035,
+      bodyFont: "",
+      bodyWeight: 500,
+      bodyLineHeight: 1.3,
+      bodyTracking: 0,
+      photoScale: 1,
+      photoFocusX: 50,
+      photoFocusY: 50,
+      plaqueEnabled: false,
+      plaqueColor: "#fff7e6",
+      plaqueOpacity: .92,
       savedAt: null,
       ...overrides,
     };
@@ -391,6 +483,7 @@
       name: "Возвращение после паузы",
       font: firstFont,
       palette: "ink",
+      format: "feed",
       longread: DEFAULT_LONGREAD,
       totalSlides: 10,
       activeSlide: 0,
@@ -408,6 +501,7 @@
     if (!candidate || !Array.isArray(candidate.slides) || candidate.slides.length < 2) return defaultSeries();
     return {
       ...candidate,
+      format: formatPresets[candidate.format] ? candidate.format : "feed",
       font: normalizeFontSystem(candidate.font?.family ? candidate.font : fontChoices()[0]),
       palette: paletteChoices()[candidate.palette] ? candidate.palette : "ink",
       longread: candidate.longread || DEFAULT_LONGREAD,
@@ -673,6 +767,17 @@
     return escapeHtml(slide.body || "").replace(/\n/g, "<br>");
   }
 
+  function currentFormat() {
+    return formatPresets[series.format] || formatPresets.feed;
+  }
+
+  function colorWithAlpha(color, opacity = 1) {
+    const hex = String(color || "").replace("#", "");
+    const full = hex.length === 3 ? hex.split("").map((part) => part + part).join("") : hex;
+    if (!/^[0-9a-f]{6}$/i.test(full)) return `rgba(255,247,230,${opacity})`;
+    return `rgba(${parseInt(full.slice(0, 2), 16)},${parseInt(full.slice(2, 4), 16)},${parseInt(full.slice(4, 6), 16)},${opacity})`;
+  }
+
   function renderCanvas(element, slide, index) {
     if (!element || !slide) return;
     const photo = photoById(slide.photoId);
@@ -682,17 +787,36 @@
     element.className = "carousel-slide-canvas";
     element.dataset.scene = slide.scene;
     element.dataset.palette = slide.palette;
+    element.dataset.format = series.format || "feed";
+    element.dataset.template = slide.template || "custom";
+    element.dataset.texture = slide.texture || "none";
+    element.dataset.plaque = slide.plaqueEnabled ? "on" : "off";
     element.dataset.placement = slide.placement || "middle";
     element.dataset.align = slide.align || "left";
     element.dataset.role = slide.role;
     element.style.setProperty("--carousel-head-font", `"${slideFont.family}"`);
-    element.style.setProperty("--carousel-body-font", `"${slideFont.body || companionFor(slideFont.family)}"`);
-    element.style.setProperty("--carousel-bg", palette.background);
+    const bodyFamily = slide.bodyFont || slideFont.body || companionFor(slideFont.family);
+    ensureFontFamily(bodyFamily);
+    element.style.setProperty("--carousel-body-font", `"${bodyFamily}"`);
+    element.style.setProperty("--carousel-bg", slide.backgroundColor || palette.background);
     element.style.setProperty("--carousel-fg", palette.foreground);
     element.style.setProperty("--carousel-accent", palette.accent);
     element.style.setProperty("--carousel-ink", palette.ink);
     element.style.setProperty("--carousel-title-size", `${Math.max(24, Math.round((slide.size || 46) * .48))}px`);
     element.style.setProperty("--carousel-body-size", `${Math.max(12, Math.min(31, Math.round((slide.bodySize || 34) * .48)))}px`);
+    const previewForeground = slide.plaqueEnabled || slide.scene === "plate" ? palette.ink : ["paper", "quote", "field", "dark", "split"].includes(slide.scene) ? palette.foreground : "#ffffff";
+    element.style.setProperty("--carousel-title-color", slide.titleColor || previewForeground);
+    element.style.setProperty("--carousel-plaque-text", palette.ink);
+    element.style.setProperty("--carousel-title-weight", slide.titleWeight || 800);
+    element.style.setProperty("--carousel-title-line-height", slide.titleLineHeight || .96);
+    element.style.setProperty("--carousel-title-tracking", `${Number(slide.titleTracking) || 0}em`);
+    element.style.setProperty("--carousel-body-weight", slide.bodyWeight || 500);
+    element.style.setProperty("--carousel-body-line-height", slide.bodyLineHeight || 1.3);
+    element.style.setProperty("--carousel-body-tracking", `${Number(slide.bodyTracking) || 0}em`);
+    element.style.setProperty("--carousel-photo-scale", slide.photoScale || 1);
+    element.style.setProperty("--carousel-photo-x", `${slide.photoFocusX ?? 50}%`);
+    element.style.setProperty("--carousel-photo-y", `${slide.photoFocusY ?? 50}%`);
+    element.style.setProperty("--carousel-plaque", colorWithAlpha(slide.plaqueColor, slide.plaqueOpacity));
     element.style.setProperty("--carousel-offset-x", `${Number(slide.offsetX) || 0}%`);
     element.style.setProperty("--carousel-offset-y", `${Number(slide.offsetY) || 0}%`);
     const media = photo && !["paper", "field", "dark", "quote"].includes(slide.scene)
@@ -704,7 +828,7 @@
     const body = slide.body ? `<div class="carousel-render-body"><p>${richBodyMarkup(slide)}</p></div>` : "";
     const seriesLabel = slide.showSeriesLabel !== false ? `<span class="carousel-render-series">${escapeHtml(series.name)}</span>` : "";
     const pagination = slide.showPagination !== false ? `<small>${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}</small>` : "";
-    element.innerHTML = `${media}<div class="carousel-render-shade"></div><div class="carousel-render-content">${seriesLabel}${title}${body}${pagination}</div>`;
+    element.innerHTML = `${media}<div class="carousel-render-shade"></div><div class="carousel-render-texture"></div><div class="carousel-render-content">${seriesLabel}${title}${body}${pagination}</div>`;
     const video = element.querySelector("video");
     if (video) video.addEventListener("timeupdate", () => {
       if (video.currentTime >= Math.min(MAX_VIDEO_SECONDS, photo.duration || MAX_VIDEO_SECONDS)) video.currentTime = 0;
@@ -743,6 +867,11 @@
     ui.slideFont.value = selectedKey;
     if (ui.slideFont.value !== selectedKey) ui.slideFont.value = "series";
     choices.forEach(ensureFont);
+    if (ui.slideBodyFont) {
+      const families = [...new Set(choices.flatMap((font) => [font.family, font.body]))];
+      ui.slideBodyFont.innerHTML = `<option value="">Из шрифтовой пары</option>${families.map((family) => `<option value="${escapeHtml(family)}">${escapeHtml(family)}</option>`).join("")}`;
+      ui.slideBodyFont.value = families.includes(slide.bodyFont) ? slide.bodyFont : "";
+    }
   }
 
   function mediaPool(query = "", order = library) {
@@ -777,6 +906,26 @@
     ui.coverCase.value = slide.caseKind || "original";
     ui.coverShowSeries.checked = slide.showSeriesLabel !== false;
     ui.coverShowNumber.checked = slide.showPagination !== false;
+    ui.coverBackgroundColor.value = slide.backgroundColor || paletteFor(slide.palette).background;
+    ui.coverBackgroundColor.dataset.custom = String(!!slide.backgroundColor);
+    ui.coverTitleColor.value = slide.titleColor || paletteFor(slide.palette).foreground;
+    ui.coverTitleColor.dataset.custom = String(!!slide.titleColor);
+    ui.coverTitleWeight.value = slide.titleWeight || 800;
+    ui.coverTitleWeightValue.textContent = String(slide.titleWeight || 800);
+    ui.coverTitleLineHeight.value = slide.titleLineHeight || .96;
+    ui.coverTitleLineHeightValue.textContent = Number(slide.titleLineHeight || .96).toFixed(2);
+    ui.coverTitleTracking.value = slide.titleTracking ?? -.035;
+    ui.coverTitleTrackingValue.textContent = `${Number(slide.titleTracking ?? -.035).toFixed(3)} em`;
+    ui.coverPhotoScale.value = Math.round((slide.photoScale || 1) * 100);
+    ui.coverPhotoScaleValue.textContent = `${Math.round((slide.photoScale || 1) * 100)}%`;
+    ui.coverPhotoFocusX.value = slide.photoFocusX ?? 50;
+    ui.coverPhotoFocusXValue.textContent = `${slide.photoFocusX ?? 50}%`;
+    ui.coverPhotoFocusY.value = slide.photoFocusY ?? 50;
+    ui.coverPhotoFocusYValue.textContent = `${slide.photoFocusY ?? 50}%`;
+    ui.coverPlaqueEnabled.checked = !!slide.plaqueEnabled;
+    ui.coverPlaqueColor.value = slide.plaqueColor || "#fff7e6";
+    ui.coverPlaqueOpacity.value = Math.round((slide.plaqueOpacity ?? .92) * 100);
+    ui.coverPlaqueOpacityValue.textContent = `${Math.round((slide.plaqueOpacity ?? .92) * 100)}%`;
     ui.longread.value = series.longread;
     ui.slideCount.value = String(series.totalSlides || series.slides.length);
     document.querySelectorAll("[data-carousel-scene]").forEach((button) => button.classList.toggle("is-active", button.dataset.carouselScene === slide.scene));
@@ -806,7 +955,7 @@
     const photo = photoById(slide.photoId);
     const image = photo && !["paper", "field", "dark", "quote"].includes(slide.scene) ? `<img src="${escapeHtml(photo.thumb)}" alt="">${photo.kind === "video" ? `<i class="carousel-mini-video">▶</i>` : ""}` : "";
     const label = slide.title || slide.body || roleLabels[slide.role];
-    return `<button type="button" class="carousel-mini-slide${index === series.activeSlide ? " is-active" : ""}${slide.savedAt ? " is-saved" : ""}" data-carousel-slide-index="${index}" style="--mini-bg:${palette.background};--mini-fg:${palette.foreground};--mini-font:'${escapeHtml(slideFont.family)}'"><span>${String(index + 1).padStart(2, "0")}</span><div>${image}<strong>${escapeHtml(label)}</strong></div><small>${escapeHtml(roleLabels[slide.role] || slide.role)}</small></button>`;
+    return `<button type="button" class="carousel-mini-slide${index === series.activeSlide ? " is-active" : ""}${slide.savedAt ? " is-saved" : ""}" data-carousel-slide-index="${index}" style="--mini-bg:${slide.backgroundColor || palette.background};--mini-fg:${slide.titleColor || palette.foreground};--mini-font:'${escapeHtml(slideFont.family)}';--mini-ratio:${currentFormat().ratio}"><span>${String(index + 1).padStart(2, "0")}</span><div>${image}<strong>${escapeHtml(label)}</strong></div><small>${escapeHtml(roleLabels[slide.role] || slide.role)}</small></button>`;
   }
 
   function renderRail() {
@@ -823,6 +972,34 @@
     ui.slideScene.value = slide.scene;
     renderSlidePaletteOptions(slide.palette);
     renderSlideFontOptions(slide);
+    ui.slideTemplate.value = layoutTemplates[slide.template] ? slide.template : "custom";
+    ui.slideBackgroundColor.value = slide.backgroundColor || paletteFor(slide.palette).background;
+    ui.slideBackgroundColor.dataset.custom = String(!!slide.backgroundColor);
+    ui.slideTexture.value = slide.texture || "none";
+    ui.slideTitleColor.value = slide.titleColor || paletteFor(slide.palette).foreground;
+    ui.slideTitleColor.dataset.custom = String(!!slide.titleColor);
+    ui.slideTitleWeight.value = slide.titleWeight || 800;
+    ui.slideTitleWeightValue.textContent = String(slide.titleWeight || 800);
+    ui.slideTitleLineHeight.value = slide.titleLineHeight || .96;
+    ui.slideTitleLineHeightValue.textContent = Number(slide.titleLineHeight || .96).toFixed(2);
+    ui.slideTitleTracking.value = slide.titleTracking ?? -.035;
+    ui.slideTitleTrackingValue.textContent = `${Number(slide.titleTracking ?? -.035).toFixed(3)} em`;
+    ui.slideBodyWeight.value = slide.bodyWeight || 500;
+    ui.slideBodyWeightValue.textContent = String(slide.bodyWeight || 500);
+    ui.slideBodyLineHeight.value = slide.bodyLineHeight || 1.3;
+    ui.slideBodyLineHeightValue.textContent = Number(slide.bodyLineHeight || 1.3).toFixed(2);
+    ui.slideBodyTracking.value = slide.bodyTracking || 0;
+    ui.slideBodyTrackingValue.textContent = `${Number(slide.bodyTracking || 0).toFixed(3)} em`;
+    ui.slidePhotoScale.value = Math.round((slide.photoScale || 1) * 100);
+    ui.slidePhotoScaleValue.textContent = `${Math.round((slide.photoScale || 1) * 100)}%`;
+    ui.slidePhotoFocusX.value = slide.photoFocusX ?? 50;
+    ui.slidePhotoFocusXValue.textContent = `${slide.photoFocusX ?? 50}%`;
+    ui.slidePhotoFocusY.value = slide.photoFocusY ?? 50;
+    ui.slidePhotoFocusYValue.textContent = `${slide.photoFocusY ?? 50}%`;
+    ui.slidePlaqueEnabled.checked = !!slide.plaqueEnabled;
+    ui.slidePlaqueColor.value = slide.plaqueColor || "#fff7e6";
+    ui.slidePlaqueOpacity.value = Math.round((slide.plaqueOpacity ?? .92) * 100);
+    ui.slidePlaqueOpacityValue.textContent = `${Math.round((slide.plaqueOpacity ?? .92) * 100)}%`;
     ui.slideSize.value = slide.size;
     ui.slideSizeValue.textContent = `${slide.size} px`;
     ui.slideBodySize.value = slide.bodySize || 34;
@@ -865,6 +1042,15 @@
   }
 
   function renderAll() {
+    const format = currentFormat();
+    ui.formatSwitch?.querySelectorAll("[data-carousel-format]").forEach((button) => {
+      const active = button.dataset.carouselFormat === series.format;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    if (ui.formatHint) ui.formatHint.textContent = `${format.label} · фото и видео обрезаются под формат`;
+    if (ui.coverDimensions) ui.coverDimensions.textContent = format.label;
+    if (ui.exportDescription) ui.exportDescription.textContent = `Скачать всю серию одним ZIP · ${format.label}`;
     renderSource();
     renderFontStrip();
     renderPaletteState();
@@ -905,8 +1091,26 @@
     slide.caseKind = ui.coverCase.value;
     slide.showSeriesLabel = ui.coverShowSeries.checked;
     slide.showPagination = ui.coverShowNumber.checked;
+    slide.backgroundColor = ui.coverBackgroundColor.dataset.custom === "true" ? ui.coverBackgroundColor.value : "";
+    slide.titleColor = ui.coverTitleColor.dataset.custom === "true" ? ui.coverTitleColor.value : "";
+    slide.titleWeight = Number(ui.coverTitleWeight.value);
+    slide.titleLineHeight = Number(ui.coverTitleLineHeight.value);
+    slide.titleTracking = Number(ui.coverTitleTracking.value);
+    slide.photoScale = Number(ui.coverPhotoScale.value) / 100;
+    slide.photoFocusX = Number(ui.coverPhotoFocusX.value);
+    slide.photoFocusY = Number(ui.coverPhotoFocusY.value);
+    slide.plaqueEnabled = ui.coverPlaqueEnabled.checked;
+    slide.plaqueColor = ui.coverPlaqueColor.value;
+    slide.plaqueOpacity = Number(ui.coverPlaqueOpacity.value) / 100;
     slide.savedAt = null;
     ui.coverSizeValue.textContent = `${slide.size} px`;
+    ui.coverTitleWeightValue.textContent = String(slide.titleWeight);
+    ui.coverTitleLineHeightValue.textContent = slide.titleLineHeight.toFixed(2);
+    ui.coverTitleTrackingValue.textContent = `${slide.titleTracking.toFixed(3)} em`;
+    ui.coverPhotoScaleValue.textContent = `${Math.round(slide.photoScale * 100)}%`;
+    ui.coverPhotoFocusXValue.textContent = `${slide.photoFocusX}%`;
+    ui.coverPhotoFocusYValue.textContent = `${slide.photoFocusY}%`;
+    ui.coverPlaqueOpacityValue.textContent = `${Math.round(slide.plaqueOpacity * 100)}%`;
     renderCanvas(ui.coverCanvas, slide, 0);
     markChanged();
   }
@@ -927,11 +1131,38 @@
     slide.offsetY = Number(ui.slideOffsetY.value);
     slide.showSeriesLabel = ui.slideShowSeries.checked;
     slide.showPagination = ui.slideShowNumber.checked;
+    slide.template = ui.slideTemplate.value;
+    slide.backgroundColor = ui.slideBackgroundColor.dataset.custom === "true" ? ui.slideBackgroundColor.value : "";
+    slide.texture = ui.slideTexture.value;
+    slide.titleColor = ui.slideTitleColor.dataset.custom === "true" ? ui.slideTitleColor.value : "";
+    slide.titleWeight = Number(ui.slideTitleWeight.value);
+    slide.titleLineHeight = Number(ui.slideTitleLineHeight.value);
+    slide.titleTracking = Number(ui.slideTitleTracking.value);
+    slide.bodyFont = ui.slideBodyFont.value;
+    slide.bodyWeight = Number(ui.slideBodyWeight.value);
+    slide.bodyLineHeight = Number(ui.slideBodyLineHeight.value);
+    slide.bodyTracking = Number(ui.slideBodyTracking.value);
+    slide.photoScale = Number(ui.slidePhotoScale.value) / 100;
+    slide.photoFocusX = Number(ui.slidePhotoFocusX.value);
+    slide.photoFocusY = Number(ui.slidePhotoFocusY.value);
+    slide.plaqueEnabled = ui.slidePlaqueEnabled.checked;
+    slide.plaqueColor = ui.slidePlaqueColor.value;
+    slide.plaqueOpacity = Number(ui.slidePlaqueOpacity.value) / 100;
     slide.savedAt = null;
     ui.slideSizeValue.textContent = `${slide.size} px`;
     ui.slideBodySizeValue.textContent = `${slide.bodySize} px`;
     ui.slideOffsetXValue.textContent = `${slide.offsetX}%`;
     ui.slideOffsetYValue.textContent = `${slide.offsetY}%`;
+    ui.slideTitleWeightValue.textContent = String(slide.titleWeight);
+    ui.slideTitleLineHeightValue.textContent = slide.titleLineHeight.toFixed(2);
+    ui.slideTitleTrackingValue.textContent = `${slide.titleTracking.toFixed(3)} em`;
+    ui.slideBodyWeightValue.textContent = String(slide.bodyWeight);
+    ui.slideBodyLineHeightValue.textContent = slide.bodyLineHeight.toFixed(2);
+    ui.slideBodyTrackingValue.textContent = `${slide.bodyTracking.toFixed(3)} em`;
+    ui.slidePhotoScaleValue.textContent = `${Math.round(slide.photoScale * 100)}%`;
+    ui.slidePhotoFocusXValue.textContent = `${slide.photoFocusX}%`;
+    ui.slidePhotoFocusYValue.textContent = `${slide.photoFocusY}%`;
+    ui.slidePlaqueOpacityValue.textContent = `${Math.round(slide.plaqueOpacity * 100)}%`;
     renderCanvas(ui.activeCanvas, slide, series.activeSlide);
     ui.activeMeta.textContent = `${roleLabels[slide.role] || slide.role} · есть изменения`;
     renderRail();
@@ -992,14 +1223,35 @@
     return { width: media.videoWidth || media.naturalWidth || media.width, height: media.videoHeight || media.naturalHeight || media.height };
   }
 
-  function cropImage(context, image, x, y, width, height) {
+  function cropImage(context, image, x, y, width, height, focusX = 50, focusY = 50, zoom = 1) {
     const dimensions = mediaDimensions(image);
-    const scale = Math.max(width / dimensions.width, height / dimensions.height);
-    const sourceWidth = width / scale;
-    const sourceHeight = height / scale;
-    const sourceX = (dimensions.width - sourceWidth) / 2;
-    const sourceY = (dimensions.height - sourceHeight) / 2;
+    const scale = Math.max(width / dimensions.width, height / dimensions.height) * Math.max(1, Number(zoom) || 1);
+    const sourceWidth = Math.min(dimensions.width, width / scale);
+    const sourceHeight = Math.min(dimensions.height, height / scale);
+    const sourceX = Math.max(0, Math.min(dimensions.width - sourceWidth, (dimensions.width - sourceWidth) * (Number(focusX) || 0) / 100));
+    const sourceY = Math.max(0, Math.min(dimensions.height - sourceHeight, (dimensions.height - sourceHeight) * (Number(focusY) || 0) / 100));
     context.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, x, y, width, height);
+  }
+
+  function drawCanvasTexture(context, slide, width, height) {
+    if (slide.texture === "none") return;
+    context.save();
+    context.globalAlpha = slide.texture === "dots" ? .12 : .08;
+    context.fillStyle = slide.titleColor || paletteFor(slide.palette).foreground;
+    if (slide.texture === "dots") {
+      for (let y = 12; y < height; y += 24) for (let x = 12; x < width; x += 24) context.fillRect(x, y, 2, 2);
+    } else {
+      let seed = 17;
+      const count = slide.texture === "grain" ? 6000 : 1200;
+      for (let i = 0; i < count; i += 1) {
+        seed = (seed * 16807) % 2147483647;
+        const x = seed % width;
+        seed = (seed * 16807) % 2147483647;
+        const y = seed % height;
+        context.fillRect(x, y, slide.texture === "grain" ? 1 : 2, 1);
+      }
+    }
+    context.restore();
   }
 
   function loadVideo(source, seekTo = 0) {
@@ -1064,7 +1316,7 @@
     return runs.length ? runs : [{ text: slide.body || "" }];
   }
 
-  function layoutRichLines(context, runs, maxWidth, size, family) {
+  function layoutRichLines(context, runs, maxWidth, size, family, weight = 500) {
     const lines = [];
     let line = { segments: [], width: 0 };
     let pendingSpace = false;
@@ -1074,7 +1326,7 @@
         if (!token) return;
         if (token === "\n") { pushLine(); return; }
         if (/^\s+$/.test(token)) { pendingSpace = line.segments.length > 0; return; }
-        context.font = `${run.bold ? 800 : 500} ${size}px ${family}`;
+        context.font = `${run.bold ? 800 : weight} ${size}px ${family}`;
         let text = pendingSpace ? ` ${token}` : token;
         let width = context.measureText(text).width;
         if (line.segments.length && line.width + width > maxWidth) {
@@ -1092,12 +1344,12 @@
     return lines;
   }
 
-  function drawRichLines(context, lines, x, firstBaseline, align, size, family, fallbackColor) {
+  function drawRichLines(context, lines, x, firstBaseline, align, size, family, fallbackColor, weight = 500, lineHeight = 1.3) {
     lines.forEach((line, lineIndex) => {
-      const baseline = firstBaseline + lineIndex * size * 1.3;
+      const baseline = firstBaseline + lineIndex * size * lineHeight;
       let cursor = align === "center" ? x - line.width / 2 : align === "right" ? x - line.width : x;
       line.segments.forEach((segment) => {
-        context.font = `${segment.bold ? 800 : 500} ${size}px ${family}`;
+        context.font = `${segment.bold ? 800 : weight} ${size}px ${family}`;
         if (segment.background) {
           context.fillStyle = segment.background;
           context.fillRect(cursor - 5, baseline - size * .92, segment.width + 10, size * 1.16);
@@ -1112,86 +1364,95 @@
 
   async function drawSlideCanvas(canvas, slide, index, suppliedMedia = null) {
     const context = canvas.getContext("2d");
+    const format = currentFormat();
+    const width = format.width;
+    const height = format.height;
     const palette = paletteFor(slide.palette);
     const photo = photoById(slide.photoId);
     const slideFont = slide.font?.family ? normalizeFontSystem(slide.font) : series.font;
     const usesPhoto = photo && !["paper", "field", "dark", "quote"].includes(slide.scene);
-    context.fillStyle = palette.background;
-    context.fillRect(0, 0, 1080, 1350);
+    context.fillStyle = slide.backgroundColor || palette.background;
+    context.fillRect(0, 0, width, height);
     if (usesPhoto) {
       const image = suppliedMedia || (photo.kind === "video" ? await loadVideo(photo.exportImage, .04) : await loadImage(photo.exportImage || photo.thumb));
-      if (slide.scene === "split") cropImage(context, image, 600, 0, 480, 1350);
-      else if (slide.scene === "window") cropImage(context, image, 90, 90, 900, 520);
-      else cropImage(context, image, 0, 0, 1080, 1350);
+      const cropArgs = [slide.photoFocusX, slide.photoFocusY, slide.photoScale];
+      if (slide.scene === "split") cropImage(context, image, 600, 0, 480, height, ...cropArgs);
+      else if (slide.scene === "window") cropImage(context, image, 90, format === formatPresets.story ? 120 : 90, 900, Math.round(height * (format === formatPresets.story ? .42 : .385)), ...cropArgs);
+      else cropImage(context, image, 0, 0, width, height, ...cropArgs);
       if (slide.scene === "photo-dim" || slide.scene === "plate") {
-        const gradient = context.createLinearGradient(0, 250, 0, 1350);
+        const gradient = context.createLinearGradient(0, height * .18, 0, height);
         gradient.addColorStop(0, "rgba(10,16,14,.08)");
         gradient.addColorStop(1, "rgba(10,16,14,.88)");
         context.fillStyle = gradient;
-        context.fillRect(0, 0, 1080, 1350);
+        context.fillRect(0, 0, width, height);
       }
     }
+    drawCanvasTexture(context, slide, width, height);
     const lightScene = ["paper", "quote", "field", "dark"].includes(slide.scene) || slide.scene === "split";
     const foreground = lightScene ? palette.foreground : "#ffffff";
+    const titleColor = slide.titleColor || (slide.plaqueEnabled || slide.scene === "plate" ? palette.ink : foreground);
     context.fillStyle = foreground;
     context.textAlign = slide.align || "left";
     context.textBaseline = "alphabetic";
     const xShift = (Number(slide.offsetX) || 0) * 10.8;
-    const yShift = (Number(slide.offsetY) || 0) * 13.5;
+    const yShift = (Number(slide.offsetY) || 0) * height / 100;
     const x = (slide.align === "center" ? 540 : slide.align === "right" ? 980 : 100) + xShift;
     const maxWidth = slide.scene === "split" ? 440 : 880;
     const fontFamily = `"${slideFont.family}", Arial, sans-serif`;
-    const bodyFontFamily = `"${slideFont.body || companionFor(slideFont.family)}", Arial, sans-serif`;
+    const bodyFontFamily = `"${slide.bodyFont || slideFont.body || companionFor(slideFont.family)}", Arial, sans-serif`;
     const titleText = displayText(slide.title, slide.caseKind || slideFont.caseKind);
     let titleSize = Math.max(40, Math.min(132, Number(slide.size) || 46));
-    context.font = `800 ${titleSize}px ${fontFamily}`;
+    context.font = `${slide.titleWeight || 800} ${titleSize}px ${fontFamily}`;
+    if ("letterSpacing" in context) context.letterSpacing = `${Number(slide.titleTracking) || 0}em`;
     let titleLines = wrapCanvasText(context, titleText, maxWidth);
     while (titleLines.length > 6 && titleSize > 42) {
       titleSize -= 4;
-      context.font = `800 ${titleSize}px ${fontFamily}`;
+      context.font = `${slide.titleWeight || 800} ${titleSize}px ${fontFamily}`;
       titleLines = wrapCanvasText(context, titleText, maxWidth);
     }
     const bodySize = Math.max(24, Math.min(64, Number(slide.bodySize) || Math.round(titleSize * .55)));
-    const bodyLines = layoutRichLines(context, richRuns(slide), maxWidth, bodySize, bodyFontFamily);
-    const titleHeight = titleLines.length * titleSize * .98;
-    const bodyHeight = bodyLines.length * bodySize * 1.3;
+    const bodyLines = layoutRichLines(context, richRuns(slide), maxWidth, bodySize, bodyFontFamily, slide.bodyWeight || 500);
+    const titleHeight = titleLines.length * titleSize * (slide.titleLineHeight || .96);
+    const bodyHeight = bodyLines.length * bodySize * (slide.bodyLineHeight || 1.3);
     const blockHeight = titleHeight + (titleLines.length && bodyLines.length ? 50 : 0) + bodyHeight;
-    let startY = slide.placement === "top" ? 210 : slide.placement === "bottom" ? 1180 - blockHeight : (1350 - blockHeight) / 2;
-    if (["window"].includes(slide.scene)) startY = 720;
+    let startY = slide.placement === "top" ? (format === formatPresets.story ? 300 : 210) : slide.placement === "bottom" ? height - (format === formatPresets.story ? 260 : 170) - blockHeight : (height - blockHeight) / 2;
+    if (["window"].includes(slide.scene)) startY = Math.round(height * (format === formatPresets.story ? .56 : .533));
     startY += yShift;
-    if (slide.scene === "plate") {
-      context.fillStyle = palette.background;
+    if (slide.scene === "plate" || slide.plaqueEnabled) {
+      context.fillStyle = colorWithAlpha(slide.plaqueColor || palette.background, slide.plaqueOpacity ?? .92);
       context.beginPath();
       context.roundRect(65 + xShift, startY - titleSize, 950, blockHeight + 100, 18);
       context.fill();
-      context.fillStyle = palette.foreground;
     }
-    context.font = `800 ${titleSize}px ${fontFamily}`;
+    context.fillStyle = titleColor;
+    context.font = `${slide.titleWeight || 800} ${titleSize}px ${fontFamily}`;
     titleLines.forEach((line, lineIndex) => {
-      context.fillText(line, x, startY + titleSize * (lineIndex + .85), maxWidth);
+      context.fillText(line, x, startY + titleSize * (.85 + lineIndex * (slide.titleLineHeight || .96)), maxWidth);
     });
     let bodyY = startY + titleHeight + (titleLines.length && bodyLines.length ? 50 : 0);
     if (bodyLines.length) {
       bodyY += bodySize;
-      drawRichLines(context, bodyLines, x, bodyY, slide.align || "left", bodySize, bodyFontFamily, context.fillStyle);
+      if ("letterSpacing" in context) context.letterSpacing = `${Number(slide.bodyTracking) || 0}em`;
+      drawRichLines(context, bodyLines, x, bodyY, slide.align || "left", bodySize, bodyFontFamily, slide.plaqueEnabled || slide.scene === "plate" ? palette.ink : foreground, slide.bodyWeight || 500, slide.bodyLineHeight || 1.3);
     }
+    if ("letterSpacing" in context) context.letterSpacing = "0px";
     context.font = `700 24px Arial, sans-serif`;
     context.fillStyle = foreground;
     if (slide.showSeriesLabel !== false) {
       context.textAlign = "left";
-      context.fillText(series.name, 100, 90);
+      context.fillText(series.name, 100, format === formatPresets.story ? 170 : 90);
     }
     if (slide.showPagination !== false) {
       context.textAlign = "right";
-      context.fillText(`${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}`, 980, 1280);
+      context.fillText(`${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}`, 980, height - (format === formatPresets.story ? 170 : 70));
     }
     return canvas;
   }
 
   async function makeSlideCanvas(slide, index, suppliedMedia = null) {
     const canvas = document.createElement("canvas");
-    canvas.width = 1080;
-    canvas.height = 1350;
+    canvas.width = currentFormat().width;
+    canvas.height = currentFormat().height;
     await drawSlideCanvas(canvas, slide, index, suppliedMedia);
     return canvas;
   }
@@ -1211,8 +1472,8 @@
     const video = await loadVideo(photo.exportImage, 0);
     const duration = Math.min(MAX_VIDEO_SECONDS, photo.duration || video.duration, video.duration);
     const canvas = document.createElement("canvas");
-    canvas.width = 1080;
-    canvas.height = 1350;
+    canvas.width = currentFormat().width;
+    canvas.height = currentFormat().height;
     await drawSlideCanvas(canvas, slide, index, video);
     const stream = canvas.captureStream(30);
     const recorder = createVideoRecorder(stream);
@@ -1271,7 +1532,7 @@
         blob = result.blob;
         extension = result.extension;
       } else {
-        setStatus("Собираем PNG 1080 × 1350…");
+        setStatus(`Собираем PNG ${currentFormat().label}…`);
         const canvas = await makeSlideCanvas(slide, index);
         blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
         extension = "png";
@@ -1440,6 +1701,16 @@
   });
   document.querySelectorAll("[data-carousel-go]").forEach((button) => button.addEventListener("click", () => setStage(button.dataset.carouselGo)));
 
+  ui.formatSwitch?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-carousel-format]");
+    if (!button || !formatPresets[button.dataset.carouselFormat]) return;
+    series.format = button.dataset.carouselFormat;
+    series.slides.forEach((slide) => { slide.savedAt = null; });
+    renderAll();
+    markChanged();
+    setStatus(`${currentFormat().name} включён · экспорт ${currentFormat().label}.`);
+  });
+
   ui.fontStrip.addEventListener("click", (event) => {
     const button = event.target.closest("[data-carousel-system-key]");
     if (!button) return;
@@ -1503,7 +1774,11 @@
     ui.localUpload.value = "";
   });
 
-  [ui.seriesName, ui.coverTitle, ui.coverSubtitle, ui.coverSize, ui.coverPlacement, ui.coverAlign, ui.coverCase, ui.coverShowSeries, ui.coverShowNumber].forEach((control) => control.addEventListener("input", updateCoverFromForm));
+  [ui.seriesName, ui.coverTitle, ui.coverSubtitle, ui.coverSize, ui.coverPlacement, ui.coverAlign, ui.coverCase, ui.coverShowSeries, ui.coverShowNumber, ui.coverTitleWeight, ui.coverTitleLineHeight, ui.coverTitleTracking, ui.coverPhotoScale, ui.coverPhotoFocusX, ui.coverPhotoFocusY, ui.coverPlaqueEnabled, ui.coverPlaqueColor, ui.coverPlaqueOpacity].forEach((control) => control.addEventListener("input", updateCoverFromForm));
+  ui.coverBackgroundColor.addEventListener("input", () => { ui.coverBackgroundColor.dataset.custom = "true"; updateCoverFromForm(); });
+  ui.coverTitleColor.addEventListener("input", () => { ui.coverTitleColor.dataset.custom = "true"; updateCoverFromForm(); });
+  ui.coverBackgroundReset.addEventListener("click", () => { ui.coverBackgroundColor.dataset.custom = "false"; coverSlide().backgroundColor = ""; renderCover(); markChanged(); });
+  ui.coverTitleColorReset.addEventListener("click", () => { ui.coverTitleColor.dataset.custom = "false"; coverSlide().titleColor = ""; renderCover(); markChanged(); });
   document.querySelectorAll("[data-carousel-scene]").forEach((button) => button.addEventListener("click", () => {
     coverSlide().scene = button.dataset.carouselScene;
     coverSlide().savedAt = null;
@@ -1547,7 +1822,21 @@
     renderActiveEditor();
     markChanged();
   });
-  [ui.slideTitle, ui.slideBody, ui.slideRole, ui.slideScene, ui.slidePalette, ui.slideSize, ui.slideBodySize, ui.slidePlacement, ui.slideAlign, ui.slideOffsetX, ui.slideOffsetY, ui.slideShowSeries, ui.slideShowNumber].forEach((control) => control.addEventListener("input", updateActiveFromForm));
+  [ui.slideTitle, ui.slideBody, ui.slideRole, ui.slideScene, ui.slidePalette, ui.slideSize, ui.slideBodySize, ui.slidePlacement, ui.slideAlign, ui.slideOffsetX, ui.slideOffsetY, ui.slideShowSeries, ui.slideShowNumber, ui.slideTexture, ui.slideTitleWeight, ui.slideTitleLineHeight, ui.slideTitleTracking, ui.slideBodyFont, ui.slideBodyWeight, ui.slideBodyLineHeight, ui.slideBodyTracking, ui.slidePhotoScale, ui.slidePhotoFocusX, ui.slidePhotoFocusY, ui.slidePlaqueEnabled, ui.slidePlaqueColor, ui.slidePlaqueOpacity].forEach((control) => control.addEventListener("input", updateActiveFromForm));
+  ui.slideBackgroundColor.addEventListener("input", () => { ui.slideBackgroundColor.dataset.custom = "true"; updateActiveFromForm(); });
+  ui.slideTitleColor.addEventListener("input", () => { ui.slideTitleColor.dataset.custom = "true"; updateActiveFromForm(); });
+  ui.slideBackgroundReset.addEventListener("click", () => { ui.slideBackgroundColor.dataset.custom = "false"; activeSlide().backgroundColor = ""; renderActiveEditor(); markChanged(); });
+  ui.slideTitleColorReset.addEventListener("click", () => { ui.slideTitleColor.dataset.custom = "false"; activeSlide().titleColor = ""; renderActiveEditor(); markChanged(); });
+  ui.slideTemplate.addEventListener("change", () => {
+    const slide = activeSlide();
+    const template = layoutTemplates[ui.slideTemplate.value] || layoutTemplates.custom;
+    slide.template = ui.slideTemplate.value;
+    Object.entries(template).forEach(([key, value]) => { if (key !== "name") slide[key] = value; });
+    slide.savedAt = null;
+    renderActiveEditor();
+    markChanged();
+    setStatus(ui.slideTemplate.value === "custom" ? "Свободная композиция включена." : "Готовый макет применён; текст и фото сохранены.");
+  });
   ui.slideBody.addEventListener("paste", (event) => {
     event.preventDefault();
     document.execCommand("insertText", false, event.clipboardData.getData("text/plain"));
