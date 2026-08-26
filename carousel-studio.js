@@ -1564,7 +1564,7 @@
     return value;
   }
 
-  function renderedRichTextLines(element) {
+  function renderedRichTextLines(element, canvasRect, scale = 1) {
     if (!element) return [];
     const wordsByLine = [];
     const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
@@ -1591,12 +1591,22 @@
         if (wordStyle.textTransform === "uppercase") text = text.toLocaleUpperCase("ru-RU");
         else if (wordStyle.textTransform === "lowercase") text = text.toLocaleLowerCase("ru-RU");
         else if (wordStyle.textTransform === "capitalize") text = text.replace(/^./u, (letter) => letter.toLocaleUpperCase("ru-RU"));
-        let line = wordsByLine.find((item) => Math.abs(item.top - rect.top) < 1.5);
+        const top = (rect.top - canvasRect.top) * scale;
+        let line = wordsByLine.find((item) => Math.abs(item.top - top) < 1.5 * scale);
         if (!line) {
-          line = { top: rect.top, words: [] };
+          line = { top, words: [] };
           wordsByLine.push(line);
         }
-        line.words.push({ left: rect.left, text, bold, color: wordStyle.color, background });
+        line.words.push({
+          left: (rect.left - canvasRect.left) * scale,
+          top,
+          width: rect.width * scale,
+          height: rect.height * scale,
+          text,
+          bold,
+          color: wordStyle.color,
+          background,
+        });
       }
     }
     return wordsByLine
@@ -1651,8 +1661,8 @@
         paddingLeft: parseFloat(style.paddingLeft) * scale || 0,
       };
     };
-    const titleRichLines = renderedRichTextLines(title);
-    const bodyRichLines = renderedRichTextLines(bodyText);
+    const titleRichLines = renderedRichTextLines(title, elementRect, scale);
+    const bodyRichLines = renderedRichTextLines(bodyText, elementRect, scale);
     const measured = {
       titleLines: titleRichLines.map((line) => line.words.map((word) => word.text).join(" ")),
       titleRichLines,
@@ -1756,14 +1766,15 @@
 
   function layoutMeasuredRichLines(context, measuredLines, size, family, weight = 500) {
     return measuredLines.map((measuredLine) => {
-      const line = { segments: [], width: 0 };
-      measuredLine.words.forEach((word, index) => {
+      const line = { segments: [], width: 0, top: measuredLine.top };
+      measuredLine.words.forEach((word) => {
         context.font = `${word.bold ? 800 : weight} ${size}px ${family}`;
-        const text = index ? ` ${word.text}` : word.text;
-        const width = context.measureText(text).width;
+        const text = word.text;
+        const width = word.width || context.measureText(text).width;
         line.segments.push({
           text,
           width,
+          left: word.left,
           bold: !!word.bold,
           color: word.color || "",
           background: word.background || "",
@@ -1775,10 +1786,12 @@
   }
 
   function drawRichLines(context, lines, x, firstBaseline, align, size, family, fallbackColor, weight = 500, lineHeight = 1.3) {
+    const measuredTop = Number.isFinite(lines[0]?.top) ? lines[0].top : null;
     lines.forEach((line, lineIndex) => {
-      const baseline = firstBaseline + lineIndex * size * lineHeight;
+      const baseline = firstBaseline + (measuredTop === null ? lineIndex * size * lineHeight : line.top - measuredTop);
       let cursor = align === "center" ? x - line.width / 2 : align === "right" ? x - line.width : x;
       line.segments.forEach((segment) => {
+        if (Number.isFinite(segment.left)) cursor = segment.left;
         context.font = `${segment.bold ? 800 : weight} ${size}px ${family}`;
         if (segment.background) {
           context.fillStyle = segment.background;
@@ -1787,7 +1800,7 @@
         context.fillStyle = segment.color || fallbackColor;
         context.textAlign = "left";
         context.fillText(segment.text, cursor, baseline);
-        cursor += segment.width;
+        if (!Number.isFinite(segment.left)) cursor += segment.width;
       });
     });
   }
