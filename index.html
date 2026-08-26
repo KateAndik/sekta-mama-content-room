@@ -417,7 +417,26 @@
                   <div id="carouselCoverTitle" class="carousel-rich-editor carousel-rich-title-editor" contenteditable="true" role="textbox" aria-multiline="true">Пропустили пять дней? Ничего не сломалось</div>
                   <small>«Построчно» повторяет контур строк; «Прямоугольник» собирает выделенный заголовок в цельную плашку.</small>
                 </div>
-                <label class="carousel-field"><span>Основной текст или подстрочник</span><textarea id="carouselCoverSubtitle" rows="3">10 слайдов · сохрани</textarea><small>Enter — новая строка. Пустая строка — новый абзац.</small></label>
+                <div class="carousel-field carousel-rich-field"><span>Основной текст или подстрочник</span>
+                  <div class="carousel-rich-toolbar" id="carouselCoverBodyRichToolbar" role="toolbar" aria-label="Форматирование подстрочника обложки">
+                    <button type="button" data-rich-command="bold"><strong>Жирный</strong></button>
+                    <span>Текст:</span>
+                    <button type="button" class="rich-swatch rich-ink" data-rich-color="#17221f" aria-label="Тёмный текст"></button>
+                    <button type="button" class="rich-swatch rich-pink" data-rich-color="#f35ba7" aria-label="Розовый текст"></button>
+                    <button type="button" class="rich-swatch rich-blue" data-rich-color="#3155e4" aria-label="Синий текст"></button>
+                    <label class="rich-custom-color" title="Свой цвет текста"><input type="color" value="#f35ba7" data-rich-color-input><span>Свой</span></label>
+                    <span>Подложка:</span>
+                    <button type="button" class="rich-highlight-mode is-active" data-rich-highlight-mode="inline">Построчно</button>
+                    <button type="button" class="rich-highlight-mode" data-rich-highlight-mode="block">Прямоугольник</button>
+                    <button type="button" class="rich-swatch rich-highlight-pink" data-rich-highlight="#ffb6d9" aria-label="Розовая подложка"></button>
+                    <button type="button" class="rich-swatch rich-highlight-lime" data-rich-highlight="#d4f04a" aria-label="Лаймовая подложка"></button>
+                    <button type="button" class="rich-swatch rich-highlight-paper" data-rich-highlight="#fff0c7" aria-label="Светлая подложка"></button>
+                    <label class="rich-custom-color" title="Свой цвет подложки"><input type="color" value="#d4f04a" data-rich-highlight-input><span>Свой</span></label>
+                    <button type="button" data-rich-command="removeFormat">Сбросить</button>
+                  </div>
+                  <div id="carouselCoverSubtitle" class="carousel-rich-editor" contenteditable="true" role="textbox" aria-multiline="true">10 слайдов · сохрани</div>
+                  <small>Можно оформлять отдельные слова или весь подстрочник. Enter — новый абзац, Shift + Enter — одна строка.</small>
+                </div>
                 <fieldset class="carousel-control-group"><legend>Сцена</legend><div class="carousel-choice-row">
                   <button type="button" data-carousel-scene="photo-dim">Фото + затемнение</button>
                   <button type="button" data-carousel-scene="photo-clean">Текст на фото</button>
