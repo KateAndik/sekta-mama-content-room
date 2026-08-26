@@ -1939,12 +1939,36 @@
   }
 
   async function makeSlideCanvas(slide, index, suppliedMedia = null) {
-    const canvas = document.createElement("canvas");
-    canvas.width = currentFormat().width;
-    canvas.height = currentFormat().height;
-    const previewLayout = await measureSlidePreview(slide, index);
-    await drawSlideCanvas(canvas, slide, index, suppliedMedia, previewLayout);
-    return canvas;
+    if (suppliedMedia || !window.domtoimage?.toCanvas) throw new Error("preview capture unavailable");
+    let element = slide === coverSlide() ? ui.coverCanvas : index === series.activeSlide && slide === activeSlide() ? ui.activeCanvas : null;
+    let temporary = false;
+    if (!element?.isConnected || !element.getBoundingClientRect().width) {
+      temporary = true;
+      element = document.createElement("div");
+      element.style.cssText = `position:fixed;left:-10000px;top:0;width:${series.format === "story" ? 360 : 520}px;max-width:none;pointer-events:none`;
+      document.body.append(element);
+      renderCanvas(element, slide, index);
+    }
+    try {
+      await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      const rect = element.getBoundingClientRect();
+      const format = currentFormat();
+      const captured = await window.domtoimage.toCanvas(element, {
+        width: rect.width,
+        height: rect.height,
+        scale: format.width / rect.width,
+        pixelRatio: 1,
+        style: { margin: "0", boxShadow: "none" },
+      });
+      if (captured.width === format.width && captured.height === format.height) return captured;
+      const canvas = document.createElement("canvas");
+      canvas.width = format.width;
+      canvas.height = format.height;
+      canvas.getContext("2d").drawImage(captured, 0, 0, format.width, format.height);
+      return canvas;
+    } finally {
+      if (temporary) element.remove();
+    }
   }
 
   function createVideoRecorder(stream) {
@@ -2035,8 +2059,9 @@
       link.click();
       setTimeout(() => URL.revokeObjectURL(link.href), 1000);
       setStatus(`Слайд ${index + 1} скачан: ${extension.toUpperCase()}.`);
-    } catch {
-      setStatus("Файл не собрался. Для видеокарточки используйте свежий Chrome или Edge и MP4-видео.");
+    } catch (error) {
+      console.error("Slide export failed", error);
+      setStatus(media?.kind === "video" ? "Видео не собралось. Используйте свежий Chrome или Edge и MP4-файл." : "PNG не собрался. Обновите страницу и попробуйте ещё раз.");
     }
   }
 
@@ -2158,7 +2183,8 @@
       link.click();
       setTimeout(() => URL.revokeObjectURL(link.href), 1500);
       setStatus(`Готово: ${series.slides.length} карточек скачаны одним ZIP · PNG и видео лежат по порядку.`);
-    } catch {
+    } catch (error) {
+      console.error("Carousel ZIP export failed", error);
       setStatus("Не получилось собрать ZIP. Попробуйте скачать активную карточку отдельно.");
     } finally {
       buttons.forEach((button, index) => { button.disabled = false; button.textContent = labels[index]; });
