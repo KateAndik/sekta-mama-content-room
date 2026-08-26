@@ -556,8 +556,10 @@
       role: "longread",
       title: "",
       titleHtml: "",
+      titleBlockHighlight: "",
       body: "",
       bodyHtml: "",
+      bodyBlockHighlight: "",
       scene: "paper",
       palette: "ink",
       size: 46,
@@ -881,13 +883,61 @@
     return [...template.content.childNodes].map(cleanNode).join("");
   }
 
+  function stripRichBackgrounds(markup) {
+    const root = document.createElement("div");
+    root.innerHTML = markup;
+    root.querySelectorAll("[style]").forEach((node) => {
+      node.style.removeProperty("background-color");
+      if (!node.getAttribute("style")?.trim()) node.removeAttribute("style");
+    });
+    return root.innerHTML;
+  }
+
+  function fullRichHighlight(markup, plainText, explicit = "") {
+    const chosen = safeRichColor(explicit);
+    if (chosen) return chosen;
+    if (!markup || !String(plainText || "").trim()) return "";
+    const root = document.createElement("div");
+    root.innerHTML = sanitizeRichHtml(markup);
+    const colors = [];
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node = walker.nextNode())) {
+      if (!node.nodeValue?.trim()) continue;
+      let parent = node.parentElement;
+      let color = "";
+      while (parent && parent !== root) {
+        color = safeRichColor(parent.style.backgroundColor);
+        if (color) break;
+        parent = parent.parentElement;
+      }
+      if (!color) return "";
+      colors.push(color);
+    }
+    if (!colors.length || colors.some((color) => color !== colors[0])) return "";
+    const normalize = (value) => String(value || "").replace(/\s+/g, "").trim();
+    return normalize(root.textContent) === normalize(plainText) ? colors[0] : "";
+  }
+
+  function titleBlockHighlight(slide) {
+    return fullRichHighlight(slide.titleHtml, slide.title, slide.titleBlockHighlight);
+  }
+
+  function bodyBlockHighlight(slide) {
+    return fullRichHighlight(slide.bodyHtml, slide.body, slide.bodyBlockHighlight);
+  }
+
   function richBodyMarkup(slide) {
-    if (slide.bodyHtml) return sanitizeRichHtml(slide.bodyHtml);
+    if (slide.bodyHtml) {
+      const markup = sanitizeRichHtml(slide.bodyHtml);
+      return bodyBlockHighlight(slide) ? stripRichBackgrounds(markup) : markup;
+    }
     return escapeHtml(slide.body || "").replace(/\n/g, "<br>");
   }
 
   function richTitleMarkup(slide, caseKind = "original") {
-    const source = slide.titleHtml ? sanitizeRichHtml(slide.titleHtml) : escapeHtml(slide.title || "").replace(/\n/g, "<br>");
+    let source = slide.titleHtml ? sanitizeRichHtml(slide.titleHtml) : escapeHtml(slide.title || "").replace(/\n/g, "<br>");
+    if (titleBlockHighlight(slide)) source = stripRichBackgrounds(source);
     if (caseKind === "original") return source;
     const template = document.createElement("template");
     template.innerHTML = source;
@@ -938,7 +988,10 @@
     element.style.setProperty("--carousel-title-color", slide.titleColor || previewForeground);
     element.style.setProperty("--carousel-plaque-text", palette.ink);
     element.style.setProperty("--carousel-title-weight", slide.titleWeight || 800);
-    element.style.setProperty("--carousel-title-line-height", slide.titleLineHeight || .96);
+    const titleBlockColor = titleBlockHighlight(slide);
+    const bodyBlockColor = bodyBlockHighlight(slide);
+    const hasInlineTitleHighlight = !titleBlockColor && /background-color\s*:/i.test(richTitleMarkup(slide));
+    element.style.setProperty("--carousel-title-line-height", Math.max(Number(slide.titleLineHeight) || .96, hasInlineTitleHighlight ? 1.12 : 0));
     element.style.setProperty("--carousel-title-tracking", `${Number(slide.titleTracking) || 0}em`);
     element.style.setProperty("--carousel-body-weight", slide.bodyWeight || 500);
     element.style.setProperty("--carousel-body-line-height", slide.bodyLineHeight || 1.3);
@@ -954,8 +1007,10 @@
         ? `<video class="carousel-render-photo" src="${escapeHtml(photo.exportImage)}" autoplay muted loop playsinline preload="auto"></video>`
         : `<img class="carousel-render-photo" src="${escapeHtml(photo.thumb)}" alt="">`
       : "";
-    const title = slide.title ? `<strong>${richTitleMarkup(slide, slide.caseKind || slideFont.caseKind)}</strong>` : "";
-    const body = slide.body ? `<div class="carousel-render-body"><p>${richBodyMarkup(slide)}</p></div>` : "";
+    const titleBlockStyle = titleBlockColor ? ` class="is-full-highlight" style="--carousel-title-block-highlight:${titleBlockColor}"` : "";
+    const bodyBlockStyle = bodyBlockColor ? ` class="is-full-highlight" style="--carousel-body-block-highlight:${bodyBlockColor}"` : "";
+    const title = slide.title ? `<strong${titleBlockStyle}>${richTitleMarkup(slide, slide.caseKind || slideFont.caseKind)}</strong>` : "";
+    const body = slide.body ? `<div class="carousel-render-body"><p${bodyBlockStyle}>${richBodyMarkup(slide)}</p></div>` : "";
     const seriesLabel = slide.showSeriesLabel !== false ? `<span class="carousel-render-series">${escapeHtml(series.name)}</span>` : "";
     const pagination = slide.showPagination !== false ? `<small>${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}</small>` : "";
     element.innerHTML = `${media}<div class="carousel-render-shade"></div><div class="carousel-render-texture"></div><div class="carousel-render-content">${seriesLabel}${title}${body}${pagination}</div>`;
@@ -1066,6 +1121,8 @@
     const slide = coverSlide();
     ui.seriesName.value = series.name;
     ui.coverTitle.innerHTML = richTitleMarkup(slide);
+    ui.coverTitle.dataset.fullHighlight = titleBlockHighlight(slide);
+    ui.coverTitle.style.backgroundColor = titleBlockHighlight(slide) || "";
     ui.coverSubtitle.value = slide.body;
     ui.coverSize.value = slide.size;
     ui.coverSizeValue.textContent = `${slide.size} px`;
@@ -1140,7 +1197,11 @@
     ui.activeTitle.textContent = `Слайд ${series.activeSlide + 1}`;
     ui.activeMeta.textContent = `${roleLabels[slide.role] || slide.role} · ${slide.savedAt ? "сохранён" : "есть изменения"}`;
     ui.slideTitle.innerHTML = richTitleMarkup(slide);
+    ui.slideTitle.dataset.fullHighlight = titleBlockHighlight(slide);
+    ui.slideTitle.style.backgroundColor = titleBlockHighlight(slide) || "";
     ui.slideBody.innerHTML = richBodyMarkup(slide);
+    ui.slideBody.dataset.fullHighlight = bodyBlockHighlight(slide);
+    ui.slideBody.style.backgroundColor = bodyBlockHighlight(slide) || "";
     ui.slideRole.value = slide.role;
     ui.slideScene.value = slide.scene;
     renderSlidePaletteOptions(slide.palette);
@@ -1258,6 +1319,7 @@
     series.name = ui.seriesName.value.trim() || "Новая серия";
     slide.title = ui.coverTitle.innerText.trim();
     slide.titleHtml = sanitizeRichHtml(ui.coverTitle.innerHTML);
+    slide.titleBlockHighlight = safeRichColor(ui.coverTitle.dataset.fullHighlight);
     slide.body = ui.coverSubtitle.value;
     slide.size = Number(ui.coverSize.value);
     slide.placement = ui.coverPlacement.value;
@@ -1297,8 +1359,10 @@
     const slide = activeSlide();
     slide.title = ui.slideTitle.innerText.trim();
     slide.titleHtml = sanitizeRichHtml(ui.slideTitle.innerHTML);
+    slide.titleBlockHighlight = safeRichColor(ui.slideTitle.dataset.fullHighlight);
     slide.body = ui.slideBody.innerText.trim();
     slide.bodyHtml = sanitizeRichHtml(ui.slideBody.innerHTML);
+    slide.bodyBlockHighlight = safeRichColor(ui.slideBody.dataset.fullHighlight);
     slide.role = ui.slideRole.value;
     slide.scene = ui.slideScene.value;
     slide.palette = ui.slidePalette.value;
@@ -1514,6 +1578,7 @@
     const content = element.querySelector(".carousel-render-content");
     const title = content?.querySelector(":scope > strong");
     const body = content?.querySelector(".carousel-render-body");
+    const bodyText = body?.querySelector("p");
     const seriesLabel = content?.querySelector(".carousel-render-series");
     const pagination = content?.querySelector(":scope > small");
     const scale = currentFormat().width / elementRect.width;
@@ -1539,17 +1604,21 @@
         lineHeight: parseFloat(style.lineHeight) * scale,
         letterSpacing: style.letterSpacing === "normal" ? 0 : parseFloat(style.letterSpacing) * scale,
         textTransform: style.textTransform,
+        paddingTop: parseFloat(style.paddingTop) * scale || 0,
+        paddingRight: parseFloat(style.paddingRight) * scale || 0,
+        paddingBottom: parseFloat(style.paddingBottom) * scale || 0,
+        paddingLeft: parseFloat(style.paddingLeft) * scale || 0,
       };
     };
     const measured = {
       titleLines: renderedTextLines(title),
       content: rectFor(content),
       title: rectFor(title),
-      body: rectFor(body),
+      body: rectFor(bodyText || body),
       seriesLabel: rectFor(seriesLabel),
       pagination: rectFor(pagination),
       titleStyle: styleFor(title),
-      bodyStyle: styleFor(body?.querySelector("p")),
+      bodyStyle: styleFor(bodyText),
       seriesStyle: styleFor(seriesLabel),
       paginationStyle: styleFor(pagination),
     };
@@ -1687,13 +1756,20 @@
     const lightScene = ["paper", "quote", "field", "dark"].includes(slide.scene) || slide.scene === "split";
     const foreground = lightScene ? palette.foreground : "#ffffff";
     const titleColor = slide.titleColor || (slide.plaqueEnabled || slide.scene === "plate" ? palette.ink : foreground);
+    const titleBlockColor = titleBlockHighlight(slide);
+    const bodyBlockColor = bodyBlockHighlight(slide);
     context.fillStyle = foreground;
     context.textAlign = slide.align || "left";
     context.textBaseline = "alphabetic";
     const xShift = (Number(slide.offsetX) || 0) * 10.8;
     const yShift = (Number(slide.offsetY) || 0) * height / 100;
     const fallbackX = (slide.align === "center" ? 540 : slide.align === "right" ? 980 : 100) + xShift;
-    const x = previewLayout?.title ? (slide.align === "center" ? (previewLayout.title.left + previewLayout.title.right) / 2 : slide.align === "right" ? previewLayout.title.right : previewLayout.title.left) : fallbackX;
+    const titlePaddingLeft = previewLayout?.titleStyle?.paddingLeft || 0;
+    const titlePaddingRight = previewLayout?.titleStyle?.paddingRight || 0;
+    const titlePaddingTop = previewLayout?.titleStyle?.paddingTop || 0;
+    const titleLeft = previewLayout?.title ? previewLayout.title.left + titlePaddingLeft : 0;
+    const titleRight = previewLayout?.title ? previewLayout.title.right - titlePaddingRight : 0;
+    const x = previewLayout?.title ? (slide.align === "center" ? (titleLeft + titleRight) / 2 : slide.align === "right" ? titleRight : titleLeft) : fallbackX;
     const maxWidth = previewLayout?.content?.width || (slide.scene === "split" ? 440 : 880);
     const fontFamily = previewLayout?.titleStyle?.fontFamily || `"${slideFont.family}", Arial, sans-serif`;
     const bodyFontFamily = previewLayout?.bodyStyle?.fontFamily || `"${slide.bodyFont || slideFont.body || companionFor(slideFont.family)}", Arial, sans-serif`;
@@ -1711,7 +1787,10 @@
     const titleRichLines = layoutRichLinesToBreaks(context, richTitleRuns(slide, slide.caseKind || slideFont.caseKind), titleLines, titleSize, fontFamily, titleWeight);
     const bodySize = previewLayout?.bodyStyle?.fontSize || Math.max(24, Math.min(64, Number(slide.bodySize) || Math.round(titleSize * .55)));
     const bodyWeight = previewLayout?.bodyStyle?.fontWeight || slide.bodyWeight || 500;
-    const bodyMaxWidth = previewLayout?.body?.width || maxWidth;
+    const bodyPaddingLeft = previewLayout?.bodyStyle?.paddingLeft || 0;
+    const bodyPaddingRight = previewLayout?.bodyStyle?.paddingRight || 0;
+    const bodyPaddingTop = previewLayout?.bodyStyle?.paddingTop || 0;
+    const bodyMaxWidth = previewLayout?.body ? previewLayout.body.width - bodyPaddingLeft - bodyPaddingRight : maxWidth;
     const bodyLines = layoutRichLines(context, richRuns(slide), bodyMaxWidth, bodySize, bodyFontFamily, bodyWeight);
     const titleLineHeight = previewLayout?.titleStyle?.lineHeight ? previewLayout.titleStyle.lineHeight / titleSize : slide.titleLineHeight || .96;
     const bodyLineHeight = previewLayout?.bodyStyle?.lineHeight ? previewLayout.bodyStyle.lineHeight / bodySize : slide.bodyLineHeight || 1.3;
@@ -1721,7 +1800,7 @@
     let startY = slide.placement === "top" ? (format === formatPresets.story ? 230 : 210) : slide.placement === "bottom" ? height - (format === formatPresets.story ? 260 : 170) - blockHeight : (height - blockHeight) / 2;
     if (["window"].includes(slide.scene)) startY = Math.round(height * (format === formatPresets.story ? .56 : .533));
     startY += yShift;
-    if (previewLayout?.title) startY = previewLayout.title.top;
+    if (previewLayout?.title) startY = previewLayout.title.top + titlePaddingTop;
     if (slide.scene === "plate" || slide.plaqueEnabled) {
       context.fillStyle = colorWithAlpha(slide.plaqueColor || palette.background, slide.plaqueOpacity ?? .92);
       context.beginPath();
@@ -1730,12 +1809,26 @@
     }
     context.fillStyle = titleColor;
     context.font = `${titleWeight} ${titleSize}px ${fontFamily}`;
+    if (titleBlockColor && previewLayout?.title) {
+      context.fillStyle = titleBlockColor;
+      context.beginPath();
+      context.roundRect(previewLayout.title.left, previewLayout.title.top, previewLayout.title.width, previewLayout.title.height, Math.max(8, titleSize * .1));
+      context.fill();
+    }
     drawRichLines(context, titleRichLines, x, startY + titleSize * .85, slide.align || "left", titleSize, fontFamily, titleColor, titleWeight, titleLineHeight);
-    let bodyY = previewLayout?.body ? previewLayout.body.top : startY + titleHeight + (titleLines.length && bodyLines.length ? 50 : 0);
+    let bodyY = previewLayout?.body ? previewLayout.body.top + bodyPaddingTop : startY + titleHeight + (titleLines.length && bodyLines.length ? 50 : 0);
     if (bodyLines.length) {
       bodyY += bodySize;
       if ("letterSpacing" in context) context.letterSpacing = previewLayout?.bodyStyle ? `${previewLayout.bodyStyle.letterSpacing}px` : `${Number(slide.bodyTracking) || 0}em`;
-      const bodyX = previewLayout?.body ? (slide.align === "center" ? (previewLayout.body.left + previewLayout.body.right) / 2 : slide.align === "right" ? previewLayout.body.right : previewLayout.body.left) : x;
+      const bodyLeft = previewLayout?.body ? previewLayout.body.left + bodyPaddingLeft : 0;
+      const bodyRight = previewLayout?.body ? previewLayout.body.right - bodyPaddingRight : 0;
+      const bodyX = previewLayout?.body ? (slide.align === "center" ? (bodyLeft + bodyRight) / 2 : slide.align === "right" ? bodyRight : bodyLeft) : x;
+      if (bodyBlockColor && previewLayout?.body) {
+        context.fillStyle = bodyBlockColor;
+        context.beginPath();
+        context.roundRect(previewLayout.body.left, previewLayout.body.top, previewLayout.body.width, previewLayout.body.height, Math.max(6, bodySize * .12));
+        context.fill();
+      }
       drawRichLines(context, bodyLines, bodyX, bodyY, slide.align || "left", bodySize, bodyFontFamily, slide.plaqueEnabled || slide.scene === "plate" ? palette.ink : foreground, bodyWeight, bodyLineHeight);
     }
     if ("letterSpacing" in context) context.letterSpacing = "0px";
@@ -2167,6 +2260,24 @@
     };
     const apply = (command, value = null) => {
       restoreSelection();
+      const selection = window.getSelection();
+      const selectedText = selection?.rangeCount ? selection.getRangeAt(0).toString() : "";
+      const normalize = (text) => String(text || "").replace(/\s+/g, "").trim();
+      const wholeBlock = !!normalize(selectedText) && normalize(selectedText) === normalize(editor.innerText);
+      if (command === "highlight" && wholeBlock) {
+        editor.querySelectorAll("[style]").forEach((node) => {
+          node.style.removeProperty("background-color");
+          if (!node.getAttribute("style")?.trim()) node.removeAttribute("style");
+        });
+        editor.dataset.fullHighlight = safeRichColor(value);
+        editor.style.backgroundColor = safeRichColor(value);
+        editor.dispatchEvent(new Event("input", { bubbles: true }));
+        return;
+      }
+      if (command === "removeFormat" && wholeBlock) {
+        editor.dataset.fullHighlight = "";
+        editor.style.backgroundColor = "";
+      }
       document.execCommand("styleWithCSS", false, true);
       if (command === "highlight") {
         const supported = document.execCommand("hiliteColor", false, value);
