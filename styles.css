@@ -1085,6 +1085,8 @@ main { width: min(1480px, 100%); margin: 0 auto; padding: 30px 32px 56px; }
 .carousel-rich-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin-bottom: 6px; padding: 7px; border: 1px solid #cfd7d3; border-radius: 8px 8px 0 0; background: #f3f6f4; }
 .carousel-rich-toolbar > span { margin-left: 3px; color: var(--muted); font-size: 9px; font-weight: 700; }
 .carousel-rich-toolbar button { min-height: 28px; padding: 0 8px; border: 1px solid #cbd4d0; border-radius: 6px; color: var(--ink); background: #fff; font-size: 10px; cursor: pointer; }
+.carousel-rich-toolbar .rich-highlight-mode { padding-inline: 7px; color: var(--muted); }
+.carousel-rich-toolbar .rich-highlight-mode.is-active { border-color: #3155e4; color: #fff; background: #3155e4; }
 .carousel-rich-toolbar .rich-swatch { width: 28px; min-width: 28px; padding: 0; background: var(--swatch); }
 .carousel-rich-toolbar .rich-custom-color { position: relative; display: inline-flex; align-items: center; min-height: 28px; padding: 0 7px 0 4px; overflow: hidden; border: 1px solid #cbd4d0; border-radius: 6px; color: var(--ink); background: #fff; font-size: 9px; font-weight: 700; cursor: pointer; }
 .carousel-rich-toolbar .rich-custom-color input { width: 20px; height: 20px; margin-right: 4px; padding: 0; border: 0; background: transparent; cursor: pointer; }

@@ -557,9 +557,11 @@
       title: "",
       titleHtml: "",
       titleBlockHighlight: "",
+      titleHighlightMode: "",
       body: "",
       bodyHtml: "",
       bodyBlockHighlight: "",
+      bodyHighlightMode: "",
       scene: "paper",
       palette: "ink",
       size: 46,
@@ -920,10 +922,12 @@
   }
 
   function titleBlockHighlight(slide) {
+    if (slide.titleHighlightMode === "inline") return "";
     return fullRichHighlight(slide.titleHtml, slide.title, slide.titleBlockHighlight);
   }
 
   function bodyBlockHighlight(slide) {
+    if (slide.bodyHighlightMode === "inline") return "";
     return fullRichHighlight(slide.bodyHtml, slide.body, slide.bodyBlockHighlight);
   }
 
@@ -1122,6 +1126,7 @@
     ui.seriesName.value = series.name;
     ui.coverTitle.innerHTML = richTitleMarkup(slide);
     ui.coverTitle.dataset.fullHighlight = titleBlockHighlight(slide);
+    ui.coverTitle.dataset.highlightMode = slide.titleHighlightMode || (titleBlockHighlight(slide) ? "block" : "inline");
     ui.coverTitle.style.backgroundColor = titleBlockHighlight(slide) || "";
     ui.coverSubtitle.value = slide.body;
     ui.coverSize.value = slide.size;
@@ -1198,9 +1203,11 @@
     ui.activeMeta.textContent = `${roleLabels[slide.role] || slide.role} · ${slide.savedAt ? "сохранён" : "есть изменения"}`;
     ui.slideTitle.innerHTML = richTitleMarkup(slide);
     ui.slideTitle.dataset.fullHighlight = titleBlockHighlight(slide);
+    ui.slideTitle.dataset.highlightMode = slide.titleHighlightMode || (titleBlockHighlight(slide) ? "block" : "inline");
     ui.slideTitle.style.backgroundColor = titleBlockHighlight(slide) || "";
     ui.slideBody.innerHTML = richBodyMarkup(slide);
     ui.slideBody.dataset.fullHighlight = bodyBlockHighlight(slide);
+    ui.slideBody.dataset.highlightMode = slide.bodyHighlightMode || (bodyBlockHighlight(slide) ? "block" : "inline");
     ui.slideBody.style.backgroundColor = bodyBlockHighlight(slide) || "";
     ui.slideRole.value = slide.role;
     ui.slideScene.value = slide.scene;
@@ -1320,6 +1327,7 @@
     slide.title = ui.coverTitle.innerText.trim();
     slide.titleHtml = sanitizeRichHtml(ui.coverTitle.innerHTML);
     slide.titleBlockHighlight = safeRichColor(ui.coverTitle.dataset.fullHighlight);
+    slide.titleHighlightMode = ui.coverTitle.dataset.highlightMode || "";
     slide.body = ui.coverSubtitle.value;
     slide.size = Number(ui.coverSize.value);
     slide.placement = ui.coverPlacement.value;
@@ -1360,9 +1368,11 @@
     slide.title = ui.slideTitle.innerText.trim();
     slide.titleHtml = sanitizeRichHtml(ui.slideTitle.innerHTML);
     slide.titleBlockHighlight = safeRichColor(ui.slideTitle.dataset.fullHighlight);
+    slide.titleHighlightMode = ui.slideTitle.dataset.highlightMode || "";
     slide.body = ui.slideBody.innerText.trim();
     slide.bodyHtml = sanitizeRichHtml(ui.slideBody.innerHTML);
     slide.bodyBlockHighlight = safeRichColor(ui.slideBody.dataset.fullHighlight);
+    slide.bodyHighlightMode = ui.slideBody.dataset.highlightMode || "";
     slide.role = ui.slideRole.value;
     slide.scene = ui.slideScene.value;
     slide.palette = ui.slidePalette.value;
@@ -2245,6 +2255,11 @@
   function bindRichEditor(toolbar, editor, paragraphBreaks = false) {
     if (!toolbar || !editor) return;
     let savedRange = null;
+    const setHighlightMode = (mode) => {
+      toolbar.dataset.highlightMode = mode === "block" ? "block" : "inline";
+      toolbar.querySelectorAll("[data-rich-highlight-mode]").forEach((button) => button.classList.toggle("is-active", button.dataset.richHighlightMode === toolbar.dataset.highlightMode));
+    };
+    setHighlightMode(editor.dataset.highlightMode || "inline");
     const saveSelection = () => {
       const selection = window.getSelection();
       if (!selection?.rangeCount) return;
@@ -2264,19 +2279,29 @@
       const selectedText = selection?.rangeCount ? selection.getRangeAt(0).toString() : "";
       const normalize = (text) => String(text || "").replace(/\s+/g, "").trim();
       const wholeBlock = !!normalize(selectedText) && normalize(selectedText) === normalize(editor.innerText);
-      if (command === "highlight" && wholeBlock) {
+      const highlightMode = toolbar.dataset.highlightMode || "inline";
+      if (command === "highlight" && wholeBlock && highlightMode === "block") {
         editor.querySelectorAll("[style]").forEach((node) => {
           node.style.removeProperty("background-color");
           if (!node.getAttribute("style")?.trim()) node.removeAttribute("style");
         });
         editor.dataset.fullHighlight = safeRichColor(value);
+        editor.dataset.highlightMode = "block";
         editor.style.backgroundColor = safeRichColor(value);
         editor.dispatchEvent(new Event("input", { bubbles: true }));
         return;
       }
       if (command === "removeFormat" && wholeBlock) {
         editor.dataset.fullHighlight = "";
+        editor.dataset.highlightMode = "inline";
         editor.style.backgroundColor = "";
+      }
+      if (command === "highlight" && highlightMode === "inline") {
+        if (wholeBlock) {
+          editor.dataset.fullHighlight = "";
+          editor.style.backgroundColor = "";
+        }
+        editor.dataset.highlightMode = "inline";
       }
       document.execCommand("styleWithCSS", false, true);
       if (command === "highlight") {
@@ -2286,7 +2311,11 @@
       saveSelection();
       editor.dispatchEvent(new Event("input", { bubbles: true }));
     };
-    ["mouseup", "keyup", "focus", "touchend"].forEach((eventName) => editor.addEventListener(eventName, saveSelection));
+    ["mouseup", "keyup", "touchend"].forEach((eventName) => editor.addEventListener(eventName, saveSelection));
+    editor.addEventListener("focus", () => {
+      saveSelection();
+      setHighlightMode(editor.dataset.highlightMode || toolbar.dataset.highlightMode || "inline");
+    });
     editor.addEventListener("paste", (event) => {
       event.preventDefault();
       document.execCommand("insertText", false, event.clipboardData.getData("text/plain"));
@@ -2304,6 +2333,10 @@
     toolbar.addEventListener("click", (event) => {
       const button = event.target.closest("button");
       if (!button) return;
+      if (button.dataset.richHighlightMode) {
+        setHighlightMode(button.dataset.richHighlightMode);
+        return;
+      }
       if (button.dataset.richCommand) apply(button.dataset.richCommand);
       if (button.dataset.richColor) apply("foreColor", button.dataset.richColor);
       if (button.dataset.richHighlight) apply("highlight", button.dataset.richHighlight);
