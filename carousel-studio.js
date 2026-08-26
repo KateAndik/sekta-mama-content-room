@@ -89,6 +89,7 @@
     coverTitle: document.querySelector("#carouselCoverTitle"),
     coverRichToolbar: document.querySelector("#carouselCoverRichToolbar"),
     coverSubtitle: document.querySelector("#carouselCoverSubtitle"),
+    coverBodyRichToolbar: document.querySelector("#carouselCoverBodyRichToolbar"),
     coverSize: document.querySelector("#carouselCoverSize"),
     coverSizeValue: document.querySelector("#carouselCoverSizeValue"),
     coverPlacement: document.querySelector("#carouselCoverPlacement"),
@@ -1128,7 +1129,10 @@
     ui.coverTitle.dataset.fullHighlight = titleBlockHighlight(slide);
     ui.coverTitle.dataset.highlightMode = slide.titleHighlightMode || (titleBlockHighlight(slide) ? "block" : "inline");
     ui.coverTitle.style.backgroundColor = titleBlockHighlight(slide) || "";
-    ui.coverSubtitle.value = slide.body;
+    ui.coverSubtitle.innerHTML = richBodyMarkup(slide);
+    ui.coverSubtitle.dataset.fullHighlight = bodyBlockHighlight(slide);
+    ui.coverSubtitle.dataset.highlightMode = slide.bodyHighlightMode || (bodyBlockHighlight(slide) ? "block" : "inline");
+    ui.coverSubtitle.style.backgroundColor = bodyBlockHighlight(slide) || "";
     ui.coverSize.value = slide.size;
     ui.coverSizeValue.textContent = `${slide.size} px`;
     syncSizePresets(ui.coverSize);
@@ -1328,7 +1332,10 @@
     slide.titleHtml = sanitizeRichHtml(ui.coverTitle.innerHTML);
     slide.titleBlockHighlight = safeRichColor(ui.coverTitle.dataset.fullHighlight);
     slide.titleHighlightMode = ui.coverTitle.dataset.highlightMode || "";
-    slide.body = ui.coverSubtitle.value;
+    slide.body = ui.coverSubtitle.innerText.trim();
+    slide.bodyHtml = sanitizeRichHtml(ui.coverSubtitle.innerHTML);
+    slide.bodyBlockHighlight = safeRichColor(ui.coverSubtitle.dataset.fullHighlight);
+    slide.bodyHighlightMode = ui.coverSubtitle.dataset.highlightMode || "";
     slide.size = Number(ui.coverSize.value);
     slide.placement = ui.coverPlacement.value;
     slide.align = ui.coverAlign.value;
@@ -2346,6 +2353,7 @@
   }
 
   bindRichEditor(ui.coverRichToolbar, ui.coverTitle);
+  bindRichEditor(ui.coverBodyRichToolbar, ui.coverSubtitle, true);
   bindRichEditor(ui.titleRichToolbar, ui.slideTitle);
   bindRichEditor(ui.richToolbar, ui.slideBody, true);
   ui.slideFont.addEventListener("change", () => {
