@@ -1790,17 +1790,23 @@
     lines.forEach((line, lineIndex) => {
       const baseline = firstBaseline + (measuredTop === null ? lineIndex * size * lineHeight : line.top - measuredTop);
       let cursor = align === "center" ? x - line.width / 2 : align === "right" ? x - line.width : x;
-      line.segments.forEach((segment) => {
+      const placements = line.segments.map((segment) => {
         if (Number.isFinite(segment.left)) cursor = segment.left;
-        context.font = `${segment.bold ? 800 : weight} ${size}px ${family}`;
+        const placed = { segment, left: cursor };
+        if (!Number.isFinite(segment.left)) cursor += segment.width;
+        return placed;
+      });
+      placements.forEach(({ segment, left }) => {
         if (segment.background) {
           context.fillStyle = segment.background;
-          context.fillRect(cursor - 5, baseline - size * .92, segment.width + 10, size * 1.16);
+          context.fillRect(left - 5, baseline - size * .92, segment.width + 10, size * 1.16);
         }
+      });
+      placements.forEach(({ segment, left }) => {
+        context.font = `${segment.bold ? 800 : weight} ${size}px ${family}`;
         context.fillStyle = segment.color || fallbackColor;
         context.textAlign = "left";
-        context.fillText(segment.text, cursor, baseline);
-        if (!Number.isFinite(segment.left)) cursor += segment.width;
+        context.fillText(segment.text, left, baseline);
       });
     });
   }
