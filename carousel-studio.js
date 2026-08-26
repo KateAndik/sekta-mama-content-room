@@ -1554,7 +1554,17 @@
     return result;
   }
 
-  function renderedTextLines(element) {
+  function visibleBackground(value) {
+    if (!value || value === "transparent") return "";
+    const match = value.match(/^rgba?\(([^)]+)\)$/i);
+    if (match) {
+      const parts = match[1].split(",").map((part) => part.trim());
+      if (parts.length === 4 && Number(parts[3]) === 0) return "";
+    }
+    return value;
+  }
+
+  function renderedRichTextLines(element) {
     if (!element) return [];
     const wordsByLine = [];
     const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
@@ -1567,17 +1577,31 @@
         range.setEnd(node, match.index + match[0].length);
         const rect = range.getClientRects()[0];
         if (!rect) continue;
+        let parent = node.parentElement;
+        let background = "";
+        let bold = false;
+        while (parent && parent !== element) {
+          const parentStyle = getComputedStyle(parent);
+          background ||= visibleBackground(parentStyle.backgroundColor);
+          bold ||= ["B", "STRONG"].includes(parent.tagName) || Number.parseInt(parentStyle.fontWeight, 10) >= 700;
+          parent = parent.parentElement;
+        }
+        const wordStyle = getComputedStyle(node.parentElement || element);
+        let text = match[0];
+        if (wordStyle.textTransform === "uppercase") text = text.toLocaleUpperCase("ru-RU");
+        else if (wordStyle.textTransform === "lowercase") text = text.toLocaleLowerCase("ru-RU");
+        else if (wordStyle.textTransform === "capitalize") text = text.replace(/^./u, (letter) => letter.toLocaleUpperCase("ru-RU"));
         let line = wordsByLine.find((item) => Math.abs(item.top - rect.top) < 1.5);
         if (!line) {
           line = { top: rect.top, words: [] };
           wordsByLine.push(line);
         }
-        line.words.push({ left: rect.left, text: match[0] });
+        line.words.push({ left: rect.left, text, bold, color: wordStyle.color, background });
       }
     }
     return wordsByLine
       .sort((a, b) => a.top - b.top)
-      .map((line) => line.words.sort((a, b) => a.left - b.left).map((word) => word.text).join(" "));
+      .map((line) => ({ ...line, words: line.words.sort((a, b) => a.left - b.left) }));
   }
 
   async function measureSlidePreview(slide, index) {
@@ -1627,8 +1651,12 @@
         paddingLeft: parseFloat(style.paddingLeft) * scale || 0,
       };
     };
+    const titleRichLines = renderedRichTextLines(title);
+    const bodyRichLines = renderedRichTextLines(bodyText);
     const measured = {
-      titleLines: renderedTextLines(title),
+      titleLines: titleRichLines.map((line) => line.words.map((word) => word.text).join(" ")),
+      titleRichLines,
+      bodyRichLines,
       content: rectFor(content),
       title: rectFor(title),
       body: rectFor(bodyText || body),
@@ -1726,6 +1754,26 @@
     });
   }
 
+  function layoutMeasuredRichLines(context, measuredLines, size, family, weight = 500) {
+    return measuredLines.map((measuredLine) => {
+      const line = { segments: [], width: 0 };
+      measuredLine.words.forEach((word, index) => {
+        context.font = `${word.bold ? 800 : weight} ${size}px ${family}`;
+        const text = index ? ` ${word.text}` : word.text;
+        const width = context.measureText(text).width;
+        line.segments.push({
+          text,
+          width,
+          bold: !!word.bold,
+          color: word.color || "",
+          background: word.background || "",
+        });
+        line.width += width;
+      });
+      return line;
+    });
+  }
+
   function drawRichLines(context, lines, x, firstBaseline, align, size, family, fallbackColor, weight = 500, lineHeight = 1.3) {
     lines.forEach((line, lineIndex) => {
       const baseline = firstBaseline + lineIndex * size * lineHeight;
@@ -1801,14 +1849,18 @@
       context.font = `${slide.titleWeight || 800} ${titleSize}px ${fontFamily}`;
       titleLines = wrapCanvasText(context, titleText, maxWidth);
     }
-    const titleRichLines = layoutRichLinesToBreaks(context, richTitleRuns(slide, slide.caseKind || slideFont.caseKind), titleLines, titleSize, fontFamily, titleWeight);
+    const titleRichLines = previewLayout?.titleRichLines?.length
+      ? layoutMeasuredRichLines(context, previewLayout.titleRichLines, titleSize, fontFamily, titleWeight)
+      : layoutRichLinesToBreaks(context, richTitleRuns(slide, slide.caseKind || slideFont.caseKind), titleLines, titleSize, fontFamily, titleWeight);
     const bodySize = previewLayout?.bodyStyle?.fontSize || Math.max(24, Math.min(64, Number(slide.bodySize) || Math.round(titleSize * .55)));
     const bodyWeight = previewLayout?.bodyStyle?.fontWeight || slide.bodyWeight || 500;
     const bodyPaddingLeft = previewLayout?.bodyStyle?.paddingLeft || 0;
     const bodyPaddingRight = previewLayout?.bodyStyle?.paddingRight || 0;
     const bodyPaddingTop = previewLayout?.bodyStyle?.paddingTop || 0;
     const bodyMaxWidth = previewLayout?.body ? previewLayout.body.width - bodyPaddingLeft - bodyPaddingRight : maxWidth;
-    const bodyLines = layoutRichLines(context, richRuns(slide), bodyMaxWidth, bodySize, bodyFontFamily, bodyWeight);
+    const bodyLines = previewLayout?.bodyRichLines?.length
+      ? layoutMeasuredRichLines(context, previewLayout.bodyRichLines, bodySize, bodyFontFamily, bodyWeight)
+      : layoutRichLines(context, richRuns(slide), bodyMaxWidth, bodySize, bodyFontFamily, bodyWeight);
     const titleLineHeight = previewLayout?.titleStyle?.lineHeight ? previewLayout.titleStyle.lineHeight / titleSize : slide.titleLineHeight || .96;
     const bodyLineHeight = previewLayout?.bodyStyle?.lineHeight ? previewLayout.bodyStyle.lineHeight / bodySize : slide.bodyLineHeight || 1.3;
     const titleHeight = titleLines.length * titleSize * titleLineHeight;
