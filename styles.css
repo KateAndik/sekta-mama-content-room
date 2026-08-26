@@ -913,6 +913,7 @@ main { width: min(1480px, 100%); margin: 0 auto; padding: 30px 32px 56px; }
 .carousel-slide-canvas[data-align="right"] .carousel-render-content { align-items: flex-end; text-align: right; }
 .carousel-render-series { position: absolute; top: 0; left: 0; max-width: 78%; overflow: hidden; font-size: 10px; font-weight: 750; letter-spacing: .06em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
 .carousel-render-content > strong { display: block; max-width: 100%; color: var(--carousel-title-color, inherit); font-family: var(--carousel-head-font), sans-serif; font-size: var(--carousel-title-size); font-weight: var(--carousel-title-weight, 800); line-height: var(--carousel-title-line-height, .96); letter-spacing: var(--carousel-title-tracking, -.035em); white-space: pre-line; text-wrap: balance; }
+.carousel-render-content > strong span[style*="background-color"] { padding: .03em .13em .08em; border-radius: .1em; box-decoration-break: clone; -webkit-box-decoration-break: clone; text-shadow: none; }
 .carousel-render-body { width: 100%; margin-top: 14px; }
 .carousel-render-body p { width: 100%; margin: 0; font-family: var(--carousel-body-font), sans-serif; font-size: var(--carousel-body-size); font-weight: var(--carousel-body-weight, 450); line-height: var(--carousel-body-line-height, 1.25); letter-spacing: var(--carousel-body-tracking, 0); white-space: pre-wrap; }
 .carousel-render-body strong { display: inline; max-width: none; font-family: inherit; font-size: inherit; font-weight: 800; line-height: inherit; letter-spacing: inherit; }
@@ -1081,6 +1082,9 @@ main { width: min(1480px, 100%); margin: 0 auto; padding: 30px 32px 56px; }
 .carousel-rich-toolbar > span { margin-left: 3px; color: var(--muted); font-size: 9px; font-weight: 700; }
 .carousel-rich-toolbar button { min-height: 28px; padding: 0 8px; border: 1px solid #cbd4d0; border-radius: 6px; color: var(--ink); background: #fff; font-size: 10px; cursor: pointer; }
 .carousel-rich-toolbar .rich-swatch { width: 28px; min-width: 28px; padding: 0; background: var(--swatch); }
+.carousel-rich-toolbar .rich-custom-color { position: relative; display: inline-flex; align-items: center; min-height: 28px; padding: 0 7px 0 4px; overflow: hidden; border: 1px solid #cbd4d0; border-radius: 6px; color: var(--ink); background: #fff; font-size: 9px; font-weight: 700; cursor: pointer; }
+.carousel-rich-toolbar .rich-custom-color input { width: 20px; height: 20px; margin-right: 4px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.carousel-rich-title-editor { min-height: 76px; font-size: 16px; font-weight: 750; line-height: 1.12; }
 .rich-ink { --swatch: #17221f; } .rich-pink { --swatch: #f35ba7; } .rich-blue { --swatch: #3155e4; }
 .rich-highlight-pink { --swatch: #ffb6d9; } .rich-highlight-lime { --swatch: #d4f04a; } .rich-highlight-paper { --swatch: #fff0c7; }
 .carousel-rich-editor { min-height: 176px; max-height: 330px; padding: 11px; overflow-y: auto; border: 1px solid #cfd7d3; border-top: 0; border-radius: 0 0 8px 8px; outline: 0; color: var(--ink); background: #fbfcfb; font-size: 12px; line-height: 1.5; white-space: pre-wrap; }
