@@ -87,6 +87,7 @@
     saveSeries: document.querySelector("#carouselSaveSeries"),
     coverCanvas: document.querySelector("#carouselCoverCanvas"),
     coverTitle: document.querySelector("#carouselCoverTitle"),
+    coverRichToolbar: document.querySelector("#carouselCoverRichToolbar"),
     coverSubtitle: document.querySelector("#carouselCoverSubtitle"),
     coverSize: document.querySelector("#carouselCoverSize"),
     coverSizeValue: document.querySelector("#carouselCoverSizeValue"),
@@ -138,6 +139,7 @@
     activeTitle: document.querySelector("#carouselActiveTitle"),
     activeMeta: document.querySelector("#carouselActiveMeta"),
     slideTitle: document.querySelector("#carouselSlideTitle"),
+    titleRichToolbar: document.querySelector("#carouselTitleRichToolbar"),
     slideBody: document.querySelector("#carouselSlideBody"),
     richToolbar: document.querySelector("#carouselRichToolbar"),
     slideRole: document.querySelector("#carouselSlideRole"),
@@ -553,6 +555,7 @@
       id: `slide-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
       role: "longread",
       title: "",
+      titleHtml: "",
       body: "",
       bodyHtml: "",
       scene: "paper",
@@ -870,7 +873,8 @@
         const color = safeRichColor(node.getAttribute("color") || node.style.color);
         const background = safeRichColor(node.style.backgroundColor || (tag === "mark" ? node.getAttribute("data-color") : ""));
         const styles = [color ? `color:${color}` : "", background ? `background-color:${background}` : ""].filter(Boolean).join(";");
-        return styles ? `<span style="${styles}">${content}</span>` : content;
+        const weighted = /^(bold|[6-9]00)$/i.test(node.style.fontWeight || "") ? `<strong>${content}</strong>` : content;
+        return styles ? `<span style="${styles}">${weighted}</span>` : weighted;
       }
       return content;
     };
@@ -880,6 +884,17 @@
   function richBodyMarkup(slide) {
     if (slide.bodyHtml) return sanitizeRichHtml(slide.bodyHtml);
     return escapeHtml(slide.body || "").replace(/\n/g, "<br>");
+  }
+
+  function richTitleMarkup(slide, caseKind = "original") {
+    const source = slide.titleHtml ? sanitizeRichHtml(slide.titleHtml) : escapeHtml(slide.title || "").replace(/\n/g, "<br>");
+    if (caseKind === "original") return source;
+    const template = document.createElement("template");
+    template.innerHTML = source;
+    const walker = document.createTreeWalker(template.content, NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node = walker.nextNode())) node.nodeValue = displayText(node.nodeValue, caseKind);
+    return template.innerHTML;
   }
 
   function currentFormat() {
@@ -939,7 +954,7 @@
         ? `<video class="carousel-render-photo" src="${escapeHtml(photo.exportImage)}" autoplay muted loop playsinline preload="auto"></video>`
         : `<img class="carousel-render-photo" src="${escapeHtml(photo.thumb)}" alt="">`
       : "";
-    const title = slide.title ? `<strong>${escapeHtml(displayText(slide.title, slide.caseKind || slideFont.caseKind)).replace(/\n/g, "<br>")}</strong>` : "";
+    const title = slide.title ? `<strong>${richTitleMarkup(slide, slide.caseKind || slideFont.caseKind)}</strong>` : "";
     const body = slide.body ? `<div class="carousel-render-body"><p>${richBodyMarkup(slide)}</p></div>` : "";
     const seriesLabel = slide.showSeriesLabel !== false ? `<span class="carousel-render-series">${escapeHtml(series.name)}</span>` : "";
     const pagination = slide.showPagination !== false ? `<small>${String(index + 1).padStart(2, "0")} / ${String(series.slides.length).padStart(2, "0")}</small>` : "";
@@ -1050,7 +1065,7 @@
   function syncCoverForm() {
     const slide = coverSlide();
     ui.seriesName.value = series.name;
-    ui.coverTitle.value = slide.title;
+    ui.coverTitle.innerHTML = richTitleMarkup(slide);
     ui.coverSubtitle.value = slide.body;
     ui.coverSize.value = slide.size;
     ui.coverSizeValue.textContent = `${slide.size} px`;
@@ -1124,7 +1139,7 @@
     const slide = activeSlide();
     ui.activeTitle.textContent = `Слайд ${series.activeSlide + 1}`;
     ui.activeMeta.textContent = `${roleLabels[slide.role] || slide.role} · ${slide.savedAt ? "сохранён" : "есть изменения"}`;
-    ui.slideTitle.value = slide.title || "";
+    ui.slideTitle.innerHTML = richTitleMarkup(slide);
     ui.slideBody.innerHTML = richBodyMarkup(slide);
     ui.slideRole.value = slide.role;
     ui.slideScene.value = slide.scene;
@@ -1241,7 +1256,8 @@
   function updateCoverFromForm() {
     const slide = coverSlide();
     series.name = ui.seriesName.value.trim() || "Новая серия";
-    slide.title = ui.coverTitle.value;
+    slide.title = ui.coverTitle.innerText.trim();
+    slide.titleHtml = sanitizeRichHtml(ui.coverTitle.innerHTML);
     slide.body = ui.coverSubtitle.value;
     slide.size = Number(ui.coverSize.value);
     slide.placement = ui.coverPlacement.value;
@@ -1279,7 +1295,8 @@
 
   function updateActiveFromForm() {
     const slide = activeSlide();
-    slide.title = ui.slideTitle.value;
+    slide.title = ui.slideTitle.innerText.trim();
+    slide.titleHtml = sanitizeRichHtml(ui.slideTitle.innerHTML);
     slide.body = ui.slideBody.innerText.trim();
     slide.bodyHtml = sanitizeRichHtml(ui.slideBody.innerHTML);
     slide.role = ui.slideRole.value;
@@ -1540,9 +1557,9 @@
     return measured;
   }
 
-  function richRuns(slide) {
+  function richRunsFromMarkup(markup, fallback = "") {
     const root = document.createElement("div");
-    root.innerHTML = richBodyMarkup(slide);
+    root.innerHTML = markup;
     const runs = [];
     const visit = (node, style = {}) => {
       if (node.nodeType === Node.TEXT_NODE) {
@@ -1563,7 +1580,15 @@
       [...node.childNodes].forEach((child) => visit(child, next));
     };
     [...root.childNodes].forEach((node) => visit(node));
-    return runs.length ? runs : [{ text: slide.body || "" }];
+    return runs.length ? runs : [{ text: fallback }];
+  }
+
+  function richRuns(slide) {
+    return richRunsFromMarkup(richBodyMarkup(slide), slide.body || "");
+  }
+
+  function richTitleRuns(slide, caseKind) {
+    return richRunsFromMarkup(richTitleMarkup(slide, caseKind), displayText(slide.title, caseKind));
   }
 
   function layoutRichLines(context, runs, maxWidth, size, family, weight = 500) {
@@ -1592,6 +1617,27 @@
     if (line.segments.length || !lines.length) lines.push(line);
     while (lines.length > 1 && !lines.at(-1).segments.length) lines.pop();
     return lines;
+  }
+
+  function layoutRichLinesToBreaks(context, runs, breaks, size, family, weight = 500) {
+    const tokens = [];
+    runs.forEach((run) => {
+      String(run.text || "").split(/\s+/).filter(Boolean).forEach((text) => tokens.push({ text, ...run }));
+    });
+    let cursor = 0;
+    return breaks.map((textLine) => {
+      const count = String(textLine || "").split(/\s+/).filter(Boolean).length;
+      const line = { segments: [], width: 0 };
+      for (let index = 0; index < count && cursor < tokens.length; index += 1, cursor += 1) {
+        const token = tokens[cursor];
+        context.font = `${token.bold ? 800 : weight} ${size}px ${family}`;
+        const text = index ? ` ${token.text}` : token.text;
+        const width = context.measureText(text).width;
+        line.segments.push({ text, width, bold: !!token.bold, color: token.color || "", background: token.background || "" });
+        line.width += width;
+      }
+      return line;
+    });
   }
 
   function drawRichLines(context, lines, x, firstBaseline, align, size, family, fallbackColor, weight = 500, lineHeight = 1.3) {
@@ -1662,6 +1708,7 @@
       context.font = `${slide.titleWeight || 800} ${titleSize}px ${fontFamily}`;
       titleLines = wrapCanvasText(context, titleText, maxWidth);
     }
+    const titleRichLines = layoutRichLinesToBreaks(context, richTitleRuns(slide, slide.caseKind || slideFont.caseKind), titleLines, titleSize, fontFamily, titleWeight);
     const bodySize = previewLayout?.bodyStyle?.fontSize || Math.max(24, Math.min(64, Number(slide.bodySize) || Math.round(titleSize * .55)));
     const bodyWeight = previewLayout?.bodyStyle?.fontWeight || slide.bodyWeight || 500;
     const bodyMaxWidth = previewLayout?.body?.width || maxWidth;
@@ -1683,9 +1730,7 @@
     }
     context.fillStyle = titleColor;
     context.font = `${titleWeight} ${titleSize}px ${fontFamily}`;
-    titleLines.forEach((line, lineIndex) => {
-      context.fillText(line, x, startY + titleSize * .85 + lineIndex * titleSize * titleLineHeight, maxWidth);
-    });
+    drawRichLines(context, titleRichLines, x, startY + titleSize * .85, slide.align || "left", titleSize, fontFamily, titleColor, titleWeight, titleLineHeight);
     let bodyY = previewLayout?.body ? previewLayout.body.top : startY + titleHeight + (titleLines.length && bodyLines.length ? 50 : 0);
     if (bodyLines.length) {
       bodyY += bodySize;
@@ -2104,30 +2149,61 @@
     markChanged();
     setStatus(ui.slideTemplate.value === "custom" ? "Свободная композиция включена." : "Готовый макет применён; текст и фото сохранены.");
   });
-  ui.slideBody.addEventListener("paste", (event) => {
-    event.preventDefault();
-    document.execCommand("insertText", false, event.clipboardData.getData("text/plain"));
-  });
-  ui.slideBody.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter") return;
-    event.preventDefault();
-    document.execCommand("insertHTML", false, event.shiftKey ? "<br>" : "<br><br>");
-    ui.slideBody.dispatchEvent(new Event("input", { bubbles: true }));
-  });
-  ui.richToolbar.addEventListener("pointerdown", (event) => event.preventDefault());
-  ui.richToolbar.addEventListener("click", (event) => {
-    const button = event.target.closest("button");
-    if (!button) return;
-    ui.slideBody.focus();
-    document.execCommand("styleWithCSS", false, true);
-    if (button.dataset.richCommand) document.execCommand(button.dataset.richCommand, false, null);
-    if (button.dataset.richColor) document.execCommand("foreColor", false, button.dataset.richColor);
-    if (button.dataset.richHighlight) {
-      const supported = document.execCommand("hiliteColor", false, button.dataset.richHighlight);
-      if (!supported) document.execCommand("backColor", false, button.dataset.richHighlight);
-    }
-    ui.slideBody.dispatchEvent(new Event("input", { bubbles: true }));
-  });
+  function bindRichEditor(toolbar, editor, paragraphBreaks = false) {
+    if (!toolbar || !editor) return;
+    let savedRange = null;
+    const saveSelection = () => {
+      const selection = window.getSelection();
+      if (!selection?.rangeCount) return;
+      const range = selection.getRangeAt(0);
+      if (editor.contains(range.commonAncestorContainer)) savedRange = range.cloneRange();
+    };
+    const restoreSelection = () => {
+      editor.focus();
+      if (!savedRange) return;
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(savedRange);
+    };
+    const apply = (command, value = null) => {
+      restoreSelection();
+      document.execCommand("styleWithCSS", false, true);
+      if (command === "highlight") {
+        const supported = document.execCommand("hiliteColor", false, value);
+        if (!supported) document.execCommand("backColor", false, value);
+      } else document.execCommand(command, false, value);
+      saveSelection();
+      editor.dispatchEvent(new Event("input", { bubbles: true }));
+    };
+    ["mouseup", "keyup", "focus", "touchend"].forEach((eventName) => editor.addEventListener(eventName, saveSelection));
+    editor.addEventListener("paste", (event) => {
+      event.preventDefault();
+      document.execCommand("insertText", false, event.clipboardData.getData("text/plain"));
+    });
+    editor.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      document.execCommand("insertHTML", false, paragraphBreaks && !event.shiftKey ? "<br><br>" : "<br>");
+      editor.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    toolbar.addEventListener("pointerdown", (event) => {
+      saveSelection();
+      if (event.target.closest("button")) event.preventDefault();
+    });
+    toolbar.addEventListener("click", (event) => {
+      const button = event.target.closest("button");
+      if (!button) return;
+      if (button.dataset.richCommand) apply(button.dataset.richCommand);
+      if (button.dataset.richColor) apply("foreColor", button.dataset.richColor);
+      if (button.dataset.richHighlight) apply("highlight", button.dataset.richHighlight);
+    });
+    toolbar.querySelectorAll("[data-rich-color-input]").forEach((input) => input.addEventListener("input", () => apply("foreColor", input.value)));
+    toolbar.querySelectorAll("[data-rich-highlight-input]").forEach((input) => input.addEventListener("input", () => apply("highlight", input.value)));
+  }
+
+  bindRichEditor(ui.coverRichToolbar, ui.coverTitle);
+  bindRichEditor(ui.titleRichToolbar, ui.slideTitle);
+  bindRichEditor(ui.richToolbar, ui.slideBody, true);
   ui.slideFont.addEventListener("change", () => {
     const slide = activeSlide();
     if (ui.slideFont.value === "series") slide.font = null;
