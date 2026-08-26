@@ -397,7 +397,24 @@
 
               <section class="panel carousel-controls-panel">
                 <div class="section-head"><div><h2>Обложка серии</h2><p>Все изменения видны на макете сразу</p></div><span id="carouselCoverDimensions">1080 × 1350</span></div>
-                <label class="carousel-field"><span>Что пишем на обложке</span><textarea id="carouselCoverTitle" rows="4">Пропустили пять дней? Ничего не сломалось</textarea></label>
+                <div class="carousel-field carousel-rich-field carousel-rich-title-field"><span>Что пишем на обложке</span>
+                  <div class="carousel-rich-toolbar" id="carouselCoverRichToolbar" role="toolbar" aria-label="Выделение текста обложки">
+                    <button type="button" data-rich-command="bold"><strong>Жирный</strong></button>
+                    <span>Текст:</span>
+                    <button type="button" class="rich-swatch rich-ink" data-rich-color="#17221f" aria-label="Тёмный текст"></button>
+                    <button type="button" class="rich-swatch rich-pink" data-rich-color="#f35ba7" aria-label="Розовый текст"></button>
+                    <button type="button" class="rich-swatch rich-blue" data-rich-color="#3155e4" aria-label="Синий текст"></button>
+                    <label class="rich-custom-color" title="Свой цвет текста"><input type="color" value="#d4f04a" data-rich-color-input><span>Свой</span></label>
+                    <span>Подложка:</span>
+                    <button type="button" class="rich-swatch rich-highlight-pink" data-rich-highlight="#ffb6d9" aria-label="Розовая подложка"></button>
+                    <button type="button" class="rich-swatch rich-highlight-lime" data-rich-highlight="#d4f04a" aria-label="Лаймовая подложка"></button>
+                    <button type="button" class="rich-swatch rich-highlight-paper" data-rich-highlight="#fff0c7" aria-label="Светлая подложка"></button>
+                    <label class="rich-custom-color" title="Свой цвет подложки"><input type="color" value="#d4f04a" data-rich-highlight-input><span>Свой</span></label>
+                    <button type="button" data-rich-command="removeFormat">Сбросить</button>
+                  </div>
+                  <div id="carouselCoverTitle" class="carousel-rich-editor carousel-rich-title-editor" contenteditable="true" role="textbox" aria-multiline="true">Пропустили пять дней? Ничего не сломалось</div>
+                  <small>Выделите только нужную фразу — цвет и подложка применятся не ко всему заголовку.</small>
+                </div>
                 <label class="carousel-field"><span>Основной текст или подстрочник</span><textarea id="carouselCoverSubtitle" rows="3">10 слайдов · сохрани</textarea><small>Enter — новая строка. Пустая строка — новый абзац.</small></label>
                 <fieldset class="carousel-control-group"><legend>Сцена</legend><div class="carousel-choice-row">
                   <button type="button" data-carousel-scene="photo-dim">Фото + затемнение</button>
@@ -488,7 +505,24 @@
               </section>
               <section class="panel carousel-controls-panel">
                 <div class="section-head"><div><h2 id="carouselActiveTitle">Слайд 1</h2><p id="carouselActiveMeta">обложка · не сохранён</p></div><button class="button button-quiet" id="carouselDuplicateSlide" type="button">Дублировать</button></div>
-                <label class="carousel-field"><span>Заголовок</span><textarea id="carouselSlideTitle" rows="3"></textarea></label>
+                <div class="carousel-field carousel-rich-field carousel-rich-title-field"><span>Заголовок</span>
+                  <div class="carousel-rich-toolbar" id="carouselTitleRichToolbar" role="toolbar" aria-label="Выделение заголовка">
+                    <button type="button" data-rich-command="bold" title="Жирный текст"><strong>Жирный</strong></button>
+                    <span>Текст:</span>
+                    <button type="button" class="rich-swatch rich-ink" data-rich-color="#17221f" aria-label="Тёмный текст"></button>
+                    <button type="button" class="rich-swatch rich-pink" data-rich-color="#f35ba7" aria-label="Розовый текст"></button>
+                    <button type="button" class="rich-swatch rich-blue" data-rich-color="#3155e4" aria-label="Синий текст"></button>
+                    <label class="rich-custom-color" title="Свой цвет текста"><input type="color" value="#d4f04a" data-rich-color-input><span>Свой</span></label>
+                    <span>Подложка:</span>
+                    <button type="button" class="rich-swatch rich-highlight-pink" data-rich-highlight="#ffb6d9" aria-label="Розовая подложка"></button>
+                    <button type="button" class="rich-swatch rich-highlight-lime" data-rich-highlight="#d4f04a" aria-label="Лаймовая подложка"></button>
+                    <button type="button" class="rich-swatch rich-highlight-paper" data-rich-highlight="#fff0c7" aria-label="Светлая подложка"></button>
+                    <label class="rich-custom-color" title="Свой цвет подложки"><input type="color" value="#d4f04a" data-rich-highlight-input><span>Свой</span></label>
+                    <button type="button" data-rich-command="removeFormat">Сбросить</button>
+                  </div>
+                  <div id="carouselSlideTitle" class="carousel-rich-editor carousel-rich-title-editor" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Введите заголовок карточки"></div>
+                  <small>Выделите нужные слова мышкой и задайте им цвет или подложку.</small>
+                </div>
                 <div class="carousel-field carousel-rich-field"><span>Основной текст</span>
                   <div class="carousel-rich-toolbar" id="carouselRichToolbar" role="toolbar" aria-label="Выделение текста">
                     <button type="button" data-rich-command="bold" title="Жирный текст"><strong>Жирный</strong></button>
@@ -496,10 +530,12 @@
                     <button type="button" class="rich-swatch rich-ink" data-rich-color="#17221f" aria-label="Тёмный текст"></button>
                     <button type="button" class="rich-swatch rich-pink" data-rich-color="#f35ba7" aria-label="Розовый текст"></button>
                     <button type="button" class="rich-swatch rich-blue" data-rich-color="#3155e4" aria-label="Синий текст"></button>
+                    <label class="rich-custom-color" title="Свой цвет текста"><input type="color" value="#f35ba7" data-rich-color-input><span>Свой</span></label>
                     <span>Подложка:</span>
                     <button type="button" class="rich-swatch rich-highlight-pink" data-rich-highlight="#ffb6d9" aria-label="Розовая подложка"></button>
                     <button type="button" class="rich-swatch rich-highlight-lime" data-rich-highlight="#d4f04a" aria-label="Лаймовая подложка"></button>
                     <button type="button" class="rich-swatch rich-highlight-paper" data-rich-highlight="#fff0c7" aria-label="Светлая подложка"></button>
+                    <label class="rich-custom-color" title="Свой цвет подложки"><input type="color" value="#d4f04a" data-rich-highlight-input><span>Свой</span></label>
                     <button type="button" data-rich-command="removeFormat">Сбросить</button>
                   </div>
                   <div id="carouselSlideBody" class="carousel-rich-editor" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Введите основной текст карточки"></div>
